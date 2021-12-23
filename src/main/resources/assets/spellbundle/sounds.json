@@ -1,0 +1,5 @@
+{
+    "spell.warp":                            {"category": "spells", "sounds": ["minecraft:block.portal.trigger"]},
+    "spell.mass_warp":                       {"category": "spells", "sounds": ["minecraft:block.portal.trigger"]},
+    "spell.summon_ally":                     {"category": "spells", "sounds": ["minecraft:block.portal.trigger"]}
+}

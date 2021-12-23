@@ -1,0 +1,13 @@
+[{
+    "modid": "spellbundle",
+    "name": "Spell Bundle by Dan",
+    "description": "Spell Bundle is an modular compatibility addon mod for Electroblob's Wizardry, adding integration content with many mods for a more immersive magical experience. The content this mod adds fully depends on what supported mods are installed.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://www.curseforge.com/minecraft/mc-mods/spell-bundle",
+    "authorList": ["WinDanesz"],
+    "credits": "
+    Created by WinDanesz
+    Electroblob, for making his awesome Wizardry mod",
+    "logoFile":"assets/aspellbundle/textures/gui/logo.png"
+}]

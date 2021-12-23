@@ -1,0 +1,33 @@
+
+# WAYSTONES mod
+spell.spellbundle:warp=Warp
+spell.spellbundle:warp.desc=Warps you to your last remembered Waystone. Remember a waystone by sneak-casting the spell on it.
+spell.spellbundle:warp.desc_disabled=This spell is disabled because you don't have the Waystones mod installed!
+spell.spellbundle:warp.remember=Remembered the location %s
+spell.spellbundle:warp.remember_with_old=Remembered the location %1$s (forgot previous location: %2$s)
+spell.spellbundle:warp.undefined=You must remember the location of a Waystone first! (Sneak-cast the spell on it)
+spell.spellbundle:warp.wrong_dimension=Your remembered waystone is in another dimension!
+spell.spellbundle:mass_warp=Mass Warp
+spell.spellbundle:mass_warp.desc=Warps you and nearby players to your last remembered Waystone. Remember a waystone by sneak-casting the spell on it.
+spell.spellbundle:mass_warp.desc_disabled=This spell is disabled because you don't have the Waystones mod installed!
+spell.spellbundle:mass_warp.remember=Remembered the location %s
+spell.spellbundle:mass_warp.remember_with_old=Remembered the location %1$s (forgot previous location: %2$s)
+spell.spellbundle:mass_warp.undefined=You must remember the location of a Waystone first! (Sneak-cast the spell on it)
+spell.spellbundle:mass_warp.wrong_dimension=Your remembered waystone is in another dimension!
+spell.spellbundle:summon_ally=Summon Ally
+spell.spellbundle:summon_ally.desc=Allows the selected player to teleport to your bound waystone while you are channeling. Sneak-cast on a waystone to bind it or to choose a player.
+spell.spellbundle:summon_ally.desc_disabled=This spell is disabled because you don't have the Waystones mod installed!
+spell.spellbundle:summon_ally.distance_from_waystone_too_big=You are too far away from the remembered waystone (%s)
+spell.spellbundle:summon_ally.remember=Remembered the location %s
+spell.spellbundle:summon_ally.remember_with_old=Remembered the location %1$s (forgot previous location: %2$s)
+spell.spellbundle:summon_ally.undefined=You must remember the location of a Waystone first! (Sneak-cast the spell on it)
+spell.spellbundle:summon_ally.wrong_dimension=Your remembered waystone is in another dimension!
+spell.spellbundle:summon_ally.caster_wrong_dimension=Your ally is in another dimension.
+spell.spellbundle:summon_ally.ally_wrong_dimension=Your ally is in another dimension.
+item.spellbundle:ring_warpstone.name=Warpstone Ring
+item.spellbundle:ring_warpstone.desc=Mass Warp can teleport non-player entities with the caster
+
+gui.spellbundle:summon_ally.no_player=There are no other players to summon
+gui.spellbundle:summon_ally.select_player=Select a player to summon
+gui.spellbundle:summon_ally.click_here=Someone tries to summon you to %s. Click here to accept.
+spell.spellbundle:summon_ally.not_casting=The ally stopped casting the spell
