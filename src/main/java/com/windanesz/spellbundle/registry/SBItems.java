@@ -3,6 +3,7 @@ package com.windanesz.spellbundle.registry;
 import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
+import com.windanesz.spellbundle.item.ItemArtefactSB;
 import electroblob.wizardry.item.ItemArtefact;
 import electroblob.wizardry.registry.WizardryTabs;
 import net.minecraft.block.Block;
@@ -30,29 +31,25 @@ public final class SBItems {
 	public static void register(RegistryEvent.Register<Item> event) {
 		IForgeRegistry<Item> registry = event.getRegistry();
 
-		registerItem(registry, "ring_warpstone", new ItemArtefact(EnumRarity.EPIC, ItemArtefact.Type.RING), WaystonesIntegration.getInstance());
+		registerItem(registry, "ring_warpstone", new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.RING, WaystonesIntegration.getInstance()), WaystonesIntegration.getInstance());
 	}
 
 	@Nonnull
 	@SuppressWarnings("ConstantConditions")
 	private static <T> T placeholder() { return null; }
 
-	// below registry methods are courtesy of EB
-	public static void registerItem(IForgeRegistry<Item> registry, String name, Item item) {
-		registerItem(registry, name, item, false);
-	}
-
 	/**
 	 * Registers artefacts into the item registry, also handles loot injection to the Wizardry artefact loot tables if the integration is enabled.
 	 * Categorization happens based on EnumRarity (Uncommon/Rare/Epic) - the standard Wizardry artefact rarities.
 	 */
-	public static void registerItem(IForgeRegistry<Item> registry, String name, Item item, Integration integration) {
+	public static void registerItem(IForgeRegistry<Item> registry, String name, ItemArtefact item, Integration integration) {
 		registerItem(registry, name, item, false);
-		if (integration.isEnabled()) {
-			ItemStack stack = new ItemStack(item);
-			EnumRarity rarity = stack.getRarity();
-			SBLoot.addInjectArtefact(item, rarity);
-		}
+		integration.addArtefact(item);
+	}
+
+	// below registry methods are courtesy of EB
+	public static void registerItem(IForgeRegistry<Item> registry, String name, Item item) {
+		registerItem(registry, name, item, false);
 	}
 
 	// below registry methods are courtesy of EB

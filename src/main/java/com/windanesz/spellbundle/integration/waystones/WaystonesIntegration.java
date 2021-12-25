@@ -2,11 +2,12 @@ package com.windanesz.spellbundle.integration.waystones;
 
 import com.windanesz.spellbundle.Settings;
 import com.windanesz.spellbundle.integration.Integration;
-import net.minecraft.item.EnumRarity;
+import com.windanesz.spellbundle.registry.SBLoot;
+import electroblob.wizardry.spell.Spell;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Loader;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class WaystonesIntegration extends Integration {
@@ -15,22 +16,30 @@ public class WaystonesIntegration extends Integration {
 	private static final WaystonesIntegration instance = new WaystonesIntegration();
 	private static final String modId = "waystones";
 
-	// only used for loot table initialization
-	private static final List<EnumRarity> LOOT_TABLE_RARITY_TYPES = new ArrayList<>(Collections.singletonList(EnumRarity.EPIC));
+	private static final List<Spell> SPELL_LIST = new ArrayList<>();
+	//	private static final HashMap<EnumRarity, List<Item>> ARTEFACT_LISTS = new HashMap<EnumRarity, List<Item>>() {{
+	//		put(EnumRarity.UNCOMMON, new ArrayList<>());
+	//		put(EnumRarity.RARE, new ArrayList<>());
+	//		put(EnumRarity.EPIC, new ArrayList<>());
+	//	}};
+	private static final List<Item> ARTEFACT_LIST = new ArrayList<>();
 
 	private boolean isLoaded;
-
-	/************* Standard methods *************/
 
 	private WaystonesIntegration() {}
 
 	public static Integration getInstance() { return instance; }
+
+	/************* overrides *************/
 
 	@Override
 	public String getModid() { return modId; }
 
 	@Override
 	public void init() {
+		// register compat instance
+		Integration.register(getModid(), getInstance());
+
 		isLoaded = Loader.isModLoaded(getModid());
 
 		if (!isEnabled()) { return; }
@@ -38,8 +47,6 @@ public class WaystonesIntegration extends Integration {
 		// init stuff
 		initCustom();
 
-		// register compat instance
-		Integration.register(getModid(), getInstance());
 	}
 
 	@Override
@@ -47,14 +54,45 @@ public class WaystonesIntegration extends Integration {
 		return Settings.generalSettings.waystones_integration && isLoaded;
 	}
 
-	/************* Standard methods *************/
+	/**
+	 * List used to track which spells belong to this supported mod. Used for spell disabling in postInit in {@link Integration#setDisables()}.
+	 * @return The list of this integration's spells.
+	 */
+	@Override
+	public List<Spell> getSpells() {
+		return SPELL_LIST;
+	}
 
-	private void initCustom() {
+	/**
+	 * Adds a spell to this integration's list of spells.
+	 * @param spell spell to add.
+	 * @return the passed in spell for method chaining.
+	 */
+	@Override
+	public Spell addSpell(Spell spell) {
+		if (!SPELL_LIST.contains(spell)) {
+			SPELL_LIST.add(spell);
+		}
+		return spell;
+	}
 
+	/**
+	 * List used for loot injection in {@link SBLoot#onLootTableLoadEvent(net.minecraftforge.event.LootTableLoadEvent)} and to disable the artefact in
+	 * {@link Integration#setDisables()} if the supported mod is not present.
+	 *
+	 * @return list of all registered ItemArtefacts for this supported mod
+	 */
+	@Override
+	public List<Item> getArtefacts() {
+		return ARTEFACT_LIST;
 	}
 
 	@Override
-	public List<EnumRarity> getArtefactTypeList() {
-		return LOOT_TABLE_RARITY_TYPES;
+	public void addArtefact(Item item) {
+		ARTEFACT_LIST.add(item);
+	}
+
+	private void initCustom() {
+
 	}
 }

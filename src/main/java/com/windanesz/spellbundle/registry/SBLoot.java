@@ -1,9 +1,11 @@
 package com.windanesz.spellbundle.registry;
 
 import com.windanesz.spellbundle.SpellBundle;
+import com.windanesz.spellbundle.integration.Integration;
 import electroblob.wizardry.Wizardry;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootEntry;
 import net.minecraft.world.storage.loot.LootEntryItem;
@@ -30,29 +32,7 @@ import java.util.regex.Pattern;
 @Mod.EventBusSubscriber
 public class SBLoot {
 
-	private static final List<Item> UNCOMMON_ARTEFACT_LOOT_TABLE_LIST = new ArrayList<>();
-	private static final List<Item> RARE_ARTEFACT_LOOT_TABLE_LIST = new ArrayList<>();
-	private static final List<Item> EPIC_ARTEFACT_LOOT_TABLE_LIST = new ArrayList<>();
-
 	private SBLoot() {} // No instances!
-
-	/**
-	 * Adds an item to the list of stacks which will be inserted into the artefact loot tables of EBWiz.
-	 * Target loot table is automatically determined by item {@link EnumRarity}.
-	 *
-	 * @param item   to insert
-	 * @param rarity rarity that determines the target
-	 */
-	public static void addInjectArtefact(Item item, EnumRarity rarity) {
-		switch (rarity) {
-			case UNCOMMON:
-				UNCOMMON_ARTEFACT_LOOT_TABLE_LIST.add(item);
-			case RARE:
-				RARE_ARTEFACT_LOOT_TABLE_LIST.add(item);
-			case EPIC:
-				EPIC_ARTEFACT_LOOT_TABLE_LIST.add(item);
-		}
-	}
 
 	/**
 	 * Called from the preInit method in the main mod class to register the custom dungeon loot.
@@ -66,21 +46,25 @@ public class SBLoot {
 
 		if (event.getName().getNamespace().equals(Wizardry.MODID)) {
 
-			Pattern p = Pattern.compile(".*subsets/(.*)");
+			Pattern p = Pattern.compile(".*subsets/(.*)_artefacts");
 			Matcher m = p.matcher(event.getName().getPath());
 
 			if (m.find()) {
 
-				String poolName = m.group(1);
-				List<Item> inject = new ArrayList<>();
+				String poolName = m.group(1) + "_artefacts";
+				EnumRarity rarity = EnumRarity.valueOf(m.group(1).toUpperCase());
 
-				if (poolName.equals("uncommon_artefacts")) {
-					inject = UNCOMMON_ARTEFACT_LOOT_TABLE_LIST;
-				} else if (poolName.equals("rare_artefacts")) {
-					inject = RARE_ARTEFACT_LOOT_TABLE_LIST;
-				} else if (poolName.equals("epic_artefacts")) {
-					inject = EPIC_ARTEFACT_LOOT_TABLE_LIST;
-				}
+				List<Item> inject = new ArrayList<>();
+				List<Item> finalInject = inject;
+				Integration.getRegistry().forEach((s, integration) -> {
+					if (integration.isEnabled()) {
+						for (Item artefact : integration.getArtefacts()) {
+							if (artefact.getRarity(new ItemStack(artefact)) == rarity) {
+								finalInject.add(artefact);
+							}
+						}
+					}
+				});
 
 				if (!inject.isEmpty()) {
 

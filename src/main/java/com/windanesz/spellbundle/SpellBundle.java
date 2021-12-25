@@ -1,6 +1,7 @@
 package com.windanesz.spellbundle;
 
 import com.windanesz.spellbundle.command.CommandRecallAlly;
+import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.baubles.BaublesIntegration;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
 import com.windanesz.spellbundle.network.SBPacketHandler;
@@ -10,6 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
@@ -58,6 +60,11 @@ public class SpellBundle {
 		proxy.registerParticles();
 		proxy.init();
 		SBPacketHandler.initPackets();
+	}
+
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event) {
+		Integration.setDisables();
 	}
 
 	@EventHandler

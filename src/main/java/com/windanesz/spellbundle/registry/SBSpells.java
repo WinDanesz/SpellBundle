@@ -1,6 +1,7 @@
 package com.windanesz.spellbundle.registry;
 
 import com.windanesz.spellbundle.SpellBundle;
+import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
 import com.windanesz.spellbundle.spell.waystones.MassWarp;
 import com.windanesz.spellbundle.spell.waystones.MassWarpDummy;
@@ -21,15 +22,15 @@ import javax.annotation.Nonnull;
 @EventBusSubscriber
 public final class SBSpells {
 
+	public static final Spell warp = placeholder();
+	public static final Spell mass_warp = placeholder();
+	public static final Spell summon_ally = placeholder();
+
 	private SBSpells() {} // no instances
 
 	@Nonnull
 	@SuppressWarnings("ConstantConditions")
 	private static <T> T placeholder() { return null; }
-
-	public static final Spell warp = placeholder();
-	public static final Spell mass_warp = placeholder();
-	public static final Spell summon_ally = placeholder();
 
 	@SuppressWarnings("unchecked")
 	@SubscribeEvent
@@ -37,16 +38,18 @@ public final class SBSpells {
 
 		IForgeRegistry<Spell> registry = event.getRegistry();
 
-		//1.0.0 Spells
-		if (WaystonesIntegration.getInstance().isEnabled()) {
-			registry.register(new Warp());
-			registry.register(new MassWarp());
-			registry.register(new SummonAlly());
-		} else {
-			registry.register(new WarpDummy());
-			registry.register(new MassWarpDummy());
-			registry.register(new SummonAllyDummny());
+		//	Waystones spells
+		{
+			Integration instance = WaystonesIntegration.getInstance();
+			if (instance.isEnabled()) {
+				registry.register(instance.addSpell(new Warp()));
+				registry.register(instance.addSpell(new MassWarp()));
+				registry.register(instance.addSpell(new SummonAlly()));
+			} else {
+				registry.register(instance.addSpell(new WarpDummy()));
+				registry.register(instance.addSpell(new MassWarpDummy()));
+				registry.register(instance.addSpell(new SummonAllyDummny()));
+			}
 		}
-
 	}
 }

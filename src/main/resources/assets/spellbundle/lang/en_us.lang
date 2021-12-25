@@ -1,4 +1,8 @@
 
+# Generic
+item.spellbundle:generic.disabled_with_modname=This item has been disabled in the config because you are missing the %s mod
+integration.spellbundle:waystones=Waystones
+
 # WAYSTONES mod
 spell.spellbundle:warp=Warp
 spell.spellbundle:warp.desc=Warps you to your last remembered Waystone. Remember a waystone by sneak-casting the spell on it.
@@ -15,7 +19,7 @@ spell.spellbundle:mass_warp.remember_with_old=Remembered the location %1$s (forg
 spell.spellbundle:mass_warp.undefined=You must remember the location of a Waystone first! (Sneak-cast the spell on it)
 spell.spellbundle:mass_warp.wrong_dimension=Your remembered waystone is in another dimension!
 spell.spellbundle:summon_ally=Summon Ally
-spell.spellbundle:summon_ally.desc=Allows the selected player to teleport to your bound waystone while you are channeling. Sneak-cast on a waystone to bind it or to choose a player.
+spell.spellbundle:summon_ally.desc=Allows the selected player to teleport to your bound waystone while you are channeling. Sneak-cast on a waystone: bind. Sneak-cast on ground: select player.
 spell.spellbundle:summon_ally.desc_disabled=This spell is disabled because you don't have the Waystones mod installed!
 spell.spellbundle:summon_ally.distance_from_waystone_too_big=You are too far away from the remembered waystone (%s)
 spell.spellbundle:summon_ally.remember=Remembered the location %s
