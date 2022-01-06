@@ -1,0 +1,11 @@
+{
+    "variants": {
+		"normal": { "model": "spellbundle:ice_chest" },
+        "facing=north": { "model": "spellbundle:ice_chest" },
+        "facing=south": { "model": "spellbundle:ice_chest", "y": 180, "uvlock": true },
+        "facing=west":  { "model": "spellbundle:ice_chest", "y": 270, "uvlock": true },
+        "facing=east":  { "model": "spellbundle:ice_chest", "y": 90, "uvlock": true },
+        "facing=up": { "model": "spellbundle:ice_chest" },
+        "facing=down": { "model": "spellbundle:ice_chest" }
+    }
+}

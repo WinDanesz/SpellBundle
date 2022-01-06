@@ -131,6 +131,8 @@ dependencies {
 
     //// Content Mods
     implementation fg.deobf("curse.maven:Waystones-4.1.0-${waystones_projectid}:${waystones_fileid}")
+    implementation fg.deobf("curse.maven:Treasure2-${treasure2_projectid}:${treasure2_fileid}")
+    implementation fg.deobf("curse.maven:GottschCore-${gottschcore_projectid}:${gottschcore_fileid}")
     //// Content Mods
 
     //// Dependencies ////

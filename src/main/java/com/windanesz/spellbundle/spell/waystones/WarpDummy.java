@@ -18,7 +18,6 @@ public class WarpDummy extends SpellRay {
 
 	public WarpDummy() {
 		super(SpellBundle.MODID, "warp", SpellActions.SUMMON, false);
-		this.setEnabled(false);
 	}
 
 	protected WarpDummy(String modid, String name, EnumAction action, boolean isContinuous) {
@@ -43,9 +42,7 @@ public class WarpDummy extends SpellRay {
 	}
 
 	/**
-	 * Returns the translation key for this spell's description.
+	 * Returns the disabled spell desc.
 	 */
-	protected String getDescriptionTranslationKey() {
-		return "spell." + this.getRegistryName().toString() + ".desc_disabled";
-	}
+	protected String getDescriptionTranslationKey() { return "spell.spellbundle:waystones_missing"; }
 }

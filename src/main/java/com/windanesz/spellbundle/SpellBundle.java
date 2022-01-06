@@ -1,10 +1,14 @@
 package com.windanesz.spellbundle;
 
+import com.windanesz.spellbundle.capability.SummonedCreatureData;
+import com.windanesz.spellbundle.client.SBGuiHandler;
 import com.windanesz.spellbundle.command.CommandRecallAlly;
 import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.baubles.BaublesIntegration;
+import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
 import com.windanesz.spellbundle.network.SBPacketHandler;
+import com.windanesz.spellbundle.registry.SBBlocks;
 import com.windanesz.spellbundle.registry.SBLoot;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -14,6 +18,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Random;
@@ -41,12 +46,21 @@ public class SpellBundle {
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
 
+		// content mods
+		WaystonesIntegration.getInstance().init();
+		Treasure2Integration.getInstance().init();
+		
 		proxy.registerRenderers();
 
 		BaublesIntegration.init();
 
-		// content mods
-		WaystonesIntegration.getInstance().init();
+		// Capabilities
+		SummonedCreatureData.register();
+
+
+
+		// Register things that don't have registries
+		SBBlocks.registerTileEntities();
 
 		// Loot
 		SBLoot.preInit();
@@ -60,6 +74,8 @@ public class SpellBundle {
 		proxy.registerParticles();
 		proxy.init();
 		SBPacketHandler.initPackets();
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new SBGuiHandler());
+
 	}
 
 	@EventHandler

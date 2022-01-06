@@ -1,6 +1,6 @@
 package com.windanesz.spellbundle.model;
 
-import com.windanesz.spellbundle.registry.SBItems;
+import com.windanesz.spellbundle.SpellBundle;
 import electroblob.wizardry.item.IMultiTexturedItem;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -20,11 +20,24 @@ public final class SBModels {
 
 	@SubscribeEvent
 	public static void register(ModelRegistryEvent event) {
-		registerItemModel(SBItems.ring_warpstone);
+//		registerItemModel(SBItems.ring_warpstone);
+//		registerItemModel(SBItems.ring_key);
+//		registerItemModel(SBItems.charm_frozen_lock);
+
+		// Automatic item model registry
+		for(Item item : Item.REGISTRY){
+			if(item.getRegistryName().getNamespace().equals(SpellBundle.MODID)){
+				registerItemModel(item); // Standard item model
+			}
+		}
+
+//		if (Treasure2Integration.getInstance().isEnabled()) {
+//			Treasure2Objects.registerModels(event);
+//		}
 	}
 
 	// below registry methods are courtesy of EB
-	private static void registerItemModel(Item item) {
+	public static void registerItemModel(Item item) {
 		ModelBakery.registerItemVariants(item, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 		ModelLoader.setCustomMeshDefinition(item, s -> new ModelResourceLocation(item.getRegistryName(), "inventory"));
 	}

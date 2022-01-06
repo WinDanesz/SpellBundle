@@ -17,11 +17,6 @@ public class WaystonesIntegration extends Integration {
 	private static final String modId = "waystones";
 
 	private static final List<Spell> SPELL_LIST = new ArrayList<>();
-	//	private static final HashMap<EnumRarity, List<Item>> ARTEFACT_LISTS = new HashMap<EnumRarity, List<Item>>() {{
-	//		put(EnumRarity.UNCOMMON, new ArrayList<>());
-	//		put(EnumRarity.RARE, new ArrayList<>());
-	//		put(EnumRarity.EPIC, new ArrayList<>());
-	//	}};
 	private static final List<Item> ARTEFACT_LIST = new ArrayList<>();
 
 	private boolean isLoaded;
@@ -56,6 +51,7 @@ public class WaystonesIntegration extends Integration {
 
 	/**
 	 * List used to track which spells belong to this supported mod. Used for spell disabling in postInit in {@link Integration#setDisables()}.
+	 *
 	 * @return The list of this integration's spells.
 	 */
 	@Override
@@ -65,6 +61,7 @@ public class WaystonesIntegration extends Integration {
 
 	/**
 	 * Adds a spell to this integration's list of spells.
+	 *
 	 * @param spell spell to add.
 	 * @return the passed in spell for method chaining.
 	 */

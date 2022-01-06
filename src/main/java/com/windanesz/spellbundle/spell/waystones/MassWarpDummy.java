@@ -11,7 +11,6 @@ public class MassWarpDummy extends WarpDummy {
 
 	public MassWarpDummy() {
 		super(SpellBundle.MODID, "mass_warp", SpellActions.SUMMON, false);
-		this.setEnabled(false);
 	}
 
 	@Override
@@ -20,9 +19,7 @@ public class MassWarpDummy extends WarpDummy {
 	}
 
 	/**
-	 * Returns the translation key for this spell's description.
+	 * Returns the disabled spell desc.
 	 */
-	protected String getDescriptionTranslationKey() {
-		return "spell." + this.getRegistryName().toString() + ".desc_disabled";
-	}
+	protected String getDescriptionTranslationKey() { return "spell.spellbundle:waystones_missing"; }
 }

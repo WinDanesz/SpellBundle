@@ -2,8 +2,11 @@ package com.windanesz.spellbundle.registry;
 
 import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.Integration;
+import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
+import com.windanesz.spellbundle.integration.treasure2.Treasure2Objects;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
 import com.windanesz.spellbundle.item.ItemArtefactSB;
+import com.windanesz.spellbundle.item.ItemCharmWishingWell;
 import electroblob.wizardry.item.ItemArtefact;
 import electroblob.wizardry.registry.WizardryTabs;
 import net.minecraft.block.Block;
@@ -23,7 +26,11 @@ import javax.annotation.Nonnull;
 @Mod.EventBusSubscriber
 public final class SBItems {
 
+	// Looking for the rest of the items? Items with hard-dependencies are registered at com.windanesz.spellbundle.integration
+
 	public static final Item ring_warpstone = placeholder();
+	public static final Item ring_key = placeholder();
+	public static final Item charm_frozen_lock = placeholder();
 
 	private SBItems() {} // No instances!
 
@@ -31,7 +38,19 @@ public final class SBItems {
 	public static void register(RegistryEvent.Register<Item> event) {
 		IForgeRegistry<Item> registry = event.getRegistry();
 
+		// Waystones Mod
 		registerItem(registry, "ring_warpstone", new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.RING, WaystonesIntegration.getInstance()), WaystonesIntegration.getInstance());
+		registerItem(registry, "ring_key", new ItemArtefactSB(EnumRarity.RARE, ItemArtefact.Type.RING, Treasure2Integration.getInstance()), Treasure2Integration.getInstance());
+
+		// Treasure2! Mod
+		registerItem(registry, "charm_frozen_lock", new ItemArtefactSB(EnumRarity.RARE, ItemArtefact.Type.CHARM, Treasure2Integration.getInstance()), Treasure2Integration.getInstance());
+		registerItem(registry, "charm_wishing_well", new ItemCharmWishingWell(EnumRarity.UNCOMMON, ItemArtefact.Type.CHARM, Treasure2Integration.getInstance()), Treasure2Integration.getInstance());
+
+		// Optional items
+		if (Treasure2Integration.getInstance().isEnabled()) {
+			Treasure2Objects.registerItems(event);
+		}
+
 	}
 
 	@Nonnull
@@ -85,12 +104,12 @@ public final class SBItems {
 		}
 	}
 
-	private static void registerItemBlock(IForgeRegistry<Item> registry, Block block) {
+	public static void registerItemBlock(IForgeRegistry<Item> registry, Block block) {
 		Item itemblock = new ItemBlock(block).setRegistryName(block.getRegistryName());
 		registry.register(itemblock);
 	}
 
-	private static void registerItemBlock(IForgeRegistry<Item> registry, Block block, Item itemblock) {
+	public static void registerItemBlock(IForgeRegistry<Item> registry, Block block, Item itemblock) {
 		itemblock.setRegistryName(block.getRegistryName());
 		registry.register(itemblock);
 	}

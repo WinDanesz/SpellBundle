@@ -1,6 +1,8 @@
 package com.windanesz.spellbundle.registry;
 
 import com.windanesz.spellbundle.SpellBundle;
+import com.windanesz.spellbundle.integration.treasure2.Treasure2Objects;
+import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import net.minecraft.block.Block;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -29,6 +31,17 @@ public class SBBlocks {
 	@SubscribeEvent
 	public static void register(RegistryEvent.Register<Block> event) {
 		IForgeRegistry<Block> registry = event.getRegistry();
+
+		if (Treasure2Integration.getInstance().isEnabled()) {
+			Treasure2Objects.registerBlocks(registry);
+		}
+	}
+
+	/** Called from the preInit method in the main mod class to register all the tile entities. */
+	public static void registerTileEntities(){
+		if (Treasure2Integration.getInstance().isEnabled()) {
+			Treasure2Objects.registerTileEntities();
+		}
 	}
 
 }

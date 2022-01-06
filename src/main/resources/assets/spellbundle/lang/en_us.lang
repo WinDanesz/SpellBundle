@@ -1,26 +1,25 @@
 
 # Generic
 item.spellbundle:generic.disabled_with_modname=This item has been disabled in the config because you are missing the %s mod
-integration.spellbundle:waystones=Waystones
 
 # WAYSTONES mod
+spell.spellbundle:waystones_missing=This spell is disabled because you don't have the Waystones mod installed!
+
+integration.spellbundle:waystones=Waystones
 spell.spellbundle:warp=Warp
 spell.spellbundle:warp.desc=Warps you to your last remembered Waystone. Remember a waystone by sneak-casting the spell on it.
-spell.spellbundle:warp.desc_disabled=This spell is disabled because you don't have the Waystones mod installed!
 spell.spellbundle:warp.remember=Remembered the location %s
 spell.spellbundle:warp.remember_with_old=Remembered the location %1$s (forgot previous location: %2$s)
 spell.spellbundle:warp.undefined=You must remember the location of a Waystone first! (Sneak-cast the spell on it)
 spell.spellbundle:warp.wrong_dimension=Your remembered waystone is in another dimension!
 spell.spellbundle:mass_warp=Mass Warp
 spell.spellbundle:mass_warp.desc=Warps you and nearby players to your last remembered Waystone. Remember a waystone by sneak-casting the spell on it.
-spell.spellbundle:mass_warp.desc_disabled=This spell is disabled because you don't have the Waystones mod installed!
 spell.spellbundle:mass_warp.remember=Remembered the location %s
 spell.spellbundle:mass_warp.remember_with_old=Remembered the location %1$s (forgot previous location: %2$s)
 spell.spellbundle:mass_warp.undefined=You must remember the location of a Waystone first! (Sneak-cast the spell on it)
 spell.spellbundle:mass_warp.wrong_dimension=Your remembered waystone is in another dimension!
 spell.spellbundle:summon_ally=Summon Ally
 spell.spellbundle:summon_ally.desc=Allows the selected player to teleport to your bound waystone while you are channeling. Sneak-cast on a waystone: bind. Sneak-cast on ground: select player.
-spell.spellbundle:summon_ally.desc_disabled=This spell is disabled because you don't have the Waystones mod installed!
 spell.spellbundle:summon_ally.distance_from_waystone_too_big=You are too far away from the remembered waystone (%s)
 spell.spellbundle:summon_ally.remember=Remembered the location %s
 spell.spellbundle:summon_ally.remember_with_old=Remembered the location %1$s (forgot previous location: %2$s)
@@ -28,10 +27,41 @@ spell.spellbundle:summon_ally.undefined=You must remember the location of a Ways
 spell.spellbundle:summon_ally.wrong_dimension=Your remembered waystone is in another dimension!
 spell.spellbundle:summon_ally.caster_wrong_dimension=Your ally is in another dimension.
 spell.spellbundle:summon_ally.ally_wrong_dimension=Your ally is in another dimension.
+spell.spellbundle:summon_ally.not_casting=The ally stopped casting the spell
+
 item.spellbundle:ring_warpstone.name=Warpstone Ring
 item.spellbundle:ring_warpstone.desc=Mass Warp can teleport non-player entities with the caster
 
 gui.spellbundle:summon_ally.no_player=There are no other players to summon
 gui.spellbundle:summon_ally.select_player=Select a player to summon
 gui.spellbundle:summon_ally.click_here=Someone tries to summon you to %s. Click here to accept.
-spell.spellbundle:summon_ally.not_casting=The ally stopped casting the spell
+
+# TREAUSRE2! mod
+spell.spellbundle:treasure2_missing=This spell is disabled because you don't have the Treasure2! mod installed!
+
+integration.spellbundle:treasure2=Treasure2
+
+spell.spellbundle:ice_chest=Ice Chest
+spell.spellbundle:ice_chest.desc=Conjures a chest of magical ice that never melts. The capacity of the chest scales with spell potency.
+spell.spellbundle:lock=Lock
+spell.spellbundle:lock.desc=Magically locks the targeted container if it has any free lock slots.
+spell.spellbundle:summon_bound_soul=Summon Bound Soul
+spell.spellbundle:summon_bound_soul.desc=Summons a Bound Soul. The soul is bound to the location where it was summoned.
+spell.spellbundle:summon_bound_soul.minion_distance_not_met=Too close to another summoned minion.
+spell.spellbundle:summon_mimic=Summon Mimic
+spell.spellbundle:summon_mimic.desc=Summons a mimic to fight for you. The mimic will disappear after 30 seconds or if it is killed.
+spell.spellbundle:knock=Knock
+spell.spellbundle:knock.desc=Magically opens a lock on the targeted container.
+spell.spellbundle:knock.weak_spell=Your knock spell wasn't powerful enough to open any locks
+
+item.spellbundle:ring_key.name=Arcane Key-Ring
+item.spellbundle:ring_key.desc=The Knock spell can open one tier higher locks
+item.spellbundle:charm_frozen_lock.name=Frozen Lock
+item.spellbundle:charm_frozen_lock.desc=This artefact itself cannot be put on a chest, but grants the ability to lock Ice Chest with regular locks
+item.spellbundle:charm_wishing_well.name=Wish List
+item.spellbundle:charm_wishing_well.desc=Throwing this magical scroll into a 3x3 well of mossy cobblestone will turn it into a wishing well. The scroll is destroyed in the process
+item.spellbundle:spectral_lock.name=Spectral Lock
+
+tile.spellbundle:display.ice_chest.name=Ice Chest
+tile.spellbundle.display.ice_chest.name=Ice Chest
+tile.spellbundle:ice_chest.name=Ice Chest

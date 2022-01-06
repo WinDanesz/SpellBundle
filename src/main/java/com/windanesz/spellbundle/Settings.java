@@ -57,6 +57,11 @@ public class Settings {
 		@Config.RequiresMcRestart
 		public boolean waystones_integration = true;
 
+		@Config.Name("Treasure2 integration")
+		@Config.Comment("Enables or disables the Treasure2 integration")
+		@Config.RequiresMcRestart
+		public boolean treasure2_integration = true;
+
 		@Config.Name("Baubles Integration")
 		@Config.Comment("Enable/Disable Baubles integration for the new artefact types (belt, helm, etc). This does NOT affect Electroblob's Wizardry's own Baubles support implementation (ring, amulet, charm)!")
 		@Config.RequiresMcRestart
