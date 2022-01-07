@@ -16,6 +16,8 @@ import javax.annotation.Nonnull;
 @Mod.EventBusSubscriber
 public class SBBlocks {
 
+	public static final Block ice_chest = placeholder();
+
 	private SBBlocks() {} // no instances
 
 	@Nonnull

@@ -15,6 +15,7 @@ import com.windanesz.spellbundle.integration.treasure2.ice_chest.IceChestGui;
 import com.windanesz.spellbundle.integration.treasure2.ice_chest.IceChestItemBlock;
 import com.windanesz.spellbundle.integration.treasure2.ice_chest.IceChestTESR;
 import com.windanesz.spellbundle.integration.treasure2.ice_chest.IceChestTileEntity;
+import com.windanesz.spellbundle.registry.SBBlocks;
 import com.windanesz.spellbundle.registry.SBItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityItem;
@@ -30,15 +31,9 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import javax.annotation.Nonnull;
-
 import static com.someguyssoftware.treasure2.Treasure.logger;
 
-@GameRegistry.ObjectHolder(SpellBundle.MODID)
 public class Treasure2Objects {
-
-	public static final Item spectral_lock = placeholder();
-	public static final Block ice_chest = placeholder();
 
 	private Treasure2Objects() {}
 
@@ -53,7 +48,7 @@ public class Treasure2Objects {
 				.setCategory(Category.ELEMENTAL)
 				.setRarity(Rarity.SCARCE));
 
-		SBItems.registerItemBlock(event.getRegistry(), ice_chest, new IceChestItemBlock(ice_chest));
+		SBItems.registerItemBlock(event.getRegistry(), SBBlocks.ice_chest, new IceChestItemBlock(SBBlocks.ice_chest));
 	}
 
 	public static void registerBlocks(IForgeRegistry<Block> registry) {
@@ -75,10 +70,6 @@ public class Treasure2Objects {
 	public static void registerTileEntities() {
 		GameRegistry.registerTileEntity(IceChestTileEntity.class, new ResourceLocation(SpellBundle.MODID, "ice_chest_tile"));
 	}
-
-	@Nonnull
-	@SuppressWarnings("ConstantConditions")
-	private static <T> T placeholder() { return null; }
 
 	//	// Client only
 	//	public static void registerModels(ModelRegistryEvent event) {

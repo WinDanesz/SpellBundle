@@ -2,8 +2,8 @@ package com.windanesz.spellbundle.spell.treasure2;
 
 import com.someguyssoftware.treasure2.block.AbstractChestBlock;
 import com.windanesz.spellbundle.SpellBundle;
-import com.windanesz.spellbundle.integration.treasure2.Treasure2Objects;
 import com.windanesz.spellbundle.integration.treasure2.ice_chest.IceChestTileEntity;
+import com.windanesz.spellbundle.registry.SBBlocks;
 import com.windanesz.spellbundle.registry.SBItems;
 import electroblob.wizardry.item.ItemArtefact;
 import electroblob.wizardry.item.SpellActions;
@@ -47,7 +47,7 @@ public class IceChest extends SpellRay {
 
 			if (!world.isRemote) {
 
-				world.setBlockState(pos, Treasure2Objects.ice_chest.getDefaultState().withProperty(AbstractChestBlock.FACING, caster.getHorizontalFacing().getOpposite()));
+				world.setBlockState(pos, SBBlocks.ice_chest.getDefaultState().withProperty(AbstractChestBlock.FACING, caster.getHorizontalFacing().getOpposite()));
 
 				float potency = modifiers.get(SpellModifiers.POTENCY);
 				int slotCount = 9;

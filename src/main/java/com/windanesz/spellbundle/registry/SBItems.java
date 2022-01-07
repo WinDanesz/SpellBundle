@@ -31,6 +31,7 @@ public final class SBItems {
 	public static final Item ring_warpstone = placeholder();
 	public static final Item ring_key = placeholder();
 	public static final Item charm_frozen_lock = placeholder();
+	public static final Item spectral_lock = placeholder();
 
 	private SBItems() {} // No instances!
 

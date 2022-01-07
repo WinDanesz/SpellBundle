@@ -7,7 +7,7 @@ import com.someguyssoftware.treasure2.item.LockItem;
 import com.someguyssoftware.treasure2.lock.LockState;
 import com.someguyssoftware.treasure2.tileentity.AbstractTreasureChestTileEntity;
 import com.windanesz.spellbundle.SpellBundle;
-import com.windanesz.spellbundle.integration.treasure2.Treasure2Objects;
+import com.windanesz.spellbundle.registry.SBItems;
 import electroblob.wizardry.item.SpellActions;
 import electroblob.wizardry.spell.SpellRay;
 import electroblob.wizardry.util.SpellModifiers;
@@ -58,7 +58,7 @@ public class Lock extends SpellRay {
 					// already locked and if the method was
 					// unsuccessful it could state the chest is unlocked.
 					boolean lockedAdded = false;
-					LockItem lock = (LockItem) Treasure2Objects.spectral_lock;
+					LockItem lock = (LockItem) SBItems.spectral_lock;
 					// add the lock to the first lockstate that has an available slot
 					for (LockState lockState : tileEntity.getLockStates()) {
 						if (lockState != null && lockState.getLock() == null) {
