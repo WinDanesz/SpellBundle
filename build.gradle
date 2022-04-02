@@ -1,31 +1,35 @@
-
-
 import org.apache.tools.ant.filters.ReplaceTokens
 
 buildscript {
     repositories {
-        maven { url = 'https://maven.minecraftforge.net' } // old url was 'https://files.minecraftforge.net/maven' 
+        maven { url = 'https://maven.minecraftforge.net' } // old url was 'https://files.minecraftforge.net/maven'
         jcenter()
         mavenCentral()
         maven { url = "https://ajoberstar.org/bintray-backup/" }
+        maven {
+            name = 'FancyGradle'
+            url = 'https://gitlab.com/api/v4/projects/26758973/packages/maven'
+        }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:5.+'
         classpath 'org.ajoberstar.grgit:grgit-gradle:3.1.1'
+        classpath group: 'wtf.gofancy.fancygradle', name: 'wtf.gofancy.fancygradle.gradle.plugin', version: '1.1.1-6'
     }
-    
+
     repositories.each {
         if (it instanceof MavenArtifactRepository && it.url.toString() == "https://files.minecraftforge.net/maven") {
             it.url = "https://maven.minecraftforge.net"
         }
     }
 }
-        
+
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
 apply plugin: org.ajoberstar.grgit.gradle.GrgitPlugin
+apply plugin: 'wtf.gofancy.fancygradle'
 
 
 //// Project Settings ////
@@ -48,7 +52,6 @@ minecraft {
     //mappings channel: 'snapshot', version: '20171003-1.12'
     mappings channel: project.mappings_channel, version: "${project.mappings_version}-${project.mappings_mc_version}"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -81,16 +84,17 @@ repositories {
         name 'Curseforge Maven'
         url 'https://minecraft.curseforge.com/api/maven/'
     }
-    maven { 
-        url 'https://maven.blamejared.com' 
+    maven {
+        url 'https://maven.blamejared.com'
     }
-     maven {
+    maven {
         url "https://www.cursemaven.com"
     }
     maven {
         // location of the maven that hosts JEI files
         name = "Progwml6 maven"
         url = "http://dvs1.progwml6.com/files/maven"
+        allowInsecureProtocol = true
     }
     flatDir {
         // location for sources
@@ -104,8 +108,8 @@ dependencies {
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft "net.minecraftforge:forge:${project.mc_version}-${project.forge_version}"
-    //// MC version ////    
-    
+    //// MC version ////
+
 
     // CurseForge Maven
     // Currently unused
@@ -125,8 +129,7 @@ dependencies {
 
     implementation fg.deobf("curse.maven:ElectroblobsWizardry-${wizardry_projectid}:${wizardry_fileid}")
     implementation fg.deobf("curse.maven:baubles-${baubles_projectid}:${baubles_fileid}")
-    //runtime "curse.maven:jei-${jei_projectid}:${jei_fileid}"
-    implementation fg.deobf("mezz.jei:jei_${mc_version}:${jei_version}:api")
+    implementation fg.deobf("mezz.jei:jei_${mc_version}:${jei_version}")
     implementation fg.deobf("curse.maven:antique-atlas-${antiqueatlas_projectid}:${antiqueatlas_fileid}")
 
     //// Content Mods
@@ -135,36 +138,7 @@ dependencies {
     implementation fg.deobf("curse.maven:GottschCore-${gottschcore_projectid}:${gottschcore_fileid}")
     //// Content Mods
 
-    //// Dependencies ////
 
-    //// Forge examples ////
-    // You may put jars on which you depend on in ./libs or you may define them like so..
-    // compile "some.group:artifact:version:classifier"
-    // compile "some.group:artifact:version"
-
-    // Real examples
-    // compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    // compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-
-    // The 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
-    // provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // These dependencies get remapped to your current MCP mappings
-    // deobf 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // For more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    //// Forge examples ////
-
-}
-
-// (1.12.2 + FG3) resources issue fix by Gigaherz
-sourceSets {
-    main {
-        output.resourcesDir = file('build/combined')
-        java.outputDir = file('build/combined')
-    }
 }
 
 //// Project manifest data ////
@@ -173,16 +147,16 @@ sourceSets {
 jar {
     manifest {
         attributes([
-            "Maven-Artifact": "${project.maven_group}:${project.archivesBaseName}:${project.version}",
-            "Specification-Title": archivesBaseName,
-            "Specification-Vendor": "WinDanesz",
-            "Specification-Version": "1", // We are version 1 of ourselves
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"WinDanesz",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            "Built-On-Java": "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
-            "Built-On": "${project.mc_version}-${project.forge_version}"
+                "Maven-Artifact": "${project.maven_group}:${project.archivesBaseName}:${project.version}",
+                "Specification-Title": archivesBaseName,
+                "Specification-Vendor": "WinDanesz",
+                "Specification-Version": "1", // We are version 1 of ourselves
+                "Implementation-Title": project.name,
+                "Implementation-Version": "${version}",
+                "Implementation-Vendor" :"WinDanesz",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "Built-On-Java": "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+                "Built-On": "${project.mc_version}-${project.forge_version}"
         ])
     }
 }
@@ -193,67 +167,46 @@ task sourceJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
     manifest {
         attributes([
-            "Maven-Artifact": "${project.maven_group}:${project.archivesBaseName}:${project.version}",
-            "Specification-Title": archivesBaseName,
-            "Specification-Vendor": "WinDanesz",
-            "Specification-Version": "1",
-            "Implementation-Title": archivesBaseName + '-sources',
-            "Implementation-Version": "${project.mod_version}",
-            "Implementation-Vendor": "WinDanesz",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            "Built-On-Java": "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
-            "Built-On": "${project.mc_version}-${project.forge_version}"
+                "Maven-Artifact": "${project.maven_group}:${project.archivesBaseName}:${project.version}",
+                "Specification-Title": archivesBaseName,
+                "Specification-Vendor": "WinDanesz",
+                "Specification-Version": "1",
+                "Implementation-Title": archivesBaseName + '-sources',
+                "Implementation-Version": "${project.mod_version}",
+                "Implementation-Vendor": "WinDanesz",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "Built-On-Java": "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+                "Built-On": "${project.mc_version}-${project.forge_version}"
         ])
     }
 }
 
-processResources {
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", version.toString()
-    inputs.property "mcversion", project.mc_version.toString()
-
-    // replace stuff in mcmod.info, nothing else
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-
-        // replace version and mcversion
-        expand 'version': version.toString(), 'mcversion': project.mc_version.toString()
-    }
-
-    // copy everything else except the mcmod.info
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
-}
-
-
+//processResources {
+//    // this will ensure that this task is redone when the versions change.
+//    inputs.property "version", version.toString()
+//    inputs.property "mcversion", project.mc_version.toString()
+//
+//    // replace stuff in mcmod.info, nothing else
+//    from(sourceSets.main.resources.srcDirs) {
+//        include 'mcmod.info'
+//
+//        // replace version and mcversion
+//        expand 'version': version.toString(), 'mcversion': project.mc_version.toString()
+//    }
+//
+//    // copy everything else except the mcmod.info
+//    from(sourceSets.main.resources.srcDirs) {
+//        exclude 'mcmod.info'
+//    }
+//}
 
 //// Project manifest data ////
 
 // Example configuration to allow publishing using the maven-publish task
 // This is the preferred method to reobfuscate your jar file
-jar.finalizedBy('reobfJar') 
+jar.finalizedBy('reobfJar')
 // However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
 // publish.dependsOn('reobfJar')
-
-//publishing {
-//    repositories {
-//        maven {
-//            name = "GitHubPackages"
-//            url = "https://maven.pkg.github.com/${project.github}"
-//            credentials {
-//                username = System.getenv("GITHUB_ACTOR")
-//                password = System.getenv("GITHUB_TOKEN")
-//            }
-//        }
-//    }
-//    publications {
-//        gpr(MavenPublication) {
-//            artifactId archivesBaseName
-//            from(components.java)
-//        }
-//    }
-//}
 
 // downloads the dependency sources from github into the libs folder
 // Yes, I've forked some of them to properly tag their versions...
@@ -265,6 +218,9 @@ task downloadSources {
 
         def baubles = new File("libs/BaublesSrc-${baubles_version}.zip")
         new URL("https://github.com/WinDanesz/Baubles/archive/${baubles_version}.zip").withInputStream{ i -> baubles.withOutputStream{ it << i }}
+
+        def artemislib = new File("libs/ArtemisLib-${artemislib_version}.zip")
+        new URL("https://github.com/WinDanesz/ArtemisLib/archive/${artemislib_version}.zip").withInputStream{ i -> artemislib.withOutputStream{ it << i }}
     }
 }
 
@@ -319,7 +275,7 @@ if (System.getenv('USE_ALPHAS').equals('true')) {
                 commandLine "echo", "##[set-output name=version;]${project.version}";
             }
             exec {
-                commandLine "echo", "##[set-output name=commitlog;]" + "{\"content\":\"" + (project.hasProperty('hook_content') ? project.hook_content : "") + "\",\"embeds\":[{\"author\":{\"name\":\"WinDanesz\",\"url\":\"https://www.curseforge.com/minecraft/mc-mods/spell-bundle\",\"icon_url\":\"https://avatars.githubusercontent.com/u/31292708?s=48&v=4\"},\"title\":\"${project.mod_id}-alpha-${project.version}\",\"url\":\"https://github.com/${project.github}/releases/tag/alpha-${project.version}\",\"color\":14700288,\"description\":\"" + log + "\"}]}";
+                commandLine "echo", "##[set-output name=commitlog;]" + "{\"content\":\"" + (project.hasProperty('hook_content') ? project.hook_content : "") + "\",\"embeds\":[{\"author\":{\"name\":\"WinDanesz\",\"url\":\"https://www.curseforge.com/minecraft/mc-mods/ancient-spellcraft\",\"icon_url\":\"https://avatars.githubusercontent.com/u/31292708?s=48&v=4\"},\"title\":\"${project.mod_id}-alpha-${project.version}\",\"url\":\"https://github.com/${project.github}/releases/tag/alpha-${project.version}\",\"color\":14700288,\"description\":\"" + log + "\"}]}";
             }
         }
     }
@@ -366,4 +322,12 @@ task replaceTokens(type: Sync) {
 
 compileJava {
     source = replaceTokens.outputs
+}
+
+fancyGradle {
+    patches {
+        resources
+        coremods
+        asm
+    }
 }

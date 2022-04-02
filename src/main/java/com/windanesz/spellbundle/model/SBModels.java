@@ -20,9 +20,6 @@ public final class SBModels {
 
 	@SubscribeEvent
 	public static void register(ModelRegistryEvent event) {
-//		registerItemModel(SBItems.ring_warpstone);
-//		registerItemModel(SBItems.ring_key);
-//		registerItemModel(SBItems.charm_frozen_lock);
 
 		// Automatic item model registry
 		for(Item item : Item.REGISTRY){
@@ -31,9 +28,6 @@ public final class SBModels {
 			}
 		}
 
-//		if (Treasure2Integration.getInstance().isEnabled()) {
-//			Treasure2Objects.registerModels(event);
-//		}
 	}
 
 	// below registry methods are courtesy of EB
