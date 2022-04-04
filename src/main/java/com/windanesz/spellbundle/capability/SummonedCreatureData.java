@@ -175,6 +175,13 @@ public class SummonedCreatureData implements INBTSerializable<NBTTagCompound> {
 		// If the target is valid based on the ADS...
 		if (AllyDesignationSystem.isValidTarget(this.getCaster(), target)) {
 
+			if (target instanceof EntityLivingBase && isSummonedEntity(target)) {
+				SummonedCreatureData data = get((EntityLivingBase)target);
+				if ((data.getCaster() != null && data.getCaster() == this.getCaster()) || AllyDesignationSystem.isAllied(data.getCaster(), this.getCaster())) {
+					return false;
+				}
+			}
+
 			// ...and is a player, they can be attacked, since players can't be in the whitelist or the
 			// blacklist...
 			if (target instanceof EntityPlayer) {
