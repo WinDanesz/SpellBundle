@@ -1,6 +1,7 @@
 package com.windanesz.spellbundle.spell.treasure2;
 
 import com.windanesz.spellbundle.SpellBundle;
+import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import electroblob.wizardry.item.SpellActions;
 import electroblob.wizardry.spell.SpellRay;
 import electroblob.wizardry.util.SpellModifiers;
@@ -39,5 +40,5 @@ public class LockDummy extends SpellRay {
 	/**
 	 * Returns the disabled spell desc.
 	 */
-	protected String getDescriptionTranslationKey() { return "spell.spellbundle:treasure2_missing"; }
+	protected String getDescriptionTranslationKey() { return Treasure2Integration.getInstance().getMissingSpellDesc(); }
 }

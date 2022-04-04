@@ -61,4 +61,6 @@ public abstract class Integration {
 	public abstract List<Item> getArtefacts();
 
 	public abstract void addArtefact(Item item);
+
+	public abstract String getMissingSpellDesc();
 }

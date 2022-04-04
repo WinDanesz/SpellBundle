@@ -1,6 +1,7 @@
 package com.windanesz.spellbundle.spell.treasure2;
 
 import com.windanesz.spellbundle.SpellBundle;
+import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.spell.SpellDynamicMinion;
 import net.minecraft.entity.monster.EntityZombie;
 
@@ -15,6 +16,6 @@ public class SummonBoundSoulDummy extends SpellDynamicMinion<EntityZombie> {
 	/**
 	 * Returns the disabled spell desc.
 	 */
-	protected String getDescriptionTranslationKey() { return "spell.spellbundle:treasure2_missing"; }
+	protected String getDescriptionTranslationKey() { return Treasure2Integration.getInstance().getMissingSpellDesc(); }
 
 }

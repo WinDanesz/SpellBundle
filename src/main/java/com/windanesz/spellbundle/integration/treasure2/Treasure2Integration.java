@@ -92,4 +92,7 @@ public class Treasure2Integration extends Integration {
 	private void initCustom() {
 
 	}
+
+	@Override
+	public String getMissingSpellDesc() { return "spell.spellbundle:treasure2_missing";	}
 }

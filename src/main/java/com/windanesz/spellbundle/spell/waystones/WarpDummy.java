@@ -1,6 +1,7 @@
 package com.windanesz.spellbundle.spell.waystones;
 
 import com.windanesz.spellbundle.SpellBundle;
+import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
 import electroblob.wizardry.item.SpellActions;
 import electroblob.wizardry.spell.SpellRay;
 import electroblob.wizardry.util.SpellModifiers;
@@ -44,5 +45,5 @@ public class WarpDummy extends SpellRay {
 	/**
 	 * Returns the disabled spell desc.
 	 */
-	protected String getDescriptionTranslationKey() { return "spell.spellbundle:waystones_missing"; }
+	protected String getDescriptionTranslationKey() { return WaystonesIntegration.getInstance().getMissingSpellDesc(); }
 }
