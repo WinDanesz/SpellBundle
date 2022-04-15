@@ -2,7 +2,7 @@ package com.windanesz.spellbundle.item;
 
 import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
-import com.windanesz.spellbundle.integration.treasure2.Treasure2Objects;
+import com.windanesz.spellbundle.integration.treasure2.common.Treasure2Objects;
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;

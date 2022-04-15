@@ -2,7 +2,7 @@ package com.windanesz.spellbundle.spell.treasure2;
 
 import com.someguyssoftware.treasure2.block.AbstractChestBlock;
 import com.windanesz.spellbundle.SpellBundle;
-import com.windanesz.spellbundle.integration.treasure2.ice_chest.IceChestTileEntity;
+import com.windanesz.spellbundle.integration.treasure2.common.IceChestTileEntity;
 import com.windanesz.spellbundle.registry.SBBlocks;
 import com.windanesz.spellbundle.registry.SBItems;
 import electroblob.wizardry.item.ItemArtefact;

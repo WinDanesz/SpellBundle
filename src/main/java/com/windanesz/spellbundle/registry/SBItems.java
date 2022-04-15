@@ -3,7 +3,7 @@ package com.windanesz.spellbundle.registry;
 import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
-import com.windanesz.spellbundle.integration.treasure2.Treasure2Objects;
+import com.windanesz.spellbundle.integration.treasure2.common.Treasure2Objects;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
 import com.windanesz.spellbundle.item.ItemArtefactSB;
 import com.windanesz.spellbundle.item.ItemCharmWishingWell;

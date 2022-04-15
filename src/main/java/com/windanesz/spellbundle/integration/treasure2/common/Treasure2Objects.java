@@ -1,4 +1,4 @@
-package com.windanesz.spellbundle.integration.treasure2;
+package com.windanesz.spellbundle.integration.treasure2.common;
 
 import com.someguyssoftware.treasure2.block.TreasureBlocks;
 import com.someguyssoftware.treasure2.chest.TreasureChestTypes;
@@ -9,12 +9,6 @@ import com.someguyssoftware.treasure2.item.LockItem;
 import com.someguyssoftware.treasure2.item.TreasureItems;
 import com.someguyssoftware.treasure2.tileentity.ITreasureChestTileEntity;
 import com.windanesz.spellbundle.SpellBundle;
-import com.windanesz.spellbundle.integration.treasure2.ice_chest.IceChestBlock;
-import com.windanesz.spellbundle.integration.treasure2.ice_chest.IceChestContainer;
-import com.windanesz.spellbundle.integration.treasure2.ice_chest.IceChestGui;
-import com.windanesz.spellbundle.integration.treasure2.ice_chest.IceChestItemBlock;
-import com.windanesz.spellbundle.integration.treasure2.ice_chest.IceChestTESR;
-import com.windanesz.spellbundle.integration.treasure2.ice_chest.IceChestTileEntity;
 import com.windanesz.spellbundle.registry.SBBlocks;
 import com.windanesz.spellbundle.registry.SBItems;
 import net.minecraft.block.Block;
@@ -27,7 +21,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -71,17 +64,6 @@ public class Treasure2Objects {
 		GameRegistry.registerTileEntity(IceChestTileEntity.class, new ResourceLocation(SpellBundle.MODID, "ice_chest_tile"));
 	}
 
-	//	// Client only
-	//	public static void registerModels(ModelRegistryEvent event) {
-	//		SBModels.registerItemModel(spectral_lock);
-	//		SBModels.registerItemModel(Item.getItemFromBlock(ice_chest));
-	//	}
-
-	// Client only
-	public static void registerRenderers() {
-		ClientRegistry.bindTileEntitySpecialRenderer(IceChestTileEntity.class, new IceChestTESR());
-	}
-
 	public static Object getIceChestContainer(int id, EntityPlayer player, World world, int x, int y, int z) {
 		TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
 
@@ -93,16 +75,7 @@ public class Treasure2Objects {
 		return null;
 	}
 
-	public static Object getIceChestGui(int id, EntityPlayer player, World world, int x, int y, int z) {
-		TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
-		ITreasureChestTileEntity chestTileEntity = null;
-
-		// NOTE could pass in the different bg textures here
-		if ((chestTileEntity = getChestTileEntity(tileEntity)) == null) { return null; }
-		return new IceChestGui(player.inventory, chestTileEntity);
-	}
-
-	private static ITreasureChestTileEntity getChestTileEntity(TileEntity tileEntity) {
+	public static ITreasureChestTileEntity getChestTileEntity(TileEntity tileEntity) {
 		ITreasureChestTileEntity chestTileEntity = (tileEntity instanceof ITreasureChestTileEntity) ? (ITreasureChestTileEntity) tileEntity : null;
 		if (chestTileEntity == null) {
 			logger.warn("Umm, GUI handler error - wrong tile entity.");

@@ -1,4 +1,4 @@
-package com.windanesz.spellbundle.integration.treasure2.ice_chest;
+package com.windanesz.spellbundle.integration.treasure2.common;
 
 import com.someguyssoftware.treasure2.inventory.AbstractChestContainer;
 import net.minecraft.entity.player.InventoryPlayer;

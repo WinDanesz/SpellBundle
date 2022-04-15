@@ -2,10 +2,11 @@
  *
  */
 
-package com.windanesz.spellbundle.integration.treasure2.ice_chest;
+package com.windanesz.spellbundle.integration.treasure2.client;
 
 import com.someguyssoftware.treasure2.tileentity.ITreasureChestTileEntity;
 import com.windanesz.spellbundle.SpellBundle;
+import com.windanesz.spellbundle.integration.treasure2.common.IceChestContainer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;

@@ -1,4 +1,4 @@
-package com.windanesz.spellbundle.integration.treasure2.ice_chest;
+package com.windanesz.spellbundle.integration.treasure2.client;
 
 import com.someguyssoftware.treasure2.client.model.StandardChestModel;
 import com.someguyssoftware.treasure2.client.render.tileentity.TreasureChestTileEntityRenderer;
