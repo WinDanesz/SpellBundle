@@ -95,4 +95,5 @@ public class WaystonesIntegration extends Integration {
 
 	@Override
 	public String getMissingSpellDesc() { return "spell.spellbundle:waystones_missing";	}
+
 }

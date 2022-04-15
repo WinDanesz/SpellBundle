@@ -1,14 +1,12 @@
 package com.windanesz.spellbundle.spell.waystones;
 
 import com.windanesz.spellbundle.SpellBundle;
-import com.windanesz.spellbundle.client.gui.GuiPlayerSelect;
 import electroblob.wizardry.item.SpellActions;
 import electroblob.wizardry.util.ParticleBuilder;
 import electroblob.wizardry.util.SpellModifiers;
 import net.blay09.mods.waystones.WarpMode;
 import net.blay09.mods.waystones.block.TileWaystone;
 import net.blay09.mods.waystones.util.WaystoneEntry;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -96,7 +94,7 @@ public class SummonAlly extends Warp {
 					if (waystone.isPresent()) {
 						if (world.isRemote) {
 							List<EntityPlayer> players = caster.world.playerEntities;
-							Minecraft.getMinecraft().displayGuiScreen(new GuiPlayerSelect(players, WarpMode.WARP_SCROLL, EnumHand.MAIN_HAND, waystone.get()));
+							SpellBundle.proxy.openGuiPlayerSelect(players, WarpMode.WARP_SCROLL, EnumHand.MAIN_HAND, waystone.get());
 						}
 					} else {
 						if (!world.isRemote) {

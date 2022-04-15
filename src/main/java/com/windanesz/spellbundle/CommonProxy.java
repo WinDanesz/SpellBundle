@@ -1,5 +1,10 @@
 package com.windanesz.spellbundle;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumHand;
+
+import java.util.List;
+
 public class CommonProxy {
 
 	/**
@@ -14,4 +19,5 @@ public class CommonProxy {
 
 	public void init() {}
 
+	public void openGuiPlayerSelect(List<EntityPlayer> players, Object enumWarpMode, EnumHand hand, Object fromWaystoneEntry) {}
 }
