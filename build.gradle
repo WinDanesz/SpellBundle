@@ -4,7 +4,6 @@ import groovy.json.*
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' } // old url was 'https://files.minecraftforge.net/maven'
-        jcenter()
         mavenCentral()
         maven { url = "https://ajoberstar.org/bintray-backup/" }
         maven {
@@ -15,7 +14,7 @@ buildscript {
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:5.+'
         classpath 'org.ajoberstar.grgit:grgit-gradle:3.1.1'
-        classpath group: 'wtf.gofancy.fancygradle', name: 'wtf.gofancy.fancygradle.gradle.plugin', version: '1.1.1-6'
+        classpath group: 'wtf.gofancy.fancygradle', name: 'wtf.gofancy.fancygradle.gradle.plugin', version: '1.1.2-0'
     }
 
     repositories.each {
@@ -248,6 +247,12 @@ if (System.getenv('USE_ALPHAS').equals('true')) {
                 commandLine "echo", "##[set-output name=version;]${project.version}";
             }
             exec {
+                commandLine "echo", "##[set-output name=name;]${project.name}";
+            }
+            exec {
+                commandLine "echo", "##[set-output name=url;]${project.url}";
+            }
+            exec {
                 commandLine "echo", "##[set-output name=commitlog;]" + "{\"content\":\"" + (project.hasProperty('hook_content') ? project.hook_content : "") + "\",\"embeds\":[{\"author\":{\"name\":\"WinDanesz\",\"url\":\"https://www.curseforge.com/minecraft/mc-mods/ancient-spellcraft\",\"icon_url\":\"https://avatars.githubusercontent.com/u/31292708?s=48&v=4\"},\"title\":\"${project.mod_id}-alpha-${project.version}\",\"url\":\"https://github.com/${project.github}/releases/tag/alpha-${project.version}\",\"color\":14700288,\"description\":\"" + log + "\"}]}";
             }
         }
@@ -274,12 +279,22 @@ if (System.getenv('USE_ALPHAS').equals('true')) {
             exec {
                 commandLine "echo", "##[set-output name=version;]${project.version}";
             }
+            exec {
+                commandLine "echo", "##[set-output name=name;]${project.name}";
+            }
+            exec {
+                commandLine "echo", "##[set-output name=url;]${project.url}";
+            }
         }
     }
     version = "${project.mc_version}-${project.mod_version}"
 }
 
 processResources {
+    if (System.getenv('PROJECT_VERSION') != null) {
+        version = "${project.mc_version}-" + System.getenv('PROJECT_VERSION')
+        project.mod_version = System.getenv('PROJECT_VERSION')
+    }
     // this will ensure that this task is redone when the versions change.
     inputs.property "version", version.toString()
     inputs.property "mcversion", project.mc_version.toString()
@@ -302,6 +317,7 @@ processResources {
                 'name': project.name,
                 'description': project.description,
                 'url': project.url,
+                'update_url': project.update_url,
                 "credits" : credits
     }
 
@@ -309,6 +325,11 @@ processResources {
 }
 
 task replaceTokens(type: Sync) {
+    if (System.getenv('PROJECT_VERSION') != null) {
+        version = "${project.mc_version}-" + System.getenv('PROJECT_VERSION')
+        project.mod_version = System.getenv('PROJECT_VERSION')
+    }
+
     // replace @TOKENS@ in main file
     from sourceSets.main.java
     inputs.property 'version', project.mc_version.toString()
