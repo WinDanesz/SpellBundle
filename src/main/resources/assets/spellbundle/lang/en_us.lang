@@ -4,6 +4,7 @@ item.spellbundle:generic.disabled_with_modname=This item has been disabled in th
 
 # WAYSTONES mod
 spell.spellbundle:waystones_missing=This spell is disabled because you don't have the Waystones mod installed!
+item.spellbundle:bound_warpstone.name=Bound Warpstone
 
 integration.spellbundle:waystones=Waystones
 spell.spellbundle:warp=Warp
@@ -76,6 +77,8 @@ spell.spellbundle:colorize=Colorize
 spell.spellbundle:colorize.desc=Imbue the held item (in the other hand) using the first colored Rune from the hotbar.
 spell.spellbundle:colorize_consume_rune.desc=Imbue the held item (in the other hand) using the first colored Rune from the hotbar. The rune is consumed.
 spell.spellbundle:colorize.item_not_enchanted=The item must be already enchanted!
+spell.spellbundle:colorize.no_rune=You must have a colored rune in your hotbar!
+spell.spellbundle:colorize.no_=You must hold an enchanted item in your other hand!
 spell.spellbundle:conjure_foxhound=Conjure Foxhound
 spell.spellbundle:conjure_foxhound.desc=Conjures a foxhound to fight for you. The hound disappears after 40 seconds.
 spell.spellbundle:conjure_wraith=Conjure Wraith

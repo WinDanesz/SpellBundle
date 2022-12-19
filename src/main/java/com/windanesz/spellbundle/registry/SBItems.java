@@ -6,6 +6,7 @@ import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.treasure2.common.Treasure2Objects;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
+import com.windanesz.spellbundle.integration.waystones.common.WaystonesObjects;
 import com.windanesz.spellbundle.item.ItemArtefactSB;
 import com.windanesz.spellbundle.item.ItemCharmWishingWell;
 import electroblob.wizardry.item.ItemArtefact;
@@ -36,6 +37,9 @@ public final class SBItems {
 	public static final Item charm_frozen_lock = placeholder();
 	public static final Item spectral_lock = placeholder();
 
+	// Waystones
+	public static final Item bound_waystone = placeholder();
+
 	// Quark
 	public static final Item ring_wraith = placeholder();
 
@@ -56,6 +60,11 @@ public final class SBItems {
 		// Optional items
 		if (Treasure2Integration.getInstance().isEnabled()) {
 			Treasure2Objects.registerItems(event);
+		}
+
+		// Optional items
+		if (WaystonesIntegration.getInstance().isEnabled()) {
+			WaystonesObjects.registerItems(event);
 		}
 
 		registerItem(registry, "ring_wraith", new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.RING, QuarkIntegration.getInstance()), QuarkIntegration.getInstance());
