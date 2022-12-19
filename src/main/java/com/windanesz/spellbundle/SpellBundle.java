@@ -5,6 +5,8 @@ import com.windanesz.spellbundle.client.SBGuiHandler;
 import com.windanesz.spellbundle.command.CommandRecallAlly;
 import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.baubles.BaublesIntegration;
+import com.windanesz.spellbundle.integration.pointer.PointerIntegration;
+import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
 import com.windanesz.spellbundle.network.SBPacketHandler;
@@ -24,7 +26,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.Random;
 
 @Mod(modid = SpellBundle.MODID, name = SpellBundle.NAME, version = "@VERSION@", acceptedMinecraftVersions = "[@MCVERSION@]",
-		dependencies = "required-after:ebwizardry@[@WIZARDRY_VERSION@,4.4)")
+		dependencies = "required-after:mixinbooter;required-after:ebwizardry@[@WIZARDRY_VERSION@,4.4);required-after:wizardryutils")
 public class SpellBundle {
 
 	public static final String MODID = "spellbundle";
@@ -49,7 +51,9 @@ public class SpellBundle {
 		// content mods
 		WaystonesIntegration.getInstance().init();
 		Treasure2Integration.getInstance().init();
-		
+		PointerIntegration.getInstance().init();
+		QuarkIntegration.getInstance().init();
+
 		proxy.registerRenderers();
 
 		BaublesIntegration.init();

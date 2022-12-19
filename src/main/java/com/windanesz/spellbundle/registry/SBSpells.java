@@ -2,8 +2,18 @@ package com.windanesz.spellbundle.registry;
 
 import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.Integration;
+import com.windanesz.spellbundle.integration.pointer.PointerIntegration;
+import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
+import com.windanesz.spellbundle.integration.quark.common.QuarkObjects;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
+import com.windanesz.spellbundle.spell.pointer.ArcaneReach;
+import com.windanesz.spellbundle.spell.pointer.ArcaneReachDummy;
+import com.windanesz.spellbundle.spell.quark.ColorizeDummy;
+import com.windanesz.spellbundle.spell.quark.ConjureFoxhoundDummy;
+import com.windanesz.spellbundle.spell.quark.ConjureWraithDummy;
+import com.windanesz.spellbundle.spell.quark.CurseOfEvilDummy;
+import com.windanesz.spellbundle.spell.quark.CurseOfHauntingDummy;
 import com.windanesz.spellbundle.spell.treasure2.IceChest;
 import com.windanesz.spellbundle.spell.treasure2.IceChestDummy;
 import com.windanesz.spellbundle.spell.treasure2.Knock;
@@ -44,6 +54,9 @@ public final class SBSpells {
 	public static final Spell summon_bound_soul = placeholder();
 	public static final Spell summon_mimic = placeholder();
 	public static final Spell ice_chest = placeholder();
+
+	// Pointer mod
+	public static final Spell arcane_reach = placeholder();
 
 	private SBSpells() {} // no instances
 
@@ -91,6 +104,28 @@ public final class SBSpells {
 				registry.register(instance.addSpell(new SummonBoundSoulDummy()));
 				registry.register(instance.addSpell(new SummonMimicDummy()));
 				registry.register(instance.addSpell(new IceChestDummy()));
+			}
+		}
+		// Pointer mod spells
+		{
+			Integration instance = PointerIntegration.getInstance();
+			if (instance.isEnabled()) {
+				registry.register(instance.addSpell(new ArcaneReach()));
+			} else {
+				registry.register(instance.addSpell(new ArcaneReachDummy()));
+			}
+		}
+		// Quark mod spells
+		{
+			Integration instance = QuarkIntegration.getInstance();
+			if (instance.isEnabled()) {
+				QuarkObjects.registerSpells(registry);
+			} else {
+				registry.register(instance.addSpell(new CurseOfHauntingDummy()));
+				registry.register(instance.addSpell(new ConjureFoxhoundDummy()));
+				registry.register(instance.addSpell(new ConjureWraithDummy()));
+				registry.register(instance.addSpell(new CurseOfEvilDummy()));
+				registry.register(instance.addSpell(new ColorizeDummy()));
 			}
 		}
 	}

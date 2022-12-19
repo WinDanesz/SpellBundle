@@ -2,6 +2,7 @@ package com.windanesz.spellbundle.registry;
 
 import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.Integration;
+import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.treasure2.common.Treasure2Objects;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
@@ -26,6 +27,8 @@ import javax.annotation.Nonnull;
 @Mod.EventBusSubscriber
 public final class SBItems {
 
+	private SBItems() {} // No instances!
+
 	// Looking for the rest of the items? Items with hard-dependencies are registered at com.windanesz.spellbundle.integration
 
 	public static final Item ring_warpstone = placeholder();
@@ -33,11 +36,14 @@ public final class SBItems {
 	public static final Item charm_frozen_lock = placeholder();
 	public static final Item spectral_lock = placeholder();
 
-	private SBItems() {} // No instances!
+	// Quark
+	public static final Item ring_wraith = placeholder();
 
 	@SubscribeEvent
 	public static void register(RegistryEvent.Register<Item> event) {
 		IForgeRegistry<Item> registry = event.getRegistry();
+
+		// Artefacts
 
 		// Waystones Mod
 		registerItem(registry, "ring_warpstone", new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.RING, WaystonesIntegration.getInstance()), WaystonesIntegration.getInstance());
@@ -51,6 +57,9 @@ public final class SBItems {
 		if (Treasure2Integration.getInstance().isEnabled()) {
 			Treasure2Objects.registerItems(event);
 		}
+
+		registerItem(registry, "ring_wraith", new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.RING, QuarkIntegration.getInstance()), QuarkIntegration.getInstance());
+
 
 	}
 

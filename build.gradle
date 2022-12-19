@@ -7,14 +7,22 @@ buildscript {
         mavenCentral()
         maven { url = "https://ajoberstar.org/bintray-backup/" }
         maven {
+            name = 'Sponge / Mixin'
+            url = 'https://repo.spongepowered.org/repository/maven-public/'
+        }
+        maven {
             name = 'FancyGradle'
             url = 'https://gitlab.com/api/v4/projects/26758973/packages/maven'
+        }
+        maven {
+            url "https://maven.cleanroommc.com"
         }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:5.+'
         classpath 'org.ajoberstar.grgit:grgit-gradle:3.1.1'
         classpath group: 'wtf.gofancy.fancygradle', name: 'wtf.gofancy.fancygradle.gradle.plugin', version: '1.1.2-0'
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 
     repositories.each {
@@ -25,6 +33,7 @@ buildscript {
 }
 
 apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
 apply plugin: org.ajoberstar.grgit.gradle.GrgitPlugin
@@ -50,6 +59,10 @@ minecraft {
     //mappings channel: 'snapshot', version: '20171003-1.12'
     mappings channel: project.mappings_channel, version: "${project.mappings_version}-${project.mappings_mc_version}"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+
+    def args = ["-Dmixin.debug.export=true",
+                '-Dmixin.hotSwap=true',
+                '-Dmixin.checks.interfaces=true']
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -125,6 +138,7 @@ dependencies {
     //// Dependencies ////
 
     implementation fg.deobf("curse.maven:ElectroblobsWizardry-${wizardry_projectid}:${wizardry_fileid}")
+    implementation fg.deobf("curse.maven:WizardryUtils-${wizardryutils_projectid}:${wizardryutils_fileid}")
     implementation fg.deobf("curse.maven:baubles-${baubles_projectid}:${baubles_fileid}")
     implementation fg.deobf("mezz.jei:jei_${mc_version}:${jei_version}")
     implementation fg.deobf("curse.maven:antique-atlas-${antiqueatlas_projectid}:${antiqueatlas_fileid}")
@@ -133,9 +147,18 @@ dependencies {
     implementation fg.deobf("curse.maven:Waystones-4.1.0-${waystones_projectid}:${waystones_fileid}")
     implementation fg.deobf("curse.maven:Treasure2-${treasure2_projectid}:${treasure2_fileid}")
     implementation fg.deobf("curse.maven:GottschCore-${gottschcore_projectid}:${gottschcore_fileid}")
+    implementation fg.deobf("curse.maven:Quark-${quark_projectid}:${quark_fileid}")
+    implementation fg.deobf("curse.maven:AutoRegLib-${autoreglib_projectid}:${autoreglib_fileid}")
+    implementation fg.deobf("curse.maven:Pointer-${pointer_projectid}:${pointer_fileid}")
+    implementation fg.deobf("curse.maven:MixinBooter-${mixinbooter_projectid}:${mixinbooter_fileid}")
+   // implementation fg.deobf("curse.maven:QualityTools-${qualitytools_projectid}:${qualitytools_fileid}")
     //// Content Mods
 
 
+}
+
+mixin {
+    add sourceSets.main, "spellbundle.refmap.json"
 }
 
 //// Project manifest data ////

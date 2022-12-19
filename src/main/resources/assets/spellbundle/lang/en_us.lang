@@ -65,3 +65,21 @@ item.spellbundle:spectral_lock.name=Spectral Lock
 tile.spellbundle:display.ice_chest.name=Ice Chest
 tile.spellbundle.display.ice_chest.name=Ice Chest
 tile.spellbundle:ice_chest.name=Ice Chest
+
+# Quark mod
+spell.spellbundle:quark_missing=This spell is disabled because you don't have the Quark mod installed!
+spell.spellbundle:curse_of_haunting=Curse of Haunting
+spell.spellbundle:curse_of_haunting.desc=Targeted entity is haunted by Wraiths.
+spell.spellbundle:curse_of_evil=Curse of Evil
+spell.spellbundle:curse_of_evil.desc=Targeted player attracts hostile creatures for 2 minutes.
+spell.spellbundle:colorize=Colorize
+spell.spellbundle:colorize.desc=Imbue the held item (in the other hand) using the first colored Rune from the hotbar.
+spell.spellbundle:colorize_consume_rune.desc=Imbue the held item (in the other hand) using the first colored Rune from the hotbar. The rune is consumed.
+spell.spellbundle:colorize.item_not_enchanted=The item must be already enchanted!
+spell.spellbundle:conjure_foxhound=Conjure Foxhound
+spell.spellbundle:conjure_foxhound.desc=Conjures a foxhound to fight for you. The hound disappears after 40 seconds.
+spell.spellbundle:conjure_wraith=Conjure Wraith
+spell.spellbundle:conjure_wraith.desc=Conjures a Wraith to fight for you. The Wraith disappears after 40 seconds.
+potion.spellbundle:curse_of_haunting=Curse of Haunting
+item.spellbundle:ring_wraith.name=Avenging Soul Ring
+item.spellbundle:ring_wraith.desc=Slain entities have 30%% chance to raise as a temporary wraith minion

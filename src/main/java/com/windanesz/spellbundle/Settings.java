@@ -66,6 +66,16 @@ public class Settings {
 		@Config.Comment("Enable/Disable Baubles integration for the new artefact types (belt, helm, etc). This does NOT affect Electroblob's Wizardry's own Baubles support implementation (ring, amulet, charm)!")
 		@Config.RequiresMcRestart
 		public boolean baubles_integration = true;
+
+		@Config.Name("Quark integration")
+		@Config.Comment("Enables or disables the Quark integration")
+		@Config.RequiresMcRestart
+		public boolean quark_integration = true;
+
+		@Config.Name("Pointer integration")
+		@Config.Comment("Enables or disables the Pointer mod integration")
+		@Config.RequiresMcRestart
+		public boolean pointer_integration = true;
 	}
 
 	@Config.Name("Spell Tweaks Settings")
