@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.3] - 2022-12-22
+### :sparkles: New Features
+- [`fd12a76`](https://github.com/WinDanesz/SpellBundle/commit/fd12a76f01e7e8f422408e7bc569791102889736) - Added some Quark spells and artefacts *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`fb6fd6d`](https://github.com/WinDanesz/SpellBundle/commit/fb6fd6db09a68bcd4f4697ec6ddbea582943f7b8) - Added the Bound Warpstone - Similar to Bound Scrolls, but reusable. Mainly for servers, no crafting recipe *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`10b2f80`](https://github.com/WinDanesz/SpellBundle/commit/10b2f80f5a5118d280f3e5eeb59ab8b2ac19d2a4) - Added some Quality Tools mod support spells and artefacts *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+
 ## [v1.1.2] - 2022-04-15
 ### :bug: Bug Fixes
 - [`b063233`](https://github.com/WinDanesz/SpellBundle/commit/b063233dc5e452295033975d6722f6a4b9aee3d6) - Fixed SummonedCreatureData.isValidTarget check *(commit by [@WinDanesz](https://github.com/WinDanesz))*
@@ -21,3 +28,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 [v1.1.2]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.1...v1.1.2
+[v1.1.3]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.2...v1.1.3
