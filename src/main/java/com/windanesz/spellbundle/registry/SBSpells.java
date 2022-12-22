@@ -3,12 +3,17 @@ package com.windanesz.spellbundle.registry;
 import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.pointer.PointerIntegration;
+import com.windanesz.spellbundle.integration.qualitytools.QTIntegration;
 import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
 import com.windanesz.spellbundle.integration.quark.common.QuarkObjects;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
 import com.windanesz.spellbundle.spell.pointer.ArcaneReach;
 import com.windanesz.spellbundle.spell.pointer.ArcaneReachDummy;
+import com.windanesz.spellbundle.spell.qualitytools.BlessItem;
+import com.windanesz.spellbundle.spell.qualitytools.BlessItemDummy;
+import com.windanesz.spellbundle.spell.qualitytools.WeakenEquipment;
+import com.windanesz.spellbundle.spell.qualitytools.WeakenEquipmentDummy;
 import com.windanesz.spellbundle.spell.quark.ColorizeDummy;
 import com.windanesz.spellbundle.spell.quark.ConjureFoxhoundDummy;
 import com.windanesz.spellbundle.spell.quark.ConjureWraithDummy;
@@ -57,6 +62,10 @@ public final class SBSpells {
 
 	// Pointer mod
 	public static final Spell arcane_reach = placeholder();
+
+	// Quality Tools
+	public static final Spell bless_item = placeholder();
+	public static final Spell weaken_equipment = placeholder();
 
 	private SBSpells() {} // no instances
 
@@ -126,6 +135,17 @@ public final class SBSpells {
 				registry.register(instance.addSpell(new ConjureWraithDummy()));
 				registry.register(instance.addSpell(new CurseOfEvilDummy()));
 				registry.register(instance.addSpell(new ColorizeDummy()));
+			}
+		}
+		// Quality Tools mod spells
+		{
+			Integration instance = QTIntegration.getInstance();
+			if (instance.isEnabled()) {
+				registry.register(instance.addSpell(new BlessItem()));
+				registry.register(instance.addSpell(new WeakenEquipment()));
+			} else {
+				registry.register(instance.addSpell(new BlessItemDummy()));
+				registry.register(instance.addSpell(new WeakenEquipmentDummy()));
 			}
 		}
 	}

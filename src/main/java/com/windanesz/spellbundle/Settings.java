@@ -72,10 +72,20 @@ public class Settings {
 		@Config.RequiresMcRestart
 		public boolean quark_integration = true;
 
+		@Config.Name("Quality Tools mod integration")
+		@Config.Comment("Enables or disables the Quality Tools mod")
+		@Config.RequiresMcRestart
+		public boolean qualitytools_integration = true;
+
 		@Config.Name("Pointer integration")
 		@Config.Comment("Enables or disables the Pointer mod integration")
 		@Config.RequiresMcRestart
 		public boolean pointer_integration = true;
+
+		@Config.Name("Pointer integration - remove pointer item recipe")
+		@Config.Comment("Set to true to remove the pointer item's recipe from the game")
+		@Config.RequiresMcRestart
+		public boolean remove_pointer_item = true;
 	}
 
 	@Config.Name("Spell Tweaks Settings")

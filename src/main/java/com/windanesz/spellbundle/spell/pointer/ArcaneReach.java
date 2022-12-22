@@ -2,6 +2,7 @@ package com.windanesz.spellbundle.spell.pointer;
 
 import com.cleanroommc.pointer.EntityPlayerExpansion;
 import com.windanesz.spellbundle.SpellBundle;
+import com.windanesz.wizardryutils.tools.WizardryUtilsTools;
 import electroblob.wizardry.data.IStoredVariable;
 import electroblob.wizardry.data.Persistence;
 import electroblob.wizardry.data.WizardData;
@@ -20,7 +21,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -54,7 +54,7 @@ public class ArcaneReach extends SpellRay {
 	@Override
 	protected boolean onBlockHit(World world, BlockPos pos, EnumFacing side, Vec3d hit, EntityLivingBase caster, Vec3d origin, int ticksInUse, SpellModifiers modifiers) {
 
-		pos = pos.offset(side);
+		//pos = pos.offset(side);
 
 		EntityPlayer player = (EntityPlayer) caster;
 
@@ -71,14 +71,15 @@ public class ArcaneReach extends SpellRay {
 			if (!world.isRemote) {
 				Location location1 = new Location(pos, player.dimension);
 				setLocation(player, location1);
+				WizardryUtilsTools.sendMessage(player, "spell." + this.getRegistryName() + ".stored_location", true);
 			}
 			return true;
 		} else {
 			// has pointer
 			if (player.isSneaking()) {
 				// remove pointer
+				WizardryUtilsTools.sendMessage(player, "spell." + this.getRegistryName() + ".stored_location_removed", true);
 				if (!world.isRemote) {
-					player.sendStatusMessage(new TextComponentTranslation("pointer.message.removal", new Object[0]), true);
 					setLocation(player, null);
 				}
 				return true;
@@ -89,13 +90,11 @@ public class ArcaneReach extends SpellRay {
 			} else {
 				// same dimension - normal behaviour, accessing the pointer
 				IBlockState state = world.getBlockState(location.pos);
-				if (!state.getBlock().isAir(state, world, pos)) {
-					((EntityPlayerExpansion) player).setUsingPointer();
-					if (!world.isRemote) {
-						this.runRemoteRightClickRoutine(player, world, EnumHand.MAIN_HAND, pos, EnumFacing.NORTH, 1f, 1f, 1f);
-					}
-					return true;
+				((EntityPlayerExpansion) player).setUsingPointer();
+				if (!world.isRemote) {
+					this.runRemoteRightClickRoutine(player, world, EnumHand.MAIN_HAND, location.pos, EnumFacing.NORTH, 1f, 1f, 1f);
 				}
+				return true;
 			}
 		}
 		return false;
@@ -103,6 +102,37 @@ public class ArcaneReach extends SpellRay {
 
 	@Override
 	protected boolean onMiss(World world, EntityLivingBase caster, Vec3d origin, Vec3d direction, int ticksInUse, SpellModifiers modifiers) {
+		EntityPlayer player = (EntityPlayer) caster;
+
+		Location location = getLocation(player);
+
+		if (location == null) {
+			// no pointer
+			WizardryUtilsTools.sendMessage(player, "spell." + this.getRegistryName() + ".no_stored_location", true);
+			return false;
+		} else {
+			// has pointer
+			if (player.isSneaking()) {
+				// remove pointer
+				WizardryUtilsTools.sendMessage(player, "spell." + this.getRegistryName() + ".stored_location_removed", true);
+				if (!world.isRemote) {
+					setLocation(player, null);
+				}
+				return true;
+			}
+
+			if (location.dimension != player.dimension) {
+				// other dimension
+			} else {
+				// same dimension - normal behaviour, accessing the pointer
+				IBlockState state = world.getBlockState(location.pos);
+				((EntityPlayerExpansion) player).setUsingPointer();
+				if (!world.isRemote) {
+					this.runRemoteRightClickRoutine(player, world, EnumHand.MAIN_HAND, location.pos, EnumFacing.NORTH, 1f, 1f, 1f);
+				}
+				return true;
+			}
+		}
 		return false;
 	}
 

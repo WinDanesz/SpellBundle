@@ -86,3 +86,30 @@ spell.spellbundle:conjure_wraith.desc=Conjures a Wraith to fight for you. The Wr
 potion.spellbundle:curse_of_haunting=Curse of Haunting
 item.spellbundle:ring_wraith.name=Avenging Soul Ring
 item.spellbundle:ring_wraith.desc=Slain entities have 30%% chance to raise as a temporary wraith minion
+
+# Quality Tools mod
+item.spellbundle:reforging_scroll.name=Scroll of Reforging
+item.spellbundle:reforging_scroll.desc=Reforges the item held in the other hand into a random good quality. Hold the item in your other hand to reforge it
+item.spellbundle:reforging_scroll.interrupted=Reforging interrupted
+item.spellbundle:reforging_scroll.needs_offhand_item=You must hold an item in your offhand that can be reforged
+item.spellbundle:amulet_reforging.name=Amulet of Reforging
+item.spellbundle:amulet_reforging.desc=The Bless Item spell always reforges items to positive qualities
+item.spellbundle:charm_spectral_hammer.name=Spectral Hammer
+item.spellbundle:charm_spectral_hammer.desc=Conjured items always have a positive quality
+spell.spellbundle:qualitytools_missing=This spell is disabled because you don't have the Quality Tools mod installed!
+spell.spellbundle:weaken_equipment=Weaken Equipment
+spell.spellbundle:weaken_equipment.desc=Temporarily weakens the targeted player's held weapon with a random, negative quality.
+spell.spellbundle:bless_item=Bless Item
+spell.spellbundle:bless_item.desc=Blesses an item in the offhand, removing a negative quality from it.
+spell.spellbundle:bless_item.item_cannot_be_blessed=This item cannot be blessed
+spell.spellbundle:bless_item.no_item=You must hold an item in your other hand
+spell.spellbundle:bless_item.item_does_not_have_negative_quality=This item doesn't have a negative quality
+
+enchantment.spellbundle:magically_weakened=Magically Weakened
+
+# Quark mod
+spell.spellbundle:arcane_reach=Arcane Reach
+spell.spellbundle:arcane_reach.desc=Allows accessing objects from afar. Cast on a block to remotely access it with subsequent spell casts. Sneak-cast to forget the location.
+spell.spellbundle:arcane_reach.stored_location=Stored this location
+spell.spellbundle:arcane_reach.stored_location_removed=Forgot the last location
+spell.spellbundle:arcane_reach.no_stored_location=Cast on a block first to store its location

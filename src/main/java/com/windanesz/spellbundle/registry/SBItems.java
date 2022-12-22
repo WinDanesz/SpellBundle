@@ -2,6 +2,8 @@ package com.windanesz.spellbundle.registry;
 
 import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.Integration;
+import com.windanesz.spellbundle.integration.qualitytools.QTIntegration;
+import com.windanesz.spellbundle.integration.qualitytools.common.QualityToolsObjects;
 import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.treasure2.common.Treasure2Objects;
@@ -43,6 +45,11 @@ public final class SBItems {
 	// Quark
 	public static final Item ring_wraith = placeholder();
 
+	// Quality Tools
+	public static final Item reforging_scroll = placeholder();
+	public static final Item amulet_reforging = placeholder();
+	public static final Item charm_spectral_hammer = placeholder();
+
 	@SubscribeEvent
 	public static void register(RegistryEvent.Register<Item> event) {
 		IForgeRegistry<Item> registry = event.getRegistry();
@@ -69,7 +76,14 @@ public final class SBItems {
 
 		registerItem(registry, "ring_wraith", new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.RING, QuarkIntegration.getInstance()), QuarkIntegration.getInstance());
 
+		// Treasure2! Mod
+		registerItem(registry, "amulet_reforging", new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.AMULET, QTIntegration.getInstance()), QTIntegration.getInstance());
+		registerItem(registry, "charm_spectral_hammer", new ItemCharmWishingWell(EnumRarity.RARE, ItemArtefact.Type.CHARM, QTIntegration.getInstance()), QTIntegration.getInstance());
 
+		// Optional items
+		if (QTIntegration.getInstance().isEnabled()) {
+			QualityToolsObjects.registerItems(event);
+		}
 	}
 
 	@Nonnull

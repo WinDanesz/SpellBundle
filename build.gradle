@@ -151,7 +151,8 @@ dependencies {
     implementation fg.deobf("curse.maven:AutoRegLib-${autoreglib_projectid}:${autoreglib_fileid}")
     implementation fg.deobf("curse.maven:Pointer-${pointer_projectid}:${pointer_fileid}")
     implementation fg.deobf("curse.maven:MixinBooter-${mixinbooter_projectid}:${mixinbooter_fileid}")
-   // implementation fg.deobf("curse.maven:QualityTools-${qualitytools_projectid}:${qualitytools_fileid}")
+    implementation fg.deobf("curse.maven:QualityTools-${qualitytools_projectid}:${qualitytools_fileid}")
+//  3558882
     //// Content Mods
 
 

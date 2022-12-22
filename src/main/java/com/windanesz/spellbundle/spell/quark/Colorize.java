@@ -22,7 +22,7 @@ public class Colorize extends Spell {
 	public static final String CONSUME_RUNE = "consume_rune";
 
 	public Colorize() {
-		super(SpellBundle.MODID, "colorize", SpellActions.IMBUE, true);
+		super(SpellBundle.MODID, "colorize", SpellActions.IMBUE, false);
 		addProperties(CONSUME_RUNE);
 	}
 

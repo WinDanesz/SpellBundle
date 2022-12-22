@@ -6,6 +6,7 @@ import com.windanesz.spellbundle.command.CommandRecallAlly;
 import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.baubles.BaublesIntegration;
 import com.windanesz.spellbundle.integration.pointer.PointerIntegration;
+import com.windanesz.spellbundle.integration.qualitytools.QTIntegration;
 import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
@@ -53,6 +54,7 @@ public class SpellBundle {
 		Treasure2Integration.getInstance().init();
 		PointerIntegration.getInstance().init();
 		QuarkIntegration.getInstance().init();
+		QTIntegration.getInstance().init();
 
 		proxy.registerRenderers();
 

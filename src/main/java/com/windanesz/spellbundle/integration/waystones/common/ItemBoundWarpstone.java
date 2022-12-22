@@ -32,6 +32,11 @@ import static net.blay09.mods.waystones.item.ItemWarpStone.lastTimerUpdate;
 
 public class ItemBoundWarpstone extends ItemBoundScroll {
 
+	public ItemBoundWarpstone() {
+		super();
+		this.setMaxStackSize(1);
+	}
+
 	@Override
 	public ItemStack onItemUseFinish(ItemStack itemStack, World world, EntityLivingBase entity) {
 
@@ -67,7 +72,7 @@ public class ItemBoundWarpstone extends ItemBoundScroll {
 			if (PlayerWaystoneHelper.canUseWarpStone(player)) {
 				EnumActionResult result = super.onItemUseFirst(player, world, pos, side, hitX, hitY, hitZ, hand);
 				if (result == EnumActionResult.SUCCESS) {
-					player.getCooldownTracker().setCooldown(this, WaystoneConfig.general.warpStoneCooldown);
+					player.getCooldownTracker().setCooldown(this, WaystoneConfig.general.warpStoneCooldown * 20);
 				}
 				return result;
 			}
