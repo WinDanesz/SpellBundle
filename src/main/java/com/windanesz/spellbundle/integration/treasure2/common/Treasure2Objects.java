@@ -24,7 +24,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import static com.someguyssoftware.treasure2.Treasure.logger;
+import static com.someguyssoftware.treasure2.Treasure.LOGGER;
 
 public class Treasure2Objects {
 
@@ -78,7 +78,7 @@ public class Treasure2Objects {
 	public static ITreasureChestTileEntity getChestTileEntity(TileEntity tileEntity) {
 		ITreasureChestTileEntity chestTileEntity = (tileEntity instanceof ITreasureChestTileEntity) ? (ITreasureChestTileEntity) tileEntity : null;
 		if (chestTileEntity == null) {
-			logger.warn("Umm, GUI handler error - wrong tile entity.");
+			LOGGER.warn("Umm, GUI handler error - wrong tile entity.");
 			return null;
 		}
 		return chestTileEntity;
