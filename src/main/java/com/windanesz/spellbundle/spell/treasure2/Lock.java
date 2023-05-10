@@ -72,7 +72,7 @@ public class Lock extends SpellRay {
 					return lockedAdded;
 
 				} catch (Exception e) {
-					Treasure.logger.error("error: ", e);
+					Treasure.LOGGER.error("error: ", e);
 				}
 			}
 		}

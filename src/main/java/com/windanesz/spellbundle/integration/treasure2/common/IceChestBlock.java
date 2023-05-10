@@ -61,7 +61,6 @@ public class IceChestBlock extends TreasureChestBlock {
 	 */
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		Treasure.logger.debug("Breaking block....!");
 
 		TileEntity tileEntity = worldIn.getTileEntity(pos);
 		AbstractTreasureChestTileEntity te = null;
@@ -91,11 +90,6 @@ public class IceChestBlock extends TreasureChestBlock {
 					}
 					te.writeToNBT(chestItem.getTagCompound());
 
-					/*
-					 * spawn chest item
-					 */
-					Treasure.logger.debug("Item being created from chest -> {}", chestItem.getItem().getRegistryName());
-
 					// not spawning this as an item as ice chests can only be picked up when locked
 					//InventoryHelper.spawnItemStack(worldIn, (double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), chestItem);
 				}
@@ -108,9 +102,6 @@ public class IceChestBlock extends TreasureChestBlock {
 				if (WorldInfo.isServerSide(worldIn)) {
 					ItemStack chestItem = new ItemStack(Item.getItemFromBlock(this), 1);
 
-					// give the chest a tag compound
-					//					Treasure.logger.debug("[BreakingBlock]Saving chest items:");
-
 					NBTTagCompound nbt = new NBTTagCompound();
 					nbt = te.writeToNBT(nbt);
 					chestItem.setTagCompound(nbt);
@@ -118,12 +109,6 @@ public class IceChestBlock extends TreasureChestBlock {
 					InventoryHelper.spawnItemStack(worldIn, (double) pos.getX(), (double) pos.getY(),
 							(double) pos.getZ(), chestItem);
 
-					// TEST log all items in item
-					//					NonNullList<ItemStack> items = NonNullList.<ItemStack>withSize(27, ItemStack.EMPTY);
-					//					ItemStackHelper.loadAllItems(chestItem.getTagCompound(), items);
-					//					for (ItemStack stack : items) {
-					//						Treasure.logger.debug("[BreakingBlock] item in chest item -> {}", stack.getDisplayName());
-					//					}
 				}
 			}
 
