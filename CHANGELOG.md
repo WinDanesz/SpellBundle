@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.4] - 2023-05-10
+### :bug: Bug Fixes
+- [`a89fcbe`](https://github.com/WinDanesz/SpellBundle/commit/a89fcbeaefd815066c34f6176d5f6b9b6485d7ea) - Fixed logger error/crash with latest Treasure2 version *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+
 ## [v1.1.3] - 2022-12-22
 ### :sparkles: New Features
 - [`fd12a76`](https://github.com/WinDanesz/SpellBundle/commit/fd12a76f01e7e8f422408e7bc569791102889736) - Added some Quark spells and artefacts *(commit by [@WinDanesz](https://github.com/WinDanesz))*
@@ -29,3 +34,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [v1.1.2]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.1...v1.1.2
 [v1.1.3]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.2...v1.1.3
+[v1.1.4]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.3...v1.1.4

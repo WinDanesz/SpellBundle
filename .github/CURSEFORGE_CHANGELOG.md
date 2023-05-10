@@ -1,11 +1,9 @@
-<h2>Version v1.1.3 - 12/22/2022</h2>
+<h2>Version v1.1.4 - 5/10/2023</h2>
 <p>&nbsp;</p>
 <h3>What's Changed</h3>
 <p><span style="font-size: 1.2rem;">&nbsp;</span></p>
-<h4><strong>Features</strong></h4>
-<p>- Added some Quark spells and artefacts</p>
-<p>- Added the Bound Warpstone - Similar to Bound Scrolls, but reusable. Mainly for servers, no crafting recipe</p>
-<p>- Added some Quality Tools mod support spells and artefacts</p>
+<h4><strong>Bug Fixes</strong></h4>
+<p>- Fixed logger error/crash with latest Treasure2 version</p>
 <p>&nbsp;</p>
 <p>As always, the easiest way to get help or feedback is through the Discord server! Find the link on the CurseForge page.</p>
 <p>&nbsp;</p>
