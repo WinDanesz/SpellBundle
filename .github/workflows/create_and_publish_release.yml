@@ -1,13 +1,53 @@
-name: 'Create And Publish Release'
+name: 'Testing'
 
 on:
   push:
-    tags:
-      - v[0-9]+.[0-9]+.[0-9]+
+    branches:
+      - 1.12.2-testing
 
 jobs:
-  call-release-workflow:
-    uses: WinDanesz/ModTools/.github/workflows/create_and_publish_release.yml@1.12.2
-    secrets:
-      CURSEFORGE_API_TOKEN: ${{ secrets.CURSEFORGE_API_TOKEN }}
-      DISCORD_ANNOUNCER_WEBHOOK: ${{ secrets.DISCORD_ANNOUNCER_WEBHOOK }}
+
+  generate_changelog:
+    name: Build > Create and Commit Changelog > Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Checkout ModTools repo
+        uses: actions/checkout@v3
+        with:
+          path: ModTools
+
+      - name: Copy templates from ModTools
+        shell: pwsh
+        run: |
+          Copy-Item ./ModTools/.github/ISSUE_TEMPLATE ./.github/ISSUE_TEMPLATE/ -Force
+          Copy-Item ./ModTools/.github/workflows/*.md ./.github/workflows/ -Force
+          Copy-Item ./ModTools/.github/workflows/gradle.yml ./.github/workflows/ -Force
+          Copy-Item ./ModTools/.github/workflows/potential-duplicates.yml ./.github/workflows/ -Force
+          Copy-Item ./ModTools/.github/FUNDING.yml ./.github -Force
+          Remove-Item ./ModTools -Recurse -Force
+
+      - name: Update ./forge/update.json
+        shell: pwsh
+        run: |
+          $version = "9.9.9"
+          $exists = Test-Path -Path .\.forge\update.json
+          Write-Host "File exists: $exists"
+          Get-Content .\.forge\update.json
+          $oldJson = Get-Content .\.forge\update.json | ConvertFrom-Json
+          $oldJson.promos.'1.12.2-latest' = $version
+          $oldJson.promos.'1.12.2-recommended' = $version
+          $gradleProperties = Get-Content ./gradle.properties
+          if ($($gradleProperties -match "\surl=") -match "url=(.*)") { $oldJson.homepage =$matches[1] }
+          $newJson = $oldJson | ConvertTo-Json
+          Set-Content -Path .\.forge\update.json -Value $newJson
+          Write-Host "After:"
+          Get-Content .\.forge\update.json
+
+      - name: Commit Changelogs and update.json
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: 1.12.2-testing
+          commit_message: 'docs: update changelogs for ${{ github.ref_name }}'
