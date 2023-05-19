@@ -16,3 +16,4 @@ If you'd like to suggest candidate mods for support, get in touch via the Discor
 
 ### For the list of currently supported mods, see the [mod's CurseForge page](https://www.curseforge.com/minecraft/mc-mods/spell-bundle)!
 
+ 
