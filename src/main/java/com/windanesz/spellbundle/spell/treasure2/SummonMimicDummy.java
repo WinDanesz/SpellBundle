@@ -9,4 +9,11 @@ public class SummonMimicDummy extends SpellDynamicMinion<EntityZombie> {
 	public SummonMimicDummy() {
 		super(SpellBundle.MODID, "summon_mimic", EntityZombie::new);
 	}
+
+	/**
+	 * Returns the disabled spell desc.
+	 */
+	protected String getDescriptionTranslationKey() { return Treasure2Integration.getInstance().getMissingSpellDesc(); }
+
+}
 }
