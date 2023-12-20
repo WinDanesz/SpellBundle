@@ -107,7 +107,8 @@ spell.spellbundle:bless_item.item_does_not_have_negative_quality=This item doesn
 
 enchantment.spellbundle:magically_weakened=Magically Weakened
 
-# Quark mod
+# Pointer mod
+spell.spellbundle:pointer_missing=This spell is disabled because you don't have the Pointer mod installed!
 spell.spellbundle:arcane_reach=Arcane Reach
 spell.spellbundle:arcane_reach.desc=Allows accessing objects from afar. Cast on a block to remotely access it with subsequent spell casts. Sneak-cast to forget the location.
 spell.spellbundle:arcane_reach.stored_location=Stored this location
