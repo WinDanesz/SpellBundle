@@ -1,8 +1,11 @@
-<h2>Version v1.1.5 - 5/19/2023</h2>
+<h2>Version v1.5.6 - 12/20/2023</h2>
 <p>&nbsp;</p>
 <h3>What's Changed</h3>
 <p><span style="font-size: 1.2rem;">&nbsp;</span></p>
-
+<h4><strong>Bug Fixes</strong></h4>
+<p>- Fixed Ice Chest locking with Frozen Lock. Fixes #8</p>
+<p>- Fixed Summon Mimic's spellbook description not mentioning the missing Treasure 2 mod. Fixes #7</p>
+<p>- Fixed Arcane Reach missing spellbook description when you do not have the Pointer mod installed. Fixes #6</p>
 <p>&nbsp;</p>
 <p>As always, the easiest way to get help or feedback is through the Discord server! Find the link on the CurseForge page.</p>
 <p>&nbsp;</p>

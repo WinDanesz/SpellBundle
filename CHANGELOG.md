@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.5.6] - 2023-12-20
+### :bug: Bug Fixes
+- [`c3d420e`](https://github.com/WinDanesz/SpellBundle/commit/c3d420ecaf3471ae0f841aeba9b31364b7ff2cbf) - Fixed Ice Chest locking with Frozen Lock. Fixes [#8](https://github.com/WinDanesz/SpellBundle/pull/8) *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`ab6c6cc`](https://github.com/WinDanesz/SpellBundle/commit/ab6c6cc4edc57d7d276f68c61b01b309a34e94d1) - Fixed Summon Mimic's spellbook description not mentioning the missing Treasure 2 mod. Fixes [#7](https://github.com/WinDanesz/SpellBundle/pull/7) *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`8c33777`](https://github.com/WinDanesz/SpellBundle/commit/8c33777b683f3c3266e4d01799c6296ef9085768) - Fixed Arcane Reach missing spellbook description when you do not have the Pointer mod installed. Fixes [#6](https://github.com/WinDanesz/SpellBundle/pull/6) *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+### :wrench: Chores
+- [`8a5dded`](https://github.com/WinDanesz/SpellBundle/commit/8a5ddedd5c316fda56e58c6d38edc6462e5bd5c8) - Update SummonMimicDummy.java *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`74ac6ea`](https://github.com/WinDanesz/SpellBundle/commit/74ac6ea8ece480150a256ddc91e282df28269e80) - Update SummonMimicDummy.java *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+
 ## [v1.1.4] - 2023-05-10
 ### :bug: Bug Fixes
 - [`a89fcbe`](https://github.com/WinDanesz/SpellBundle/commit/a89fcbeaefd815066c34f6176d5f6b9b6485d7ea) - Fixed logger error/crash with latest Treasure2 version *(commit by [@WinDanesz](https://github.com/WinDanesz))*
@@ -35,3 +46,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v1.1.2]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.1...v1.1.2
 [v1.1.3]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.2...v1.1.3
 [v1.1.4]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.3...v1.1.4
+[v1.5.6]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.5...v1.5.6
