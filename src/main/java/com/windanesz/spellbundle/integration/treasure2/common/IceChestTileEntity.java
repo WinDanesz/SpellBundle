@@ -77,6 +77,7 @@ public class IceChestTileEntity extends AbstractTreasureChestTileEntity {
 	}
 
 	public void setAcceptsLocks(boolean acceptsLocks) {
+		setCustomName(I18n.translateToLocal("tile.spellbundle:display.ice_chest_lockable.name"));
 		this.acceptsLocks = acceptsLocks;
 	}
 
@@ -84,7 +85,7 @@ public class IceChestTileEntity extends AbstractTreasureChestTileEntity {
 	public void update() {
 		if (!this.world.isRemote) {
 			// dump the lock
-			if (!isAcceptsLocks() && hasLocks()) {
+			if (!isAcceptsLocks() && !hasLocks()) {
 				for (LockState state : getLockStates()) {
 					if (state != null && state.getLock() != null) {
 

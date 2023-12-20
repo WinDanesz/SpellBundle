@@ -58,13 +58,13 @@ spell.spellbundle:knock.weak_spell=Your knock spell wasn't powerful enough to op
 item.spellbundle:ring_key.name=Arcane Key-Ring
 item.spellbundle:ring_key.desc=The Knock spell can open one tier higher locks
 item.spellbundle:charm_frozen_lock.name=Frozen Lock
-item.spellbundle:charm_frozen_lock.desc=This artefact itself cannot be put on a chest, but grants the ability to lock Ice Chest with regular locks
+item.spellbundle:charm_frozen_lock.desc=This artefact itself cannot be put on a chest, but grants the ability to lock Ice Chest with regular locks. The chest must be created while this artefact is equipped
 item.spellbundle:charm_wishing_well.name=Wish List
 item.spellbundle:charm_wishing_well.desc=Throwing this magical scroll into a 3x3 well of mossy cobblestone will turn it into a wishing well. The scroll is destroyed in the process
 item.spellbundle:spectral_lock.name=Spectral Lock
 
 tile.spellbundle:display.ice_chest.name=Ice Chest
-tile.spellbundle.display.ice_chest.name=Ice Chest
+tile.spellbundle:display.ice_chest_lockable.name=Lockable Ice Chest
 tile.spellbundle:ice_chest.name=Ice Chest
 
 # Quark mod
