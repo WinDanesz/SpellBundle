@@ -16,4 +16,3 @@ public class SummonMimicDummy extends SpellDynamicMinion<EntityZombie> {
 	protected String getDescriptionTranslationKey() { return Treasure2Integration.getInstance().getMissingSpellDesc(); }
 
 }
-}
