@@ -4,6 +4,7 @@ import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
 import com.windanesz.spellbundle.registry.SBPotions;
+import com.windanesz.spellbundle.spell.quark.AshenSoul;
 import com.windanesz.spellbundle.spell.quark.Colorize;
 import com.windanesz.spellbundle.spell.quark.CurseOfEvil;
 import com.windanesz.spellbundle.spell.quark.CurseOfHaunting;
@@ -13,7 +14,9 @@ import electroblob.wizardry.potion.Curse;
 import electroblob.wizardry.spell.Spell;
 import electroblob.wizardry.util.BlockUtils;
 import electroblob.wizardry.util.EntityUtils;
+import electroblob.wizardry.util.SpellModifiers;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -21,6 +24,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import vazkii.quark.world.entity.EntityFoxhound;
 import vazkii.quark.world.entity.EntityWraith;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class QuarkObjects {
@@ -66,9 +70,22 @@ public class QuarkObjects {
 
 		// these had to be moved because of the class reference
 		registry.register(instance.addSpell(new CurseOfHaunting()));
-		registry.register(instance.addSpell(new SpellDynamicMinion<>(SpellBundle.MODID, "conjure_foxhound", EntityFoxhound::new)));
+		registry.register(instance.addSpell(new SpellDynamicMinion<EntityFoxhound>(SpellBundle.MODID, "conjure_foxhound", EntityFoxhound::new) {
+			@Override
+			protected void addMinionExtras(EntityFoxhound minion, BlockPos pos,
+					@Nullable EntityLivingBase caster, SpellModifiers modifiers, int alreadySpawned) {
+				if (caster instanceof EntityPlayer) {
+					minion.setTamed(true);
+					minion.setTamedBy((EntityPlayer) caster);
+					minion.setOwnerId(caster.getUniqueID());
+				}
+
+				super.addMinionExtras(minion, pos, caster, modifiers, alreadySpawned);
+			}
+		}));
 		registry.register(instance.addSpell(new SpellDynamicMinion<>(SpellBundle.MODID, "conjure_wraith", EntityWraith::new)));
 		registry.register(instance.addSpell(new CurseOfEvil()));
 		registry.register(instance.addSpell(new Colorize()));
+		registry.register(instance.addSpell(new AshenSoul()));
 	}
 }
