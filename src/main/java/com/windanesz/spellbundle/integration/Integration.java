@@ -1,5 +1,6 @@
 package com.windanesz.spellbundle.integration;
 
+import com.windanesz.spellbundle.registry.SBLoot;
 import electroblob.wizardry.item.ItemArtefact;
 import electroblob.wizardry.spell.Spell;
 import net.minecraft.item.Item;

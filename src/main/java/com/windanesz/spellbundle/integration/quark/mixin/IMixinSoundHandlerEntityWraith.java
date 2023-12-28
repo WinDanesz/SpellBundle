@@ -15,6 +15,7 @@ public interface IMixinSoundHandlerEntityWraith
 	@Accessor("HURT_SOUND")
 	public DataParameter<String> getHurtSound();
 
+
 	@Accessor("DEATH_SOUND")
 	public DataParameter<String> getDeathSound();
 }

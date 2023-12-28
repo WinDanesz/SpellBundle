@@ -1,8 +1,8 @@
 package com.windanesz.spellbundle.spell.treasure2;
 
 import com.windanesz.spellbundle.SpellBundle;
-import com.windanesz.spellbundle.spell.SpellDynamicMinion;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
+import com.windanesz.spellbundle.spell.SpellDynamicMinion;
 import net.minecraft.entity.monster.EntityZombie;
 
 public class SummonMimicDummy extends SpellDynamicMinion<EntityZombie> {
