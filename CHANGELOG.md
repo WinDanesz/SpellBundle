@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.5.7] - 2023-12-29
+### :sparkles: New Features
+- [`02304f9`](https://github.com/WinDanesz/SpellBundle/commit/02304f9c55881a664e3691eb579d400fc1037819) - Added Ashen Soul (Quark) spell *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`10a60dd`](https://github.com/WinDanesz/SpellBundle/commit/10a60dd396da4699f08e0e143dac3a05db0d24aa) - Added Spirit Guide charm (for Ashen Soul (Quark) spell) *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+### :bug: Bug Fixes
+- [`30a0b24`](https://github.com/WinDanesz/SpellBundle/commit/30a0b24b74c9b5b0d5f51785dfb85a6fe4e278b7) - Fixed frozen lock for good. Fixes [#10](https://github.com/WinDanesz/SpellBundle/pull/10) *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`47d8973`](https://github.com/WinDanesz/SpellBundle/commit/47d8973335c3cd5cde48fcf8e10573e921ffcd11) - Summoned Foxhounds now follow their owner. Lowered Summon Foxhound spell tier Advanced->Apprentice *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+
 ## [v1.5.6] - 2023-12-20
 ### :bug: Bug Fixes
 - [`c3d420e`](https://github.com/WinDanesz/SpellBundle/commit/c3d420ecaf3471ae0f841aeba9b31364b7ff2cbf) - Fixed Ice Chest locking with Frozen Lock. Fixes [#8](https://github.com/WinDanesz/SpellBundle/pull/8) *(commit by [@WinDanesz](https://github.com/WinDanesz))*
@@ -47,3 +57,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v1.1.3]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.2...v1.1.3
 [v1.1.4]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.3...v1.1.4
 [v1.5.6]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.5...v1.5.6
+[v1.5.7]: https://github.com/WinDanesz/SpellBundle/compare/v1.5.6...v1.5.7
