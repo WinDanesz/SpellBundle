@@ -1,6 +1,8 @@
 package com.windanesz.spellbundle.spell.quark;
 
 import com.windanesz.spellbundle.SpellBundle;
+import com.windanesz.spellbundle.registry.SBItems;
+import electroblob.wizardry.item.ItemArtefact;
 import electroblob.wizardry.item.SpellActions;
 import electroblob.wizardry.spell.Spell;
 import electroblob.wizardry.util.SpellModifiers;
@@ -27,12 +29,16 @@ public class AshenSoul extends Spell {
 	@Override
 	public boolean cast(World world, EntityPlayer caster, EnumHand hand, int ticksInUse, SpellModifiers modifiers) {
 		if(!world.isRemote) {
+			boolean hasArtefact = ItemArtefact.isArtefactActive(caster, SBItems.charm_spirit_guide);
 
-			if (caster.world.provider.getDimensionType() != DimensionType.NETHER) {
+			if (caster.world.provider.getDimensionType() != DimensionType.NETHER && !hasArtefact) {
 				WizardryUtilsTools.sendMessage(caster, "spell.spellbundle:ashen_soul.wrong_dimension", true);
 				return false;
 			}
-			BlockPos blockpos = caster.getEntityWorld().findNearestStructure("Fortress", caster.getPosition(), false);
+
+			BlockPos blockpos = hasArtefact ?
+					caster.getEntityWorld().findNearestStructure("Temple", caster.getPosition(), false) :
+					caster.getEntityWorld().findNearestStructure("Fortress", caster.getPosition(), false);
 
 			if(blockpos != null) {
 				EntitySoulPowder entity = new EntitySoulPowder(world, blockpos.getX(), blockpos.getZ());

@@ -89,10 +89,12 @@ spell.spellbundle:ashen_soul.wrong_dimension=This spell only works in the Nether
 potion.spellbundle:curse_of_haunting=Curse of Haunting
 item.spellbundle:ring_wraith.name=Avenging Soul Ring
 item.spellbundle:ring_wraith.desc=Slain entities have 30%% chance to raise as a temporary wraith minion
+item.spellbundle:charm_spirit_guide.name=Spirit Guide
+item.spellbundle:charm_spirit_guide.desc=Souls summoned using the Ashen Soul spell fly towards the closest desert or jungle temple
 
 # Quality Tools mod
 item.spellbundle:reforging_scroll.name=Scroll of Reforging
-item.spellbundle:reforging_scroll.desc=Reforges the item held in the other hand into a random good quality. Hold the item in your other hand to reforge it
+item.spellbundle:reforging_scroll.desc=Reforges the item held in the other hand into a random good quality. Hold the item in your other hand to reforge it and use the scroll for 3 seconds
 item.spellbundle:reforging_scroll.interrupted=Reforging interrupted
 item.spellbundle:reforging_scroll.needs_offhand_item=You must hold an item in your offhand that can be reforged
 item.spellbundle:amulet_reforging.name=Amulet of Reforging

@@ -44,6 +44,7 @@ public final class SBItems {
 
 	// Quark
 	public static final Item ring_wraith = placeholder();
+	public static final Item charm_spirit_guide = placeholder();
 
 	// Quality Tools
 	public static final Item reforging_scroll = placeholder();
@@ -75,6 +76,7 @@ public final class SBItems {
 		}
 
 		registerItem(registry, "ring_wraith", new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.RING, QuarkIntegration.getInstance()), QuarkIntegration.getInstance());
+		registerItem(registry, "charm_spirit_guide", new ItemArtefactSB(EnumRarity.RARE, ItemArtefact.Type.CHARM, QuarkIntegration.getInstance()), QuarkIntegration.getInstance());
 
 		// Treasure2! Mod
 		registerItem(registry, "amulet_reforging", new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.AMULET, QTIntegration.getInstance()), QTIntegration.getInstance());
