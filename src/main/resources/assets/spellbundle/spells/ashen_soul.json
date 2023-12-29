@@ -1,0 +1,21 @@
+{
+    "enabled": {
+        "book": true,
+        "scroll": true,
+        "wands": true,
+        "npcs": false,
+        "dispensers": true,
+        "commands": true,
+        "treasure": true,
+        "trades": true,
+        "looting": true
+    },
+    "tier": "advanced",
+    "element": "fire",
+    "type": "utility",
+    "cost": 100,
+    "chargeup": 40,
+    "cooldown": 80,
+    "base_properties": {
+    }
+}

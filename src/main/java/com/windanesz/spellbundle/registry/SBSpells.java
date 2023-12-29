@@ -14,6 +14,7 @@ import com.windanesz.spellbundle.spell.qualitytools.BlessItem;
 import com.windanesz.spellbundle.spell.qualitytools.BlessItemDummy;
 import com.windanesz.spellbundle.spell.qualitytools.WeakenEquipment;
 import com.windanesz.spellbundle.spell.qualitytools.WeakenEquipmentDummy;
+import com.windanesz.spellbundle.spell.quark.AshenSoulDummy;
 import com.windanesz.spellbundle.spell.quark.ColorizeDummy;
 import com.windanesz.spellbundle.spell.quark.ConjureFoxhoundDummy;
 import com.windanesz.spellbundle.spell.quark.ConjureWraithDummy;
@@ -135,6 +136,7 @@ public final class SBSpells {
 				registry.register(instance.addSpell(new ConjureWraithDummy()));
 				registry.register(instance.addSpell(new CurseOfEvilDummy()));
 				registry.register(instance.addSpell(new ColorizeDummy()));
+				registry.register(instance.addSpell(new AshenSoulDummy()));
 			}
 		}
 		// Quality Tools mod spells
