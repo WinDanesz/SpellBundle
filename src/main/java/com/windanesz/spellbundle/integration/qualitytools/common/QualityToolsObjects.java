@@ -8,7 +8,7 @@ import net.minecraftforge.event.RegistryEvent;
 public class QualityToolsObjects {
 
 	public static void registerItems(RegistryEvent.Register<Item> event) {
-		ItemRegistry.registerItem(event.getRegistry(), SpellBundle.MODID, "reforging_scroll", new ItemReforgingScroll());
+		ItemRegistry.registerItem(event.getRegistry(), "reforging_scroll", SpellBundle.MODID, new ItemReforgingScroll());
 	}
 
 }
