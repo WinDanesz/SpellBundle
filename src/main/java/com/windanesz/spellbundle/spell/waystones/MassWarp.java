@@ -69,6 +69,8 @@ public class MassWarp extends Warp {
 
 	@Override
 	protected void spawnParticleRay(World world, Vec3d origin, Vec3d direction, @Nullable EntityLivingBase caster, double distance) {
+		ParticleBuilder.create(ParticleBuilder.Type.DUST).clr(0xe24bfd).vel(0, 0.1, 0).fade(1f, 1f, 1f).spin(2f, 0.015f).time(40).entity(caster).scale(1.2f).spawn(world);
+		ParticleBuilder.create(ParticleBuilder.Type.DUST).clr(0xe24bfd).vel(0, 0.1, 0).fade(1f, 1f, 1f).spin(2f, -0.015f).time(40).entity(caster).scale(1.2f).spawn(world);
 		if (caster != null) {
 			ParticleBuilder.create(ParticleBuilder.Type.SPARKLE)
 					.clr(0xe24bfd)
