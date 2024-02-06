@@ -6,6 +6,7 @@ import com.windanesz.spellbundle.command.CommandRecallAlly;
 import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.baubles.BaublesIntegration;
 import com.windanesz.spellbundle.integration.pointer.PointerIntegration;
+import com.windanesz.spellbundle.integration.portalgun.PortalGunIntegration;
 import com.windanesz.spellbundle.integration.qualitytools.QTIntegration;
 import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
@@ -55,6 +56,7 @@ public class SpellBundle {
 		PointerIntegration.getInstance().init();
 		QuarkIntegration.getInstance().init();
 		QTIntegration.getInstance().init();
+		PortalGunIntegration.getInstance().init();
 
 		proxy.registerRenderers();
 

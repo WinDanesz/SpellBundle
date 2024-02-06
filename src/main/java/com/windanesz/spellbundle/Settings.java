@@ -73,9 +73,14 @@ public class Settings {
 		public boolean quark_integration = true;
 
 		@Config.Name("Quality Tools mod integration")
-		@Config.Comment("Enables or disables the Quality Tools mod")
+		@Config.Comment("Enables or disables the Quality Tools integration")
 		@Config.RequiresMcRestart
 		public boolean qualitytools_integration = true;
+
+		@Config.Name("PortalGun mod integration")
+		@Config.Comment("Enables or disables the Portalgun integration")
+		@Config.RequiresMcRestart
+		public boolean portalgun_integration = true;
 
 		@Config.Name("Pointer integration")
 		@Config.Comment("Enables or disables the Pointer mod integration")
@@ -86,6 +91,11 @@ public class Settings {
 		@Config.Comment("Set to true to remove the pointer item's recipe from the game")
 		@Config.RequiresMcRestart
 		public boolean remove_pointer_item = true;
+
+		@Config.Name("PortalGun integration - remove item recipes")
+		@Config.Comment("Set to true to remove the PortalGun mod's item recipes from the game")
+		@Config.RequiresMcRestart
+		public boolean remove_portalgun_recipes = true;
 	}
 
 	@Config.Name("Spell Tweaks Settings")

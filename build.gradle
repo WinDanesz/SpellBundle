@@ -67,7 +67,8 @@ minecraft {
 
     def args = ["-Dmixin.debug.export=true",
                 '-Dmixin.hotSwap=true',
-                '-Dmixin.checks.interfaces=true']
+                '-Dmixin.checks.interfaces=true',
+                '--username', 'WinDanesz', '--user', 'WinDanesz', '--uuid', '7faee354-8c60-4f5c-9862-fc0ce5f7f575']
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -157,6 +158,9 @@ dependencies {
     implementation fg.deobf("curse.maven:Pointer-${pointer_projectid}:${pointer_fileid}")
     implementation fg.deobf("curse.maven:MixinBooter-${mixinbooter_projectid}:${mixinbooter_fileid}")
     implementation fg.deobf("curse.maven:QualityTools-${qualitytools_projectid}:${qualitytools_fileid}")
+    implementation fg.deobf("curse.maven:iChunUtil-${ichunutil_projectid}:${ichunutil_fileid}")
+    implementation fg.deobf("curse.maven:PortalGun-${portalgunmod_projectid}:${portalgunmod_fileid}")
+    implementation fg.deobf("curse.maven:BiomesOPlenty-1.12.2-7.0.1.2445-${bop_projectid}:${bop_fileid}")
 //  3558882
     //// Content Mods
 

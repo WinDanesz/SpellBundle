@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "normal":  { "model": "spellbundle:portalholder" },
+        "facing=east,upper=true":  { "model": "spellbundle:portalholder" },
+        "facing=south,upper=true": { "model": "spellbundle:portalholder" },
+        "facing=west,upper=true":  { "model": "spellbundle:portalholder" },
+        "facing=north,upper=true": { "model": "spellbundle:portalholder" },
+        "facing=east,upper=false":  { "model": "spellbundle:portalholder" },
+        "facing=south,upper=false": { "model": "spellbundle:portalholder" },
+        "facing=west,upper=false":  { "model": "spellbundle:portalholder" },
+        "facing=north,upper=false": { "model": "spellbundle:portalholder"}
+    }
+}

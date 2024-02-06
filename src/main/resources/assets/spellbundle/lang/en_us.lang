@@ -119,3 +119,10 @@ spell.spellbundle:arcane_reach.desc=Allows accessing objects from afar. Cast on 
 spell.spellbundle:arcane_reach.stored_location=Stored this location
 spell.spellbundle:arcane_reach.stored_location_removed=Forgot the last location
 spell.spellbundle:arcane_reach.no_stored_location=Cast on a block first to store its location
+
+# Portal Gun mod
+spell.spellbundle:portalgun_missing=This spell is disabled because you don't have the PortalGun mod installed!
+spell.spellbundle:twin_portals=Twin Portals
+spell.spellbundle:twin_portals.desc=Casts a portal in the air or in a solid surface. Sneak-cast to cast the other half of the portal.
+item.spellbundle:charm_portals.name=Echo Staff
+item.spellbundle:charm_portals.desc=Shoots a magical projectile that creates a portal. Sneak-cast to cast the other half of the portal

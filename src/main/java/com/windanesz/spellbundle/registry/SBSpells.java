@@ -3,6 +3,7 @@ package com.windanesz.spellbundle.registry;
 import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.pointer.PointerIntegration;
+import com.windanesz.spellbundle.integration.portalgun.PortalGunIntegration;
 import com.windanesz.spellbundle.integration.qualitytools.QTIntegration;
 import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
 import com.windanesz.spellbundle.integration.quark.common.QuarkObjects;
@@ -10,6 +11,8 @@ import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
 import com.windanesz.spellbundle.spell.pointer.ArcaneReach;
 import com.windanesz.spellbundle.spell.pointer.ArcaneReachDummy;
+import com.windanesz.spellbundle.spell.portalgun.TwinPortals;
+import com.windanesz.spellbundle.spell.portalgun.TwinPortalsDummy;
 import com.windanesz.spellbundle.spell.qualitytools.BlessItem;
 import com.windanesz.spellbundle.spell.qualitytools.BlessItemDummy;
 import com.windanesz.spellbundle.spell.qualitytools.WeakenEquipment;
@@ -67,6 +70,9 @@ public final class SBSpells {
 	// Quality Tools
 	public static final Spell bless_item = placeholder();
 	public static final Spell weaken_equipment = placeholder();
+
+	// PortalGun mod
+	public static final Spell twin_portals = placeholder();
 
 	private SBSpells() {} // no instances
 
@@ -148,6 +154,16 @@ public final class SBSpells {
 			} else {
 				registry.register(instance.addSpell(new BlessItemDummy()));
 				registry.register(instance.addSpell(new WeakenEquipmentDummy()));
+			}
+		}
+
+		// PortalGun mod spells
+		{
+			Integration instance = PortalGunIntegration.getInstance();
+			if (instance.isEnabled()) {
+				registry.register(instance.addSpell(new TwinPortals()));
+			} else {
+				registry.register(instance.addSpell(new TwinPortalsDummy()));
 			}
 		}
 	}

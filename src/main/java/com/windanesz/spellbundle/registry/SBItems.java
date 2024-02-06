@@ -2,6 +2,7 @@ package com.windanesz.spellbundle.registry;
 
 import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.Integration;
+import com.windanesz.spellbundle.integration.portalgun.PortalGunIntegration;
 import com.windanesz.spellbundle.integration.qualitytools.QTIntegration;
 import com.windanesz.spellbundle.integration.qualitytools.common.QualityToolsObjects;
 import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
@@ -11,6 +12,7 @@ import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
 import com.windanesz.spellbundle.integration.waystones.common.WaystonesObjects;
 import com.windanesz.spellbundle.item.ItemArtefactSB;
 import com.windanesz.spellbundle.item.ItemCharmWishingWell;
+import com.windanesz.spellbundle.item.ItemPortalWand;
 import electroblob.wizardry.item.ItemArtefact;
 import electroblob.wizardry.registry.WizardryTabs;
 import net.minecraft.block.Block;
@@ -65,12 +67,12 @@ public final class SBItems {
 		registerItem(registry, "charm_frozen_lock", new ItemArtefactSB(EnumRarity.RARE, ItemArtefact.Type.CHARM, Treasure2Integration.getInstance()), Treasure2Integration.getInstance());
 		registerItem(registry, "charm_wishing_well", new ItemCharmWishingWell(EnumRarity.UNCOMMON, ItemArtefact.Type.CHARM, Treasure2Integration.getInstance()), Treasure2Integration.getInstance());
 
-		// Optional items
+		// Treasure2 Optional items
 		if (Treasure2Integration.getInstance().isEnabled()) {
 			Treasure2Objects.registerItems(event);
 		}
 
-		// Optional items
+		// Waystones Optional items
 		if (WaystonesIntegration.getInstance().isEnabled()) {
 			WaystonesObjects.registerItems(event);
 		}
@@ -82,10 +84,13 @@ public final class SBItems {
 		registerItem(registry, "amulet_reforging", new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.AMULET, QTIntegration.getInstance()), QTIntegration.getInstance());
 		registerItem(registry, "charm_spectral_hammer", new ItemCharmWishingWell(EnumRarity.RARE, ItemArtefact.Type.CHARM, QTIntegration.getInstance()), QTIntegration.getInstance());
 
-		// Optional items
+		// QualityTools Optional items
 		if (QTIntegration.getInstance().isEnabled()) {
 			QualityToolsObjects.registerItems(event);
 		}
+
+		// PortalGun mod items
+		registerItem(registry, "charm_portals", new ItemPortalWand(EnumRarity.EPIC, ItemArtefact.Type.CHARM, PortalGunIntegration.getInstance()), PortalGunIntegration.getInstance());
 	}
 
 	@Nonnull

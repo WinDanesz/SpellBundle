@@ -1,6 +1,8 @@
 package com.windanesz.spellbundle.registry;
 
 import com.windanesz.spellbundle.SpellBundle;
+import com.windanesz.spellbundle.integration.portalgun.PortalGunIntegration;
+import com.windanesz.spellbundle.integration.portalgun.common.PortalGunObjects;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.treasure2.common.Treasure2Objects;
 import net.minecraft.block.Block;
@@ -17,6 +19,7 @@ import javax.annotation.Nonnull;
 public class SBBlocks {
 
 	public static final Block ice_chest = placeholder();
+	public static final Block portalholder = placeholder();
 
 	private SBBlocks() {} // no instances
 
@@ -37,12 +40,18 @@ public class SBBlocks {
 		if (Treasure2Integration.getInstance().isEnabled()) {
 			Treasure2Objects.registerBlocks(registry);
 		}
+		if (PortalGunIntegration.getInstance().isEnabled()) {
+			PortalGunObjects.registerBlocks(registry);
+		}
 	}
 
 	/** Called from the preInit method in the main mod class to register all the tile entities. */
 	public static void registerTileEntities(){
 		if (Treasure2Integration.getInstance().isEnabled()) {
 			Treasure2Objects.registerTileEntities();
+		}
+		if (PortalGunIntegration.getInstance().isEnabled()) {
+			PortalGunObjects.registerTileEntities();
 		}
 	}
 
