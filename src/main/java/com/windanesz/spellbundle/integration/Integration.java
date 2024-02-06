@@ -42,12 +42,14 @@ public abstract class Integration {
 
 	/**
 	 * List used to track which spells belong to this supported mod. Used for spell disabling in postInit in {@link Integration#setDisables()}.
+	 *
 	 * @return The list of this integration's spells.
 	 */
 	public abstract List<Spell> getSpells();
 
 	/**
 	 * Adds a spell to this integration's list of spells.
+	 *
 	 * @param spell spell to add.
 	 * @return the passed in spell for method chaining.
 	 */
@@ -63,5 +65,7 @@ public abstract class Integration {
 
 	public abstract void addArtefact(Item item);
 
-	public abstract String getMissingSpellDesc();
+	public String getMissingSpellDesc() {
+		return "spell.spellbundle:" + getModid() + "_missing";
+	}
 }

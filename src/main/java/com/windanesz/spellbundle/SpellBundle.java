@@ -5,6 +5,7 @@ import com.windanesz.spellbundle.client.SBGuiHandler;
 import com.windanesz.spellbundle.command.CommandRecallAlly;
 import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.baubles.BaublesIntegration;
+import com.windanesz.spellbundle.integration.biomesoplenty.BiomesOPlentyIntegration;
 import com.windanesz.spellbundle.integration.pointer.PointerIntegration;
 import com.windanesz.spellbundle.integration.portalgun.PortalGunIntegration;
 import com.windanesz.spellbundle.integration.qualitytools.QTIntegration;
@@ -57,6 +58,7 @@ public class SpellBundle {
 		QuarkIntegration.getInstance().init();
 		QTIntegration.getInstance().init();
 		PortalGunIntegration.getInstance().init();
+		BiomesOPlentyIntegration.getInstance().init();
 
 		proxy.registerRenderers();
 

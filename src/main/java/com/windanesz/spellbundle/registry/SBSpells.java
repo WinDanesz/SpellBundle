@@ -2,6 +2,8 @@ package com.windanesz.spellbundle.registry;
 
 import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.Integration;
+import com.windanesz.spellbundle.integration.biomesoplenty.BiomesOPlentyIntegration;
+import com.windanesz.spellbundle.integration.biomesoplenty.common.EntityWaspMinion;
 import com.windanesz.spellbundle.integration.pointer.PointerIntegration;
 import com.windanesz.spellbundle.integration.portalgun.PortalGunIntegration;
 import com.windanesz.spellbundle.integration.qualitytools.QTIntegration;
@@ -9,6 +11,7 @@ import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
 import com.windanesz.spellbundle.integration.quark.common.QuarkObjects;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
+import com.windanesz.spellbundle.spell.biomesoplenty.WaspSwarmDummy;
 import com.windanesz.spellbundle.spell.pointer.ArcaneReach;
 import com.windanesz.spellbundle.spell.pointer.ArcaneReachDummy;
 import com.windanesz.spellbundle.spell.portalgun.TwinPortals;
@@ -40,6 +43,7 @@ import com.windanesz.spellbundle.spell.waystones.SummonAllyDummny;
 import com.windanesz.spellbundle.spell.waystones.Warp;
 import com.windanesz.spellbundle.spell.waystones.WarpDummy;
 import electroblob.wizardry.spell.Spell;
+import electroblob.wizardry.spell.SpellMinion;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -164,6 +168,16 @@ public final class SBSpells {
 				registry.register(instance.addSpell(new TwinPortals()));
 			} else {
 				registry.register(instance.addSpell(new TwinPortalsDummy()));
+			}
+		}
+
+		// Biomes O' Plenty  spells
+		{
+			Integration instance = BiomesOPlentyIntegration.getInstance();
+			if (instance.isEnabled()) {
+				registry.register(instance.addSpell(new SpellMinion<>(SpellBundle.MODID, "wasp_swarm", EntityWaspMinion::new)));
+			} else {
+				registry.register(instance.addSpell(new WaspSwarmDummy()));
 			}
 		}
 	}

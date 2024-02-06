@@ -1,6 +1,8 @@
 package com.windanesz.spellbundle.client;
 
 import com.windanesz.spellbundle.CommonProxy;
+import com.windanesz.spellbundle.integration.biomesoplenty.BiomesOPlentyIntegration;
+import com.windanesz.spellbundle.integration.biomesoplenty.client.BoPClientObjects;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.treasure2.client.Treasure2ClientObjects;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
@@ -22,6 +24,9 @@ public class ClientProxy extends CommonProxy {
 
 		if (Treasure2Integration.getInstance().isEnabled()) {
 			Treasure2ClientObjects.registerRenderers();
+		}
+		if (BiomesOPlentyIntegration.getInstance().isEnabled()) {
+			BoPClientObjects.registerRenderers();
 		}
 	}
 

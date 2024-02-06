@@ -92,8 +92,4 @@ public class PointerIntegration extends Integration {
 	private void initCustom() {
 
 	}
-
-	@Override
-	public String getMissingSpellDesc() { return "spell.spellbundle:pointer_missing";	}
-
 }

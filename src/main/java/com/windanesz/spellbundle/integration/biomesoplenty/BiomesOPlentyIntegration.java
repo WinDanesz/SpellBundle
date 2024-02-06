@@ -1,8 +1,8 @@
-package com.windanesz.spellbundle.integration.quark;
+package com.windanesz.spellbundle.integration.biomesoplenty;
 
 import com.windanesz.spellbundle.Settings;
 import com.windanesz.spellbundle.integration.Integration;
-import com.windanesz.spellbundle.integration.quark.common.QuarkEventHandler;
+import com.windanesz.spellbundle.integration.qualitytools.common.QualityToolsEventHandler;
 import com.windanesz.spellbundle.registry.SBLoot;
 import electroblob.wizardry.spell.Spell;
 import net.minecraft.item.Item;
@@ -12,25 +12,25 @@ import net.minecraftforge.fml.common.Loader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuarkIntegration extends Integration {
+public class BiomesOPlentyIntegration extends Integration {
 
 	// singleton instance
-	private static final QuarkIntegration instance = new QuarkIntegration();
-	private static final String modId = "quark";
+	private static final BiomesOPlentyIntegration instance = new BiomesOPlentyIntegration();
+	private static final String modId = "biomesoplenty";
 
 	private static final List<Spell> SPELL_LIST = new ArrayList<>();
 	private static final List<Item> ARTEFACT_LIST = new ArrayList<>();
 
 	private boolean isLoaded;
 
-	private QuarkIntegration() {}
+	private BiomesOPlentyIntegration() {}
 
-	public static Integration getInstance() { return instance; }
+	public static Integration getInstance() {return instance;}
 
 	/************* overrides *************/
 
 	@Override
-	public String getModid() { return modId; }
+	public String getModid() {return modId;}
 
 	@Override
 	public void init() {
@@ -39,7 +39,7 @@ public class QuarkIntegration extends Integration {
 
 		isLoaded = Loader.isModLoaded(getModid());
 
-		if (!isEnabled()) { return; }
+		if (!isEnabled()) {return;}
 
 		// init stuff
 		initCustom();
@@ -48,7 +48,7 @@ public class QuarkIntegration extends Integration {
 
 	@Override
 	public boolean isEnabled() {
-		return Settings.generalSettings.quark_integration && isLoaded;
+		return Settings.generalSettings.portalgun_integration && isLoaded;
 	}
 
 	/**
@@ -92,6 +92,6 @@ public class QuarkIntegration extends Integration {
 	}
 
 	private void initCustom() {
-		MinecraftForge.EVENT_BUS.register(QuarkEventHandler.INSTANCE);
+		MinecraftForge.EVENT_BUS.register(QualityToolsEventHandler.INSTANCE);
 	}
 }

@@ -1,6 +1,8 @@
 package com.windanesz.spellbundle.registry;
 
 import com.windanesz.spellbundle.SpellBundle;
+import com.windanesz.spellbundle.integration.biomesoplenty.BiomesOPlentyIntegration;
+import com.windanesz.spellbundle.integration.biomesoplenty.common.BoPObjects;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -8,7 +10,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
-import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod.EventBusSubscriber
 public class SBEntities {
@@ -19,7 +20,7 @@ public class SBEntities {
 	 * Most entity trackers fall into one of a few categories, so they are defined here for convenience. This
 	 * generally follows the values used in vanilla for each entity type.
 	 */
-	enum TrackingType {
+	public enum TrackingType {
 
 		LIVING(80, 3, true),
 		PROJECTILE(64, 1, true),
@@ -44,7 +45,10 @@ public class SBEntities {
 	@SubscribeEvent
 	public static void register(RegistryEvent.Register<EntityEntry> event) {
 
-		IForgeRegistry<EntityEntry> registry = event.getRegistry();
+		if (BiomesOPlentyIntegration.getInstance().isEnabled()) {
+			BoPObjects.registerEntities(event);
+
+		}
 
 	}
 
@@ -59,7 +63,7 @@ public class SBEntities {
 	 * @param <T>         The type of entity.
 	 * @return The (part-built) builder instance, allowing other builder methods to be added as necessary.
 	 */
-	private static <T extends Entity> EntityEntryBuilder<T> createEntry(Class<T> entityClass, String name, TrackingType tracking) {
+	public static <T extends Entity> EntityEntryBuilder<T> createEntry(Class<T> entityClass, String name, TrackingType tracking) {
 		return createEntry(entityClass, name).tracker(tracking.range, tracking.interval, tracking.trackVelocity);
 	}
 

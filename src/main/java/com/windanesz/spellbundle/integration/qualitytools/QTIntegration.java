@@ -94,8 +94,4 @@ public class QTIntegration extends Integration {
 	private void initCustom() {
 		MinecraftForge.EVENT_BUS.register(QualityToolsEventHandler.INSTANCE);
 	}
-
-	@Override
-	public String getMissingSpellDesc() {return "spell.spellbundle:qualitytools_missing";}
-
 }

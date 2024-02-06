@@ -25,5 +25,14 @@ public class SBRecipes {
 				registry.remove(new ResourceLocation("pointer:pointer"));
 			}
 		}
+
+		if (PointerIntegration.getInstance().isEnabled() && Settings.generalSettings.remove_portalgun_recipes) {
+			if (registry.getValue(new ResourceLocation("portalgun:portalgun")) != null) {
+				registry.remove(new ResourceLocation("portalgun:portalgun"));
+			}
+			if (registry.getValue(new ResourceLocation("portalgun:miniature_black_hole")) != null) {
+				registry.remove(new ResourceLocation("portalgun:miniature_black_hole"));
+			}
+		}
 	}
 }
