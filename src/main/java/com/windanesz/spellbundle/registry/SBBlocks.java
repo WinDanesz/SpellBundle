@@ -1,11 +1,19 @@
 package com.windanesz.spellbundle.registry;
 
 import com.windanesz.spellbundle.SpellBundle;
+import com.windanesz.spellbundle.integration.biomesoplenty.BiomesOPlentyIntegration;
+import com.windanesz.spellbundle.integration.biomesoplenty.common.BoPObjects;
 import com.windanesz.spellbundle.integration.portalgun.PortalGunIntegration;
 import com.windanesz.spellbundle.integration.portalgun.common.PortalGunObjects;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.treasure2.common.Treasure2Objects;
+import electroblob.wizardry.registry.WizardryItems;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -20,6 +28,7 @@ public class SBBlocks {
 
 	public static final Block ice_chest = placeholder();
 	public static final Block portalholder = placeholder();
+	public static final Block conjured_bramble = placeholder();
 
 	private SBBlocks() {} // no instances
 
@@ -42,6 +51,16 @@ public class SBBlocks {
 		}
 		if (PortalGunIntegration.getInstance().isEnabled()) {
 			PortalGunObjects.registerBlocks(registry);
+		}
+		if (BiomesOPlentyIntegration.getInstance().isEnabled()) {
+			BoPObjects.registerBlocks(registry);
+		}
+	}
+
+	@SubscribeEvent
+	public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+		if (BiomesOPlentyIntegration.getInstance().isEnabled()) {
+			BoPObjects.registerSmeltingRecipes(event);
 		}
 	}
 

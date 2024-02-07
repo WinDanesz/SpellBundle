@@ -2,11 +2,10 @@ package com.windanesz.spellbundle.integration.biomesoplenty;
 
 import com.windanesz.spellbundle.Settings;
 import com.windanesz.spellbundle.integration.Integration;
-import com.windanesz.spellbundle.integration.qualitytools.common.QualityToolsEventHandler;
+import com.windanesz.spellbundle.integration.biomesoplenty.common.BoPObjects;
 import com.windanesz.spellbundle.registry.SBLoot;
 import electroblob.wizardry.spell.Spell;
 import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 
 import java.util.ArrayList;
@@ -92,6 +91,7 @@ public class BiomesOPlentyIntegration extends Integration {
 	}
 
 	private void initCustom() {
-		MinecraftForge.EVENT_BUS.register(QualityToolsEventHandler.INSTANCE);
+		BoPObjects.registerTileEntities();
+
 	}
 }

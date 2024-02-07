@@ -11,6 +11,12 @@ import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
 import com.windanesz.spellbundle.integration.quark.common.QuarkObjects;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
+import com.windanesz.spellbundle.spell.biomesoplenty.Briarburst;
+import com.windanesz.spellbundle.spell.biomesoplenty.BriarburstDummy;
+import com.windanesz.spellbundle.spell.biomesoplenty.ConvulsiveCurse;
+import com.windanesz.spellbundle.spell.biomesoplenty.ConvulsiveCurseDummy;
+import com.windanesz.spellbundle.spell.biomesoplenty.HotSpring;
+import com.windanesz.spellbundle.spell.biomesoplenty.HotSpringDummy;
 import com.windanesz.spellbundle.spell.biomesoplenty.WaspSwarmDummy;
 import com.windanesz.spellbundle.spell.pointer.ArcaneReach;
 import com.windanesz.spellbundle.spell.pointer.ArcaneReachDummy;
@@ -77,6 +83,10 @@ public final class SBSpells {
 
 	// PortalGun mod
 	public static final Spell twin_portals = placeholder();
+
+	// BoP
+	public static final Spell wasp_swarm = placeholder();
+	public static final Spell briarburst = placeholder();
 
 	private SBSpells() {} // no instances
 
@@ -176,8 +186,14 @@ public final class SBSpells {
 			Integration instance = BiomesOPlentyIntegration.getInstance();
 			if (instance.isEnabled()) {
 				registry.register(instance.addSpell(new SpellMinion<>(SpellBundle.MODID, "wasp_swarm", EntityWaspMinion::new)));
+				registry.register(instance.addSpell(new Briarburst()));
+				registry.register(instance.addSpell(new HotSpring()));
+				registry.register(instance.addSpell(new ConvulsiveCurse()));
 			} else {
 				registry.register(instance.addSpell(new WaspSwarmDummy()));
+				registry.register(instance.addSpell(new BriarburstDummy()));
+				registry.register(instance.addSpell(new ConvulsiveCurseDummy()));
+				registry.register(instance.addSpell(new HotSpringDummy()));
 			}
 		}
 	}

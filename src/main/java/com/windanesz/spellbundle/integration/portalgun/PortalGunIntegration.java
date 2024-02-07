@@ -2,11 +2,9 @@ package com.windanesz.spellbundle.integration.portalgun;
 
 import com.windanesz.spellbundle.Settings;
 import com.windanesz.spellbundle.integration.Integration;
-import com.windanesz.spellbundle.integration.qualitytools.common.QualityToolsEventHandler;
 import com.windanesz.spellbundle.registry.SBLoot;
 import electroblob.wizardry.spell.Spell;
 import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 
 import java.util.ArrayList;
@@ -40,10 +38,6 @@ public class PortalGunIntegration extends Integration {
 		isLoaded = Loader.isModLoaded(getModid());
 
 		if (!isEnabled()) {return;}
-
-		// init stuff
-		initCustom();
-
 	}
 
 	@Override
@@ -91,7 +85,4 @@ public class PortalGunIntegration extends Integration {
 		ARTEFACT_LIST.add(item);
 	}
 
-	private void initCustom() {
-		MinecraftForge.EVENT_BUS.register(QualityToolsEventHandler.INSTANCE);
-	}
 }

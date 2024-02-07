@@ -57,6 +57,11 @@ public class Settings {
 		@Config.RequiresMcRestart
 		public boolean waystones_integration = true;
 
+		@Config.Name("BiomesOPlenty Hot Spring Water Tweak")
+		@Config.Comment("This nerfs the Hot Spring Water, now it grants a flat 0.5 HP regen for entities, without giving the Regeneration effect.")
+		@Config.RequiresMcRestart
+		public boolean bop_hot_spring_tweak = true;
+
 		@Config.Name("Treasure2 integration")
 		@Config.Comment("Enables or disables the Treasure2 integration")
 		@Config.RequiresMcRestart

@@ -1,0 +1,7 @@
+{
+    "package": "com.windanesz.spellbundle.integration.biomesoplenty.mixin",
+    "refmap": "spellbundle.refmap.json",
+    "minVersion": "0.8",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": ["MixinHotSpringFix"]
+}
