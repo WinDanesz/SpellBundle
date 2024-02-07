@@ -78,62 +78,13 @@ public class ItemPortalWand extends ItemArtefactSB implements IManaStoringItem, 
 	public boolean showTooltip(ItemStack itemStack) {
 		return false;
 	}
-//
-//	@Override
-//	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-//		ItemStack stack = player.getHeldItem(hand);
-//		boolean update = false;
-//		if (getMana(stack) > 100) {
-//			NBTTagCompound nbt = new NBTTagCompound();
-//			if (stack.hasTagCompound()) {
-//				nbt = stack.getTagCompound();
-//			}
-//			//noinspection DataFlowIssue
-//			UUID channelId = (nbt.hasKey("UUID") ? nbt.getCompoundTag("UUID").getUniqueId("UUID") : UUID.randomUUID());
-//			PortalInfo info = (new PortalInfo()).setInfo(channelId.toString(), channelId.toString(), player.isSneaking()).setColour(0x02d991);
-//			player.getEntityWorld().spawnEntity(new EntityPortalProjectile(player.getEntityWorld(), player, 1, 2, info, 25));
-//			EntityHelper.playSoundAtEntity(player, player.isSneaking() ? SoundIndex.pg_wpn_portal_gun_fire_blue : SoundIndex.pg_wpn_portal_gun_fire_red, player.getSoundCategory(), 0.2F, 1.0F + (player.getRNG().nextFloat() - player.getRNG().nextFloat()) * 0.1F);
-//			NBTTagCompound uuid = new NBTTagCompound();
-//			uuid.setUniqueId("UUID", channelId);
-//			nbt.setTag("UUID", uuid);
-//			stack.setTagCompound(nbt);
-//			consumeMana(stack, 100, player);
-//		}
-//
-//		return super.onItemRightClick(world, player, hand);
-//	}
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		return TwinPortals.onItemRightClick(world, player, hand, this);
-//		ItemStack stack = player.getHeldItem(hand);
-//
-//		if (getMana(stack) >= 100) {
-//			UUID channelId = stack.hasTagCompound() ? stack.getTagCompound().getCompoundTag("UUID").getUniqueId("UUID") : UUID.randomUUID();
-//			PortalInfo info = new PortalInfo().setInfo(channelId.toString(), channelId.toString(), player.isSneaking()).setColour(0x02d991);
-//			if (!world.isRemote) {
-//				player.getEntityWorld().spawnEntity(new EntityPortalProjectile(player.getEntityWorld(), player, 1, 2, info, 25));
-//			}
-//		//	EntityHelper.playSoundAtEntity(player, player.isSneaking() ? SoundIndex.pg_wpn_portal_gun_fire_blue : SoundIndex.pg_wpn_portal_gun_fire_red, player.getSoundCategory(), 0.2F, 1.0F + (player.getRNG().nextFloat() - player.getRNG().nextFloat()) * 0.1F);
-//			NBTTagCompound nbt = stack.getTagCompound();
-//			if (nbt == null) {
-//				nbt = new NBTTagCompound();
-//			}
-//
-//			nbt.setTag("UUID", new NBTTagCompound());
-//			nbt.getCompoundTag("UUID").setUniqueId("UUID", channelId);
-//
-//			stack.setTagCompound(nbt);
-//			consumeMana(stack, 100, player);
-//			player.getCooldownTracker().setCooldown(this, 40);
-//			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
-//		}
-//		return super.onItemRightClick(world, player, hand);
 	}
 
 	public int getRGBDurabilityForDisplay(ItemStack stack) {
 		return DrawingUtils.mix(16747518, 9318116, (float)this.getDurabilityForDisplay(stack));
 	}
-
-
 }

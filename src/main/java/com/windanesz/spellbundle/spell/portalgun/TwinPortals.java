@@ -2,10 +2,12 @@ package com.windanesz.spellbundle.spell.portalgun;
 
 import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.portalgun.common.PortalHolderBlock;
+import com.windanesz.spellbundle.integration.portalgun.common.TilePortalHolderBlock;
 import com.windanesz.spellbundle.item.ItemPortalWand;
 import com.windanesz.spellbundle.registry.SBBlocks;
 import electroblob.wizardry.block.BlockReceptacle;
 import electroblob.wizardry.constants.Element;
+import electroblob.wizardry.item.ItemWand;
 import electroblob.wizardry.item.SpellActions;
 import electroblob.wizardry.spell.SpellRay;
 import electroblob.wizardry.util.BlockUtils;
@@ -26,6 +28,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
 
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -45,7 +48,13 @@ public class TwinPortals extends SpellRay {
 	protected boolean onBlockHit(World world, BlockPos pos, EnumFacing side, Vec3d hit, EntityLivingBase caster, Vec3d origin, int ticksInUse, SpellModifiers modifiers) {
 		if (caster != null) {
 			boolean isTypeA = !caster.isSneaking();
-			PortalInfo info = (new PortalInfo()).setInfo(caster.getUniqueID().toString(), caster.getName(), isTypeA).setColour(isTypeA ? BlockReceptacle.PARTICLE_COLOURS.get(Element.FIRE)[0] : BlockReceptacle.PARTICLE_COLOURS.get(Element.FIRE)[0]);
+			int color = BlockReceptacle.PARTICLE_COLOURS.get(Element.MAGIC)[0];
+			if (caster.getHeldItemMainhand().getItem() instanceof ItemWand) {
+				color = BlockReceptacle.PARTICLE_COLOURS.get(((ItemWand) caster.getHeldItemMainhand().getItem()).element)[0];
+			} else if (caster.getHeldItemOffhand().getItem() instanceof ItemWand) {
+				color = BlockReceptacle.PARTICLE_COLOURS.get(((ItemWand) caster.getHeldItemOffhand().getItem()).element)[0];
+			}
+			PortalInfo info = (new PortalInfo()).setInfo(caster.getUniqueID().toString(), caster.getName(), isTypeA).setColour(color);
 
 			EnumFacing lookEF = EnumFacing.getFacingFromVector((float) caster.getLookVec().x, 0.0F, (float) caster.getLookVec().z);
 			if (!world.isRemote && PortalGunHelper.spawnPortal(world, pos, side, lookEF, info, 3, 3, false)) {
@@ -67,9 +76,22 @@ public class TwinPortals extends SpellRay {
 
 			boolean X = caster.getHorizontalFacing() == EnumFacing.NORTH || caster.getHorizontalFacing() == EnumFacing.SOUTH;
 			BlockPos here = new BlockPos(origin.add(direction.scale(3)));
+			Element element = Element.MAGIC;
+			if (caster.getHeldItemMainhand().getItem() instanceof ItemWand) {
+				element = ((ItemWand) caster.getHeldItemMainhand().getItem()).element;
+			} else if (caster.getHeldItemOffhand().getItem() instanceof ItemWand) {
+				element = ((ItemWand) caster.getHeldItemOffhand().getItem()).element;
+			}
+
 			for (BlockPos pos : BlockUtils.getBlockSphere(new BlockPos(here.getX(), here.getY(), here.getZ()), 1.5).stream().filter(p -> X ? p.getZ() == here.getZ() : p.getX() == here.getX()).collect(Collectors.toList())) {
 				if (world.isAirBlock(pos) || BlockUtils.canBlockBeReplaced(world, pos)) {
 					world.setBlockState(pos, SBBlocks.portalholder.getDefaultState().withProperty(PortalHolderBlock.FACING, caster.getHorizontalFacing().getOpposite()));
+					if (world.getTileEntity(pos) instanceof TilePortalHolderBlock) {
+						((TilePortalHolderBlock) world.getTileEntity(pos)).setElement(element);
+						((TilePortalHolderBlock) world.getTileEntity(pos)).markDirty();
+						world.markAndNotifyBlock(pos, (Chunk)null, world.getBlockState(pos), world.getBlockState(pos), 3);
+
+					}
 				}
 			}
 		}
