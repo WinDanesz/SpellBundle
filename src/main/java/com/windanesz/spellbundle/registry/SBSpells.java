@@ -87,6 +87,8 @@ public final class SBSpells {
 	// BoP
 	public static final Spell wasp_swarm = placeholder();
 	public static final Spell briarburst = placeholder();
+	public static final Spell hot_spring = placeholder();
+	public static final Spell convulsive_curse = placeholder();
 
 	private SBSpells() {} // no instances
 
