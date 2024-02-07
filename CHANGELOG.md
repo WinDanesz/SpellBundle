@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.6.0] - 2024-02-07
+### :sparkles: New Features
+- [`3c3b9fa`](https://github.com/WinDanesz/SpellBundle/commit/3c3b9fa96a9d6b694abdc8357fdf990e04b61318) - Improved Mass Warp's visuals a bit *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`a0dde3e`](https://github.com/WinDanesz/SpellBundle/commit/a0dde3e607c3801a82a792ae3ab5d6002988ab42) - Added support for the PortalGun mod! (1 new spell and 1 new artefact) *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`dac8d1d`](https://github.com/WinDanesz/SpellBundle/commit/dac8d1db128c09c054cf5f93b74780137daea6ee) - (Biomes O' Plenty) Added Wasp Swarm spell *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`503d096`](https://github.com/WinDanesz/SpellBundle/commit/503d09641154ebebcbeeb467ad37bc435b29188e) - Added 4 Biomes O' Plenty spells *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+### :bug: Bug Fixes
+- [`20102d2`](https://github.com/WinDanesz/SpellBundle/commit/20102d2a4aa56cbfdef6f8634e0c04c8e7a26012) - Lowered Conjure Foxhound tier to Apprentice. Fixes [#11](https://github.com/WinDanesz/SpellBundle/pull/11) *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`abfc806`](https://github.com/WinDanesz/SpellBundle/commit/abfc80603c10c2f0a7e8b3fb464bfc3cec5cc200) - Fix reforging scroll with newest wizardry utils *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+### :wrench: Chores
+- [`d2c0384`](https://github.com/WinDanesz/SpellBundle/commit/d2c0384c2ad8de1f916aa4b687a7810e78a0488c) - fix typo *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`6c9254f`](https://github.com/WinDanesz/SpellBundle/commit/6c9254fa91662d0ebe684cc87a69f1b6d09876ba) - updates *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`93d8bf9`](https://github.com/WinDanesz/SpellBundle/commit/93d8bf99fc215b4b9992fc9e1c293fe1971caaa8) - portal updates *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+
 ## [v1.5.7] - 2023-12-29
 ### :sparkles: New Features
 - [`02304f9`](https://github.com/WinDanesz/SpellBundle/commit/02304f9c55881a664e3691eb579d400fc1037819) - Added Ashen Soul (Quark) spell *(commit by [@WinDanesz](https://github.com/WinDanesz))*
@@ -58,3 +75,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v1.1.4]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.3...v1.1.4
 [v1.5.6]: https://github.com/WinDanesz/SpellBundle/compare/v1.1.5...v1.5.6
 [v1.5.7]: https://github.com/WinDanesz/SpellBundle/compare/v1.5.6...v1.5.7
+[v1.6.0]: https://github.com/WinDanesz/SpellBundle/compare/v1.5.7...v1.6.0

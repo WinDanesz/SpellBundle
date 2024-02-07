@@ -1,14 +1,17 @@
-<h2>Version v1.5.7 - 12/29/2023</h2>
+<h2>Version v1.6.0 - 2/7/2024</h2>
 <p>&nbsp;</p>
 <h3>What's Changed</h3>
 <p><span style="font-size: 1.2rem;">&nbsp;</span></p>
 <h4><strong>Bug Fixes</strong></h4>
-<p>- Fixed frozen lock for good. Fixes #10</p>
-<p>- Summoned Foxhounds now follow their owner. Lowered Summon Foxhound spell tier Advanced->Apprentice</p>
+<p>- Lowered Conjure Foxhound tier to Apprentice. Fixes #11</p>
+<p>- Fix reforging scroll with newest wizardry utils</p>
+<p>- Fix typo</p>
 
 <h4><strong>Features</strong></h4>
-<p>- Added Ashen Soul (Quark) spell</p>
-<p>- Added Spirit Guide charm (for Ashen Soul (Quark) spell)</p>
+<p>- Improved Mass Warp's visuals a bit</p>
+<p>- Added support for the PortalGun mod! (1 new spell and 1 new artefact)</p>
+<p>- (Biomes O' Plenty) Added Wasp Swarm spell</p>
+<p>- Added 4 Biomes O' Plenty spells</p>
 <p>&nbsp;</p>
 <p>As always, the easiest way to get help or feedback is through the Discord server! Find the link on the CurseForge page.</p>
 <p>&nbsp;</p>
