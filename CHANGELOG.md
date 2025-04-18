@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.7.1] - 2025-04-18
+### :sparkles: New Features
+- [`0bc97cf`](https://github.com/WinDanesz/SpellBundle/commit/0bc97cffd4f668fdeb61897ec36f08f4c43d4837) - Translated into Russian (by Heimdallr-1) *(PR [#12](https://github.com/WinDanesz/SpellBundle/pull/12) by [@Heimdallr-1](https://github.com/Heimdallr-1))*
+
+### :bug: Bug Fixes
+- [`7c5ec12`](https://github.com/WinDanesz/SpellBundle/commit/7c5ec120759f295ecde6ed6fe6b8ceca7edddea0) - Disabling Trinkets & Baubles integration works (no player mana bar) *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+
 ## [v1.7.0] - 2024-04-21
 ### :sparkles: New Features
 - [`6a6f05d`](https://github.com/WinDanesz/SpellBundle/commit/6a6f05d45f2593d2cb0343b4ac0114ea94f7141e) - Support for Trinkets and Baubles mod. This also fundamentally changes EBWizardry, as mana is now provided from the player's mana bar through the T&B mod. *(commit by [@WinDanesz](https://github.com/WinDanesz))*
@@ -87,3 +95,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v1.5.7]: https://github.com/WinDanesz/SpellBundle/compare/v1.5.6...v1.5.7
 [v1.6.0]: https://github.com/WinDanesz/SpellBundle/compare/v1.5.7...v1.6.0
 [v1.7.0]: https://github.com/WinDanesz/SpellBundle/compare/v1.6.0...v1.7.0
+[v1.7.1]: https://github.com/WinDanesz/SpellBundle/compare/v1.7.0...v1.7.1

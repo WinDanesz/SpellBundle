@@ -1,14 +1,12 @@
-<h2>Version v1.7.0 - 4/21/2024</h2>
+<h2>Version v1.7.1 - 4/18/2025</h2>
 <p>&nbsp;</p>
 <h3>What's Changed</h3>
 <p><span style="font-size: 1.2rem;">&nbsp;</span></p>
 <h4><strong>Bug Fixes</strong></h4>
-<p>- Fix BoP integration lang key in spell books when BoP is not installed</p>
-<p>- Fixed some book helper texts when a dependency mod is not installed</p>
-<p>- Fix crash with Twin Portals</p>
+<p>- Disabling Trinkets & Baubles integration works (no player mana bar)</p>
 
 <h4><strong>Features</strong></h4>
-<p>- Support for Trinkets and Baubles mod. This also fundamentally changes EBWizardry, as mana is now provided from the player's mana bar through the T&B mod.</p>
+<p>- Translated into Russian (by Heimdallr-1) (#12)</p>
 <p>&nbsp;</p>
 <p>As always, the easiest way to get help or feedback is through the Discord server! Find the link on the CurseForge page.</p>
 <p>&nbsp;</p>
