@@ -1,0 +1,156 @@
+### Если вы обнаружите ошибки или неточности в этом переводе, пожалуйста, сообщите мне о них в комментариях, и тогда в следующей версии перевода они будут устранены. [ Heimdallr-1]
+
+# Generic
+item.spellbundle:generic.disabled_with_modname=Предмет отключен в конфигурации в связи с отсутствием %s.
+
+# WAYSTONES mod
+spell.spellbundle:waystones_missing=Заклинание недоступно в связи с тем, что у вас не установлен Waystones!
+item.spellbundle:bound_warpstone.name=Варп-камень (связанный)
+
+integration.spellbundle:waystones=Waystones
+spell.spellbundle:warp=Перемещение
+spell.spellbundle:warp.desc=Перемещает вас к последнему запоминаемому Путевому камню. Запомнить путевой камень приседанием + использовать по нему заклинанием.
+spell.spellbundle:warp.remember=Запоминающее местоположение %s
+spell.spellbundle:warp.remember_with_old=Запоминающее местоположение %1$s (забыто предыдущее местоположение: %2$s).
+spell.spellbundle:warp.undefined=Сперва вы должны запомнить местоположение Путевого камня! (Приседание + использовать по нему заклинанием).
+spell.spellbundle:warp.wrong_dimension=Вы запоминали путевой камень в другом измерении!
+spell.spellbundle:mass_warp=Массовое перемещение
+spell.spellbundle:mass_warp.desc=Перемещает вас и близлежащих игроков к последнему запоминаемому Путевому камню. Запомнить путевой камень приседанием + использовать по нему заклинанием.
+spell.spellbundle:mass_warp.remember=Запоминающее местоположение %s
+spell.spellbundle:mass_warp.remember_with_old=Запоминающее местоположение %1$s (забыто предыдущее местоположение: %2$s).
+spell.spellbundle:mass_warp.undefined=Сперва вы должны запомнить местоположение Путевого камня! (Приседание + использовать по нему заклинанием).
+spell.spellbundle:mass_warp.wrong_dimension=Вы запоминали путевой камень в другом измерении!
+spell.spellbundle:summon_ally=Призыв союзника
+spell.spellbundle:summon_ally.desc=Позволяет телепортировать указанного игрока к связанному путевому камню, пока вы направляете. Приседание + использовать по путевому камню — связать. а по земле — выбрать игрока.
+spell.spellbundle:summon_ally.distance_from_waystone_too_big=Вы слишком далеко от запоминаемого путевого камня (%s)
+spell.spellbundle:summon_ally.remember=Запоминающее местоположение %s
+spell.spellbundle:summon_ally.remember_with_old=Запоминающее местоположение %1$s (забыто предыдущее местоположение: %2$s).
+spell.spellbundle:summon_ally.undefined=Сперва вы должны запомнить местоположение Путевого камня! (Приседание + использовать по нему заклинанием).
+spell.spellbundle:summon_ally.wrong_dimension=Вы запоминали путевой камень в другом измерении!
+spell.spellbundle:summon_ally.caster_wrong_dimension=Ваш союзник в другом измерении.
+spell.spellbundle:summon_ally.ally_wrong_dimension=Ваш союзник в другом измерении.
+spell.spellbundle:summon_ally.not_casting=Союзник прекратил использовать заклинание.
+
+item.spellbundle:ring_warpstone.name=Кольцо варп-камня
+item.spellbundle:ring_warpstone.desc=Массовое перемещение может телепортировать не игровых существ с колдуном.
+
+gui.spellbundle:summon_ally.no_player=Нет другого игрока для призыва.
+gui.spellbundle:summon_ally.select_player=Выбрать игрока для призыва.
+gui.spellbundle:summon_ally.click_here=Кто-то пытался призвать вас к %s. Нажмите здесь, чтобы принять.
+
+# TREAUSRE2! mod
+spell.spellbundle:treasure2_missing=Заклинание недоступно в связи с тем, что у вас не установлен Treasure2!
+
+integration.spellbundle:treasure2=Treasure2
+
+spell.spellbundle:ice_chest=Ледяной сундук
+spell.spellbundle:ice_chest.desc=Наколдовывает магический ледяной сундук, который никогда не плавится. Объём сундука увеличивается в зависимости от силы заклинания.
+spell.spellbundle:lock=Замок
+spell.spellbundle:lock.desc=Магическим образом запирает на ключ указанный контейнер, если в нём есть слоты, свободные для запирания.
+spell.spellbundle:summon_bound_soul=Призыв связанной души
+spell.spellbundle:summon_bound_soul.desc=Призывает связанную душу. Душа связана с местоположением, где она была призвана.
+spell.spellbundle:summon_bound_soul.minion_distance_not_met=Слишком близко с другим призванным приспешником.
+spell.spellbundle:summon_mimic=Призыв мимика
+spell.spellbundle:summon_mimic.desc=Призывает мимика, чтобы защищать вас. Мимик исчезнет по истечении 30 секунд или пока его не убьют.
+spell.spellbundle:knock=Стук
+spell.spellbundle:knock.desc=Магическим образом открывает замок на указанном контейнере.
+spell.spellbundle:knock.weak_spell=Ваше заклинание Стук не было достаточно мощным, чтобы открывать какие-либо замки.
+
+item.spellbundle:ring_key.name=Эзотерическое кольцо-ключ
+item.spellbundle:ring_key.desc=Заклинание Стук может открывать один уровень замков.
+item.spellbundle:charm_frozen_lock.name=Замёрзший замок
+item.spellbundle:charm_frozen_lock.desc=Сам артефакт нельзя положить в сундук. Он предоставляет возможность запирать Ледяной сундук обычными замками. Сундук должен быть создан, пока экипирован этот артефакт.
+item.spellbundle:charm_wishing_well.name=Список желаний
+item.spellbundle:charm_wishing_well.desc=Кидание магического свитка в колодец из мшистого булыжника 3х3 превратит его в колодец желаний. Свиток уничтожается в процессе.
+item.spellbundle:spectral_lock.name=Спектральный замок
+
+tile.spellbundle:display.ice_chest.name=Ледяной сундук
+tile.spellbundle:display.ice_chest_lockable.name=Запираемый ледяной сундук
+tile.spellbundle:ice_chest.name=Ледяной сундук
+
+# Quark mod
+spell.spellbundle:quark_missing=Заклинание недоступно в связи с тем, что у вас не установлен Quark!
+spell.spellbundle:curse_of_haunting=Проклятие заселения
+spell.spellbundle:curse_of_haunting.desc=Указанное существо заселяется Призраками.
+spell.spellbundle:curse_of_evil=Проклятие беды
+spell.spellbundle:curse_of_evil.desc=Указанный игрок притягивает враждебных существ в течение 2 минут.
+spell.spellbundle:colorize=Раскрасить
+spell.spellbundle:colorize.desc=Окрашивает удерживаемый предмет (в другой руке), используя первую Окрашенную руну из горячей панели.
+spell.spellbundle:colorize_consume_rune.desc=Окрашивает удерживаемый предмет (в другой руке), используя первую Окрашенную руну из горячей панели. Расходует руну.
+spell.spellbundle:colorize.item_not_enchanted=Предмет должен быть уже зачарован!
+spell.spellbundle:colorize.no_rune=У вас в горячей панели должна быть окрашенная руна!
+spell.spellbundle:colorize.no_=Вы должны держать зачарованный предмет в другой руке!
+spell.spellbundle:conjure_foxhound=Наколдовать Фоксхаунд
+spell.spellbundle:conjure_foxhound.desc=Наколдовывает Фоксхаунда, чтобы защищать вас. Гончая исчезнет по истечении 40 секунд.
+spell.spellbundle:conjure_wraith=Наколдовать призрака
+spell.spellbundle:conjure_wraith.desc=Наколдовывает Призрака, чтобы защищать вас. Призрак исчезнет по истечении 40 секунд.
+spell.spellbundle:ashen_soul=Пепельная душа
+spell.spellbundle:ashen_soul.desc=Наколдовывает душу, которая летит прямо близко к крепости Незера.
+spell.spellbundle:ashen_soul.wrong_dimension=Заклинание работает только в Незере.
+potion.spellbundle:curse_of_haunting=Проклятие заселения
+item.spellbundle:ring_wraith.name=Кольцо души отмщения
+item.spellbundle:ring_wraith.desc=30%% вероятность, что убитое существо восстанет в качестве временного призрака.
+item.spellbundle:charm_spirit_guide.name=Дух-указатель
+item.spellbundle:charm_spirit_guide.desc=Духи, что призваны заклинанием Пепельная душа летят прямо близко к Пустынному храму или Храму в джунглях.
+
+# Quality Tools mod
+item.spellbundle:reforging_scroll.name=Свиток перековки
+item.spellbundle:reforging_scroll.desc=Перековывает предмет, удерживаемый в другой руке на случайное хорошее качество. Для его перековки удерживайте предмет в другой руке, и используйте свиток в течение 3 секунд.
+item.spellbundle:reforging_scroll.interrupted=Перековка прервалась.
+item.spellbundle:reforging_scroll.needs_offhand_item=Вы должны удерживать предмет для перековки в левой руке.
+item.spellbundle:amulet_reforging.name=Амулет перековки
+item.spellbundle:amulet_reforging.desc=Заклинание Благословение предмета всегда перековывает предметы на положительные качества.
+item.spellbundle:charm_spectral_hammer.name=Призрачный молот
+item.spellbundle:charm_spectral_hammer.desc=У наколдованных предметов всегда есть положительное качество.
+spell.spellbundle:qualitytools_missing=Заклинание недоступно в связи с тем, что у вас не установлен Quality Tools!
+spell.spellbundle:weaken_equipment=Ослабление снаряжения
+spell.spellbundle:weaken_equipment.desc=На время ослабляет удерживаемое оружие указанного игрока на случайное плохое качество
+spell.spellbundle:bless_item=Благословение предмета
+spell.spellbundle:bless_item.desc=Благословляет предмет в левой руке, снимая с него плохое качество.
+spell.spellbundle:bless_item.item_cannot_be_blessed=Предмет не может быть благословлён.
+spell.spellbundle:bless_item.no_item=Вы должны удерживать предмет в другой руке.
+spell.spellbundle:bless_item.item_does_not_have_negative_quality=У предмета нет плохого качества.
+
+enchantment.spellbundle:magically_weakened=Магическое ослабление
+
+# Pointer mod
+spell.spellbundle:pointer_missing=Заклинание недоступно в связи с тем, что у вас не установлен Pointer!
+spell.spellbundle:arcane_reach=Мистическая досягаемость
+spell.spellbundle:arcane_reach.desc=Позволяет получать доступ к предметам издалека. Используйте по блоку для удалённого получения доступа Cast on a block to remotely access it with subsequent spell casts. Приседание + использовать — забыть местоположение.
+spell.spellbundle:arcane_reach.stored_location=Сохранил местоположение
+spell.spellbundle:arcane_reach.stored_location_removed=Забыл последнее местоположение.
+spell.spellbundle:arcane_reach.no_stored_location=Сперва используйте по блоку для сохранения местоположения.
+
+# Portal Gun mod
+spell.spellbundle:portalgun_missing=Заклинание недоступно в связи с тем, что у вас не установлен PortalGun!
+spell.spellbundle:twin_portals=Парные порталы
+spell.spellbundle:twin_portals.desc=Создаёт портал в воздухе или на твёрдой поверхности. Приседание + использовать — создать вторую половину портала.
+item.spellbundle:charm_portals.name=Посох Эхо
+item.spellbundle:charm_portals.desc=Стреляет магическим снарядом, создающим портал. Приседание + использовать — создать вторую половину портала.
+entity.spellbundle:wasp_minion.name=Оса
+integration.spellbundle:portalgun=Портальная пушка
+
+# Biomes O' Plenty mod
+spell.spellbundle:biomesoplenty_missing=Заклинание недоступно в связи с тем, что у вас не установлен Biomes O' Plenty!
+spell.spellbundle:wasp_swarm=Рой ос
+spell.spellbundle:wasp_swarm.desc=Призывает Рой ос, чтобы защищать вас. Осы исчезнут по истечении 30 секунд или пока их не убьют.
+tile.spellbundle:conjured_bramble.name=Терновник
+spell.spellbundle:briarburst=Извержение терновника
+spell.spellbundle:briarburst.desc=Наколдовывает терновники в каком бы месте ни указал колдун с продолжительным действием.
+spell.spellbundle:hot_spring=Геотермальный источник
+spell.spellbundle:hot_spring.desc=Нагревает воду и превращает её в воду геотермального источника. Заклинание довольное сильное, чтобы нагреть только отдельный блок воды.
+spell.spellbundle:hot_spring.water_nearby=Заклинание используется только на одном блоке воды.
+spell.spellbundle:hot_spring.no_water=Нужно использовать по блоку воды.
+spell.spellbundle:convulsive_curse=Проклятие судорожности
+spell.spellbundle:convulsive_curse.desc=Принуждает указанное существо или игрока непроизвольно перемещаться в течение 5 секунд.
+
+item.mana_crystal.tooltip1=§6+§b$mp к макс.:§6 Макс. количество маны до поры времени (утратится после повышения уровня).
+tooltip.wizard_armor_mana=Повышает скорость восстановления маны.
+#item.ebwizardry:storage_upgrade.desc=Increases the player's mana capacity while holding the wand
+#item.ebwizardry:condenser_upgrade.desc=Increases the player's mana regeneration rate while holding the wand
+#item.ebwizardry:siphon_upgrade.desc=Extracts mana for the player from mobs when killed
+item.spellbundle:rejuvenation_upgrade.desc=Понижает перезарядку восстановления маны, после использования заклинания.
+item.spellbundle:rejuvenation_upgrade.name=Улучшение для жезла: Реактивация
+
+item.spellbundle:ring_bonus_mana.name=Кольцо новичка
+item.spellbundle:ring_bonus_mana.desc=Повышает размер хранилища маны.
