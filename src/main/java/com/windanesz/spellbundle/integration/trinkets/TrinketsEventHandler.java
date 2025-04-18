@@ -50,12 +50,14 @@ public class TrinketsEventHandler {
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public void onSpellCastEventPre(SpellCastEvent.Pre event) {
+		if (!Settings.generalSettings.trinkets_integration) {
+			return;
+		}
 
 		if (!(event.getCaster() instanceof EntityPlayer)) {
 			return;
 		}
 
-		//	WizardData.get((EntityPlayer) event.getCaster()).setVariable(XpProgression.MAGIC_XP, 0);
 		if (event.getCaster() instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.getCaster();
 			for (EnumHand hand : EnumHand.values()) {
@@ -113,6 +115,10 @@ public class TrinketsEventHandler {
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public void onSpellCastEventPre(SpellCastEvent.Tick event) {
+		if (!Settings.generalSettings.trinkets_integration) {
+			return;
+		}
+
 		if (!(event.getCaster() instanceof EntityPlayer)) {
 			return;
 		}
@@ -148,6 +154,10 @@ public class TrinketsEventHandler {
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public void onSpellCastEventPost(SpellCastEvent.Post event) {
+		if (!Settings.generalSettings.trinkets_integration) {
+			return;
+		}
+
 		if (!(event.getCaster() instanceof EntityPlayer)) {
 			return;
 		}
@@ -164,9 +174,6 @@ public class TrinketsEventHandler {
 
 			ManaProgression.addXP(player, (int) i);
 			int levelAfterCast = ManaProgression.getLevel(player);
-			if (!event.getWorld().isRemote) {
-				System.out.println("level " + levelAfterCast);
-			}
 
 			if (levelAfterCast > level && !event.getWorld().isRemote) {
 				// Bump max mana
@@ -207,6 +214,10 @@ public class TrinketsEventHandler {
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public void attachAttributes(EntityJoinWorldEvent event) {
+		if (!Settings.generalSettings.trinkets_integration) {
+			return;
+		}
+
 		if (event.getEntity() instanceof EntityLivingBase) {
 			final EntityLivingBase entity = (EntityLivingBase) event.getEntity();
 			entity.getEntityAttribute(MagicAttributes.MAX_MANA).setBaseValue(10);
@@ -231,6 +242,10 @@ public class TrinketsEventHandler {
 
 	@SubscribeEvent
 	public void onEquipmentChange(LivingEquipmentChangeEvent event) {
+		if (!Settings.generalSettings.trinkets_integration) {
+			return;
+		}
+
 		if (!(event.getEntityLiving() instanceof EntityPlayer) || event.getEntityLiving().world.isRemote) {
 			return;
 		}
@@ -311,32 +326,36 @@ public class TrinketsEventHandler {
 		}
 	}
 
-	@SideOnly(Side.CLIENT)
-	@SubscribeEvent
-	public void onToolTip(ItemTooltipEvent event) {
-		//		if (event.getItemStack().getItem() instanceof ItemWizardArmour) {
-		//			Wizardry.proxy.addMultiLineDescription(event.getToolTip(), TextFormatting.BLUE + I18n.format("tooltip.wizard_armor_mana"));
-		//		} else if (event.getItemStack().getItem() == WizardryItems.storage_upgrade) {
-		//			//			event.getToolTip().clear();
-		//			event.getToolTip().remove(event.getToolTip().size() - 3);
-		//			event.getToolTip().remove(event.getToolTip().size() - 2);
-		//			Wizardry.proxy.addMultiLineDescription(event.getToolTip(), I18n.format("item.spellbundle:storage_upgrade.desc"));
-		//		} else if (event.getItemStack().getItem() == WizardryItems.condenser_upgrade) {
-		//			//			event.getToolTip().clear();
-		//			event.getToolTip().remove(event.getToolTip().size() - 3);
-		//			event.getToolTip().remove(event.getToolTip().size() - 2);
-		//			Wizardry.proxy.addMultiLineDescription(event.getToolTip(), I18n.format("item.spellbundle:storage_upgrade.desc"));
-		//		} else if (event.getItemStack().getItem() == WizardryItems.siphon_upgrade) {
-		//			//			event.getToolTip().clear();
-		//			event.getToolTip().remove(event.getToolTip().size() - 3);
-		//			event.getToolTip().remove(event.getToolTip().size() - 2);
-		//			Wizardry.proxy.addMultiLineDescription(event.getToolTip(), I18n.format("item.spellbundle:siphon_upgrade.desc"));
-		//		}
-	}
+//	@SideOnly(Side.CLIENT)
+//	@SubscribeEvent
+//	public void onToolTip(ItemTooltipEvent event) {
+//		//		if (event.getItemStack().getItem() instanceof ItemWizardArmour) {
+//		//			Wizardry.proxy.addMultiLineDescription(event.getToolTip(), TextFormatting.BLUE + I18n.format("tooltip.wizard_armor_mana"));
+//		//		} else if (event.getItemStack().getItem() == WizardryItems.storage_upgrade) {
+//		//			//			event.getToolTip().clear();
+//		//			event.getToolTip().remove(event.getToolTip().size() - 3);
+//		//			event.getToolTip().remove(event.getToolTip().size() - 2);
+//		//			Wizardry.proxy.addMultiLineDescription(event.getToolTip(), I18n.format("item.spellbundle:storage_upgrade.desc"));
+//		//		} else if (event.getItemStack().getItem() == WizardryItems.condenser_upgrade) {
+//		//			//			event.getToolTip().clear();
+//		//			event.getToolTip().remove(event.getToolTip().size() - 3);
+//		//			event.getToolTip().remove(event.getToolTip().size() - 2);
+//		//			Wizardry.proxy.addMultiLineDescription(event.getToolTip(), I18n.format("item.spellbundle:storage_upgrade.desc"));
+//		//		} else if (event.getItemStack().getItem() == WizardryItems.siphon_upgrade) {
+//		//			//			event.getToolTip().clear();
+//		//			event.getToolTip().remove(event.getToolTip().size() - 3);
+//		//			event.getToolTip().remove(event.getToolTip().size() - 2);
+//		//			Wizardry.proxy.addMultiLineDescription(event.getToolTip(), I18n.format("item.spellbundle:siphon_upgrade.desc"));
+//		//		}
+//	}
 
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
 	public void onGuiDrawForegroundEvent(GuiContainerEvent.DrawForeground event) {
+		if (!Settings.generalSettings.trinkets_integration) {
+			return;
+		}
+
 		if (!(event.getGuiContainer() instanceof GuiArcaneWorkbench)) {return;}
 
 		EntityPlayerSP player = Minecraft.getMinecraft().player;
@@ -354,10 +373,12 @@ public class TrinketsEventHandler {
 		;
 	}
 
-	@SubscribeEvent(
-			priority = EventPriority.LOWEST
-	)
+	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public void onLivingDeathEvent(LivingDeathEvent event) {
+		if (!Settings.generalSettings.trinkets_integration) {
+			return;
+		}
+
 		if (event.getSource().getTrueSource() instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 
