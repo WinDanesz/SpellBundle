@@ -21,7 +21,7 @@ public class LateMixinLoader implements ILateMixinLoader {
 			case "quark.mixins.json":
 				return Loader.isModLoaded("quark");
 			case "bop.mixins.json":
-				return Settings.generalSettings.bop_hot_spring_tweak && Loader.isModLoaded("biomesoplenty");
+				return Settings.generalSettings.bop_integration && Loader.isModLoaded("biomesoplenty");
 			case "trinkets.mixins.json":
 				return Settings.generalSettings.trinkets_integration && Loader.isModLoaded("xat");
 		}
