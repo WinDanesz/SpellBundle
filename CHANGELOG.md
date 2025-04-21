@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.7.2] - 2025-04-21
+### :sparkles: New Features
+- [`97eae82`](https://github.com/WinDanesz/SpellBundle/commit/97eae828ace1472bf0b6da2c1a98929a4843ee74) - If Quark is installed, Flaming Weapon, Freezing Weapon, Frost Axe and Flaming Axe spells are colored accordingly. (Also applies to all other spells extending SpellConjuration.java, dynamically per element) *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+### :bug: Bug Fixes
+- [`8723dd5`](https://github.com/WinDanesz/SpellBundle/commit/8723dd560649830ddb749425bf608befdb0a482e) - Fixed BOP spells not working if bop_hot_spring_tweak is set to false && bop_integration config *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`e17c792`](https://github.com/WinDanesz/SpellBundle/commit/e17c7926c775275618a11e0a4d791ac9bda3c3bb) - Quark-related mixins won't load if quark_integration is set to true *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+
 ## [v1.7.1] - 2025-04-18
 ### :sparkles: New Features
 - [`0bc97cf`](https://github.com/WinDanesz/SpellBundle/commit/0bc97cffd4f668fdeb61897ec36f08f4c43d4837) - Translated into Russian (by Heimdallr-1) *(PR [#12](https://github.com/WinDanesz/SpellBundle/pull/12) by [@Heimdallr-1](https://github.com/Heimdallr-1))*
@@ -96,3 +105,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v1.6.0]: https://github.com/WinDanesz/SpellBundle/compare/v1.5.7...v1.6.0
 [v1.7.0]: https://github.com/WinDanesz/SpellBundle/compare/v1.6.0...v1.7.0
 [v1.7.1]: https://github.com/WinDanesz/SpellBundle/compare/v1.7.0...v1.7.1
+[v1.7.2]: https://github.com/WinDanesz/SpellBundle/compare/v1.7.1...v1.7.2

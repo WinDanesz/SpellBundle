@@ -1,12 +1,13 @@
-<h2>Version v1.7.1 - 4/18/2025</h2>
+<h2>Version v1.7.2 - 4/21/2025</h2>
 <p>&nbsp;</p>
 <h3>What's Changed</h3>
 <p><span style="font-size: 1.2rem;">&nbsp;</span></p>
 <h4><strong>Bug Fixes</strong></h4>
-<p>- Disabling Trinkets & Baubles integration works (no player mana bar)</p>
+<p>- Fixed BOP spells not working if bop_hot_spring_tweak is set to false && bop_integration config</p>
+<p>- Quark-related mixins won't load if quark_integration is set to true</p>
 
 <h4><strong>Features</strong></h4>
-<p>- Translated into Russian (by Heimdallr-1) (#12)</p>
+<p>- If Quark is installed, Flaming Weapon, Freezing Weapon, Frost Axe and Flaming Axe spells are colored accordingly. (Also applies to all other spells extending SpellConjuration.java, dynamically per element)</p>
 <p>&nbsp;</p>
 <p>As always, the easiest way to get help or feedback is through the Discord server! Find the link on the CurseForge page.</p>
 <p>&nbsp;</p>
