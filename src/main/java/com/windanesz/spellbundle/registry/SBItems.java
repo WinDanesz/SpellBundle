@@ -17,6 +17,7 @@ import com.windanesz.spellbundle.integration.waystones.common.WaystonesObjects;
 import com.windanesz.spellbundle.item.ItemArtefactSB;
 import com.windanesz.spellbundle.item.ItemCharmWishingWell;
 import com.windanesz.spellbundle.item.ItemPortalWand;
+import com.windanesz.wizardryutils.registry.ItemRegistry;
 import electroblob.wizardry.item.ItemArtefact;
 import electroblob.wizardry.registry.WizardryTabs;
 import net.minecraft.block.Block;
@@ -69,12 +70,12 @@ public final class SBItems {
 		// Artefacts
 
 		// Waystones Mod
-		registerItem(registry, "ring_warpstone", new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.RING, WaystonesIntegration.getInstance()), WaystonesIntegration.getInstance());
-		registerItem(registry, "ring_key", new ItemArtefactSB(EnumRarity.RARE, ItemArtefact.Type.RING, Treasure2Integration.getInstance()), Treasure2Integration.getInstance());
+		ItemRegistry.registerItemArtefact(registry, "ring_warpstone", SpellBundle.MODID, new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.RING, WaystonesIntegration.getInstance()));
+		ItemRegistry.registerItemArtefact(registry, "ring_key", SpellBundle.MODID, new ItemArtefactSB(EnumRarity.RARE, ItemArtefact.Type.RING, Treasure2Integration.getInstance()));
 
 		// Treasure2! Mod
-		registerItem(registry, "charm_frozen_lock", new ItemArtefactSB(EnumRarity.RARE, ItemArtefact.Type.CHARM, Treasure2Integration.getInstance()), Treasure2Integration.getInstance());
-		registerItem(registry, "charm_wishing_well", new ItemCharmWishingWell(EnumRarity.UNCOMMON, ItemArtefact.Type.CHARM, Treasure2Integration.getInstance()), Treasure2Integration.getInstance());
+		ItemRegistry.registerItemArtefact(registry, "charm_frozen_lock", SpellBundle.MODID, new ItemArtefactSB(EnumRarity.RARE, ItemArtefact.Type.CHARM, Treasure2Integration.getInstance()));
+		ItemRegistry.registerItemArtefact(registry, "charm_wishing_well", SpellBundle.MODID, new ItemCharmWishingWell(EnumRarity.UNCOMMON, ItemArtefact.Type.CHARM, Treasure2Integration.getInstance()));
 
 		// Treasure2 Optional items
 		if (Treasure2Integration.getInstance().isEnabled()) {
@@ -86,12 +87,12 @@ public final class SBItems {
 			WaystonesObjects.registerItems(event);
 		}
 
-		registerItem(registry, "ring_wraith", new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.RING, QuarkIntegration.getInstance()), QuarkIntegration.getInstance());
-		registerItem(registry, "charm_spirit_guide", new ItemArtefactSB(EnumRarity.RARE, ItemArtefact.Type.CHARM, QuarkIntegration.getInstance()), QuarkIntegration.getInstance());
+		ItemRegistry.registerItemArtefact(registry, "ring_wraith", SpellBundle.MODID, new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.RING, QuarkIntegration.getInstance()));
+		ItemRegistry.registerItemArtefact(registry, "charm_spirit_guide", SpellBundle.MODID, new ItemArtefactSB(EnumRarity.RARE, ItemArtefact.Type.CHARM, QuarkIntegration.getInstance()));
 
 		// Treasure2! Mod
-		registerItem(registry, "amulet_reforging", new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.AMULET, QTIntegration.getInstance()), QTIntegration.getInstance());
-		registerItem(registry, "charm_spectral_hammer", new ItemCharmWishingWell(EnumRarity.RARE, ItemArtefact.Type.CHARM, QTIntegration.getInstance()), QTIntegration.getInstance());
+		ItemRegistry.registerItemArtefact(registry, "amulet_reforging", SpellBundle.MODID, new ItemArtefactSB(EnumRarity.EPIC, ItemArtefact.Type.AMULET, QTIntegration.getInstance()));
+		ItemRegistry.registerItemArtefact(registry, "charm_spectral_hammer", SpellBundle.MODID, new ItemCharmWishingWell(EnumRarity.RARE, ItemArtefact.Type.CHARM, QTIntegration.getInstance()));
 
 		// QualityTools Optional items
 		if (QTIntegration.getInstance().isEnabled()) {
@@ -99,7 +100,7 @@ public final class SBItems {
 		}
 
 		// PortalGun mod items
-		registerItem(registry, "charm_portals", new ItemPortalWand(EnumRarity.EPIC, ItemArtefact.Type.CHARM, PortalGunIntegration.getInstance()), PortalGunIntegration.getInstance());
+		ItemRegistry.registerItemArtefact(registry, "charm_portals", SpellBundle.MODID, new ItemPortalWand(EnumRarity.EPIC, ItemArtefact.Type.CHARM, PortalGunIntegration.getInstance()));
 
 
 		// Trinkets Optional items

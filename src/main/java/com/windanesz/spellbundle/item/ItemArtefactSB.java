@@ -25,6 +25,7 @@ public class ItemArtefactSB extends ItemArtefact {
 	public ItemArtefactSB(EnumRarity rarity, Type type, Integration integration) {
 		super(rarity, type);
 		this.integration = integration;
+		integration.addArtefact(this);
 	}
 
 	@Override
