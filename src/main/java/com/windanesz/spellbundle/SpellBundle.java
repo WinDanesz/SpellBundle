@@ -31,7 +31,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.Random;
 
 @Mod(modid = SpellBundle.MODID, name = SpellBundle.NAME, version = "@VERSION@", acceptedMinecraftVersions = "[@MCVERSION@]",
-		dependencies = "required-after:mixinbooter;required-after:ebwizardry@[@WIZARDRY_VERSION@,4.4);required-after:wizardryutils")
+		dependencies = "required-after:mixinbooter;required-after:ebwizardry@[@WIZARDRY_VERSION@,4.4);required-after:wizardryutils;after:pointer")
 public class SpellBundle {
 
 	public static final String MODID = "spellbundle";

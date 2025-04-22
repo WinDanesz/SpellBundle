@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "name": "spellbundle",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "spellbundle:rejuvenation_upgrade",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

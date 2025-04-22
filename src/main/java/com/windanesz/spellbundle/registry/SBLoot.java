@@ -1,5 +1,6 @@
 package com.windanesz.spellbundle.registry;
 
+import com.windanesz.spellbundle.Settings;
 import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.Integration;
 import electroblob.wizardry.Wizardry;
@@ -7,11 +8,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.LootEntry;
-import net.minecraft.world.storage.loot.LootEntryItem;
-import net.minecraft.world.storage.loot.LootEntryTable;
-import net.minecraft.world.storage.loot.LootPool;
-import net.minecraft.world.storage.loot.RandomValueRange;
+import net.minecraft.world.storage.loot.*;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraftforge.event.LootTableLoadEvent;
@@ -32,52 +29,21 @@ import java.util.regex.Pattern;
 @Mod.EventBusSubscriber
 public class SBLoot {
 
+
+	private static LootTable SB_RARE_SCROLLS;
+
 	private SBLoot() {} // No instances!
+
+	private static LootTable RARE_SCROLLS;
 
 	/**
 	 * Called from the preInit method in the main mod class to register the custom dungeon loot.
 	 */
-	public static void preInit() { }
+	public static void preInit() {
+		LootTableList.register(new ResourceLocation(SpellBundle.MODID, "inject/rare_scrolls"));
 
-	@SubscribeEvent
-	public static void onLootTableLoadEvent(LootTableLoadEvent event) {
-		/////////////// Artefact injection ///////////////
-		// Uncommon
-
-		if (event.getName().getNamespace().equals(Wizardry.MODID)) {
-
-			Pattern p = Pattern.compile(".*subsets/(.*)_artefacts");
-			Matcher m = p.matcher(event.getName().getPath());
-
-			if (m.find()) {
-
-				String poolName = m.group(1) + "_artefacts";
-				EnumRarity rarity = EnumRarity.valueOf(m.group(1).toUpperCase());
-
-				List<Item> inject = new ArrayList<>();
-				List<Item> finalInject = inject;
-				Integration.getRegistry().forEach((s, integration) -> {
-					if (integration.isEnabled()) {
-						for (Item artefact : integration.getArtefacts()) {
-							if (artefact.getRarity(new ItemStack(artefact)) == rarity) {
-								finalInject.add(artefact);
-							}
-						}
-					}
-				});
-
-				if (!inject.isEmpty()) {
-
-					int index = 0;
-					for (Item item : inject) {
-						SpellBundle.logger.debug("Injecting loot entry item " + item.getRegistryName().toString() + " to " + poolName + " Wizardry loot table.");
-						event.getTable().getPool(poolName).addEntry(new LootEntryItem(item, 1, 0, new LootFunction[0], new LootCondition[0],
-								item.getRegistryName().getPath() + "_" + index));
-					}
-				}
-			}
-		}
 	}
+
 
 	/**
 	 * Injects every element of sourcePool into targetPool
@@ -106,4 +72,19 @@ public class SBLoot {
 				SpellBundle.MODID + "_additive_entry");
 	}
 
+	@SubscribeEvent
+	public static void onTBLootTableLoadEvent(LootTableLoadEvent event) {
+		if (Settings.generalSettings.trinkets_integration) {
+			if (event.getName().toString().equals(SpellBundle.MODID + ":inject/rare_scrolls")) {
+				SB_RARE_SCROLLS = event.getTable();
+			}
+
+			// Inject
+			if (event.getName().toString().equals("ancientspellcraft" + ":subsets/rare_scrolls") && SB_RARE_SCROLLS != null) {
+				LootPool targetPool = event.getTable().getPool("main");
+				LootPool sourcePool = SB_RARE_SCROLLS.getPool("spellbundle");
+				injectEntries(sourcePool, targetPool);
+			}
+		}
+	}
 }
