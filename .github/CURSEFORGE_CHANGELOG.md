@@ -1,13 +1,15 @@
-<h2>Version v1.7.2 - 4/21/2025</h2>
+<h2>Version v1.7.3 - 4/22/2025</h2>
 <p>&nbsp;</p>
 <h3>What's Changed</h3>
 <p><span style="font-size: 1.2rem;">&nbsp;</span></p>
 <h4><strong>Bug Fixes</strong></h4>
-<p>- Fixed BOP spells not working if bop_hot_spring_tweak is set to false && bop_integration config</p>
-<p>- Quark-related mixins won't load if quark_integration is set to true</p>
+<p>- Ring of the Novice won't be registered if Trinkets & Baubles compat is disabled</p>
 
 <h4><strong>Features</strong></h4>
-<p>- If Quark is installed, Flaming Weapon, Freezing Weapon, Frost Axe and Flaming Axe spells are colored accordingly. (Also applies to all other spells extending SpellConjuration.java, dynamically per element)</p>
+<p>- Added Rejuvenation Wand Upgrade for Trinkets & Baubles support</p>
+
+<h4><strong>Refactoring</strong></h4>
+<p>- Use WizardryUtils artefact registry</p>
 <p>&nbsp;</p>
 <p>As always, the easiest way to get help or feedback is through the Discord server! Find the link on the CurseForge page.</p>
 <p>&nbsp;</p>

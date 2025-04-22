@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.7.3] - 2025-04-22
+### :sparkles: New Features
+- [`ac2788d`](https://github.com/WinDanesz/SpellBundle/commit/ac2788d675eb3f79b3993825b86a6fb58932335f) - Added Rejuvenation Wand Upgrade for Trinkets & Baubles support *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+### :bug: Bug Fixes
+- [`ef0a747`](https://github.com/WinDanesz/SpellBundle/commit/ef0a747c641566f488cd8ffc820d52fda5f8c121) - Ring of the Novice won't be registered if Trinkets & Baubles compat is disabled *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+### :recycle: Refactors
+- [`0e72d71`](https://github.com/WinDanesz/SpellBundle/commit/0e72d71c1edda66c4d4172a3f0f7f559adcbb815) - Use WizardryUtils artefact registry *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+
 ## [v1.7.2] - 2025-04-21
 ### :sparkles: New Features
 - [`97eae82`](https://github.com/WinDanesz/SpellBundle/commit/97eae828ace1472bf0b6da2c1a98929a4843ee74) - If Quark is installed, Flaming Weapon, Freezing Weapon, Frost Axe and Flaming Axe spells are colored accordingly. (Also applies to all other spells extending SpellConjuration.java, dynamically per element) *(commit by [@WinDanesz](https://github.com/WinDanesz))*
@@ -106,3 +117,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v1.7.0]: https://github.com/WinDanesz/SpellBundle/compare/v1.6.0...v1.7.0
 [v1.7.1]: https://github.com/WinDanesz/SpellBundle/compare/v1.7.0...v1.7.1
 [v1.7.2]: https://github.com/WinDanesz/SpellBundle/compare/v1.7.1...v1.7.2
+[v1.7.3]: https://github.com/WinDanesz/SpellBundle/compare/v1.7.2...v1.7.3
