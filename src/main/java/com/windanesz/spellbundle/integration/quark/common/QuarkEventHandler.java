@@ -54,7 +54,7 @@ public class QuarkEventHandler {
 
 						if (minionData != null) {
 							minionData.setCaster((EntityLivingBase) event.getSource().getTrueSource());
-							minionData.setLifetime(600);
+							minionData.setLifetime(200);
 							minionData.setFollowOwner(true);
 						}
 						deadEntity.world.spawnEntity(wraith);
