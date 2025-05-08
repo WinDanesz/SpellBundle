@@ -170,6 +170,8 @@ public class TrinketsEventHandler {
 			}
 
 			float i = ManaProgression.getXpGainForSpellCast(player, event.getWorld(), event.getSpell(), event.getModifiers(), event.getCaster().getActiveHand(), 0);
+			// Apply the XP gain multiplier from settings
+			i *= Settings.generalSettings.magic_xp_multiplier;
 			int level = ManaProgression.getLevel(player);
 
 			ManaProgression.addXP(player, (int) i);

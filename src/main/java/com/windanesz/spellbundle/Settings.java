@@ -115,6 +115,11 @@ public class Settings {
 		@Config.RequiresMcRestart
 		public int max_magic_level = 32;
 
+		@Config.Name("TrinketsAndBaubles integration - magic XP gain multiplier")
+		@Config.Comment("Multiplier for magic XP gained when casting spells (1.0 is default, 2.0 would be double XP)")
+		@Config.RequiresMcRestart
+		public float magic_xp_multiplier = 1.0f;
+
 		@Config.Name("TrinketsAndBaubles integration - base mana value")
 		@Config.Comment("Base mana value for entities when TrinketsAndBaubles integration is enabled")
 		@Config.RequiresMcRestart
