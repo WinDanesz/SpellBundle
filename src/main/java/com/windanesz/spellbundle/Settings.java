@@ -115,6 +115,11 @@ public class Settings {
 		@Config.RequiresMcRestart
 		public int max_magic_level = 32;
 
+		@Config.Name("TrinketsAndBaubles integration - base mana value")
+		@Config.Comment("Base mana value for entities when TrinketsAndBaubles integration is enabled")
+		@Config.RequiresMcRestart
+		public int baseManaValue = 10;
+
 		@Config.Name("TrinketsAndBaubles integration")
 		@Config.RequiresMcRestart
 		public boolean trinkets_integration = true;

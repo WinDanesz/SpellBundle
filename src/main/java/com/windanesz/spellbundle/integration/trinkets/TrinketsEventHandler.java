@@ -220,7 +220,8 @@ public class TrinketsEventHandler {
 
 		if (event.getEntity() instanceof EntityLivingBase) {
 			final EntityLivingBase entity = (EntityLivingBase) event.getEntity();
-			entity.getEntityAttribute(MagicAttributes.MAX_MANA).setBaseValue(10);
+			entity.getEntityAttribute(MagicAttributes.MAX_MANA)
+				  .setBaseValue(Settings.generalSettings.baseManaValue);
 		}
 	}
 
