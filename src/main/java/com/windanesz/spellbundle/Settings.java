@@ -63,7 +63,7 @@ public class Settings {
 		public boolean bop_hot_spring_tweak = true;
 
 		@Config.Name("BiomesOPlenty integration")
-		@Config.Comment("Enables or disables the Waystones integration")
+		@Config.Comment("Enables or disables the BiomesOPlenty integration")
 		@Config.RequiresMcRestart
 		public boolean bop_integration = true;
 
