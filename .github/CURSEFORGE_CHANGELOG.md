@@ -1,15 +1,14 @@
-<h2>Version v1.7.3 - 4/22/2025</h2>
+<h2>Version v1.7.4 - 5/5/2026</h2>
 <p>&nbsp;</p>
 <h3>What's Changed</h3>
 <p><span style="font-size: 1.2rem;">&nbsp;</span></p>
-<h4><strong>Bug Fixes</strong></h4>
-<p>- Ring of the Novice won't be registered if Trinkets & Baubles compat is disabled</p>
-
 <h4><strong>Features</strong></h4>
-<p>- Added Rejuvenation Wand Upgrade for Trinkets & Baubles support</p>
+<p>- Add base mana value configuration for Trinkets and Baubles integration</p>
+<p>- Add magic XP gain multiplier for Trinkets and Baubles integration</p>
+<p>- Removed Trinkets and Baubles integration. If you are looking for a player mana solution, I suggest you to check https://www.curseforge.com/minecraft/mc-mods/ars-magica-2-rekindled</p>
 
-<h4><strong>Refactoring</strong></h4>
-<p>- Use WizardryUtils artefact registry</p>
+<h4><strong>Bug Fixes</strong></h4>
+<p>- Fix config desc for BOP integration</p>
 <p>&nbsp;</p>
 <p>As always, the easiest way to get help or feedback is through the Discord server! Find the link on the CurseForge page.</p>
 <p>&nbsp;</p>

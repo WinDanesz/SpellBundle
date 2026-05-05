@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.7.4] - 2026-05-05
+### :sparkles: New Features
+- [`17882de`](https://github.com/WinDanesz/SpellBundle/commit/17882de6168f7c496fda1f22145b7f1f145cf11e) - Add base mana value configuration for Trinkets and Baubles integration *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`f3ce7f1`](https://github.com/WinDanesz/SpellBundle/commit/f3ce7f154f5739607c9d59496a5f8247b2f288c3) - Add magic XP gain multiplier for Trinkets and Baubles integration *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`6c8bc5a`](https://github.com/WinDanesz/SpellBundle/commit/6c8bc5ae39ac4e380fb3022c1b7bf644130ab0c6) - Removed Trinkets and Baubles integration. If you are looking for a player mana solution, I suggest you to check https://www.curseforge.com/minecraft/mc-mods/ars-magica-2-rekindled *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+### :bug: Bug Fixes
+- [`c85e606`](https://github.com/WinDanesz/SpellBundle/commit/c85e60676f81f300b62675f7ab88483fb2c07bb0) - Fix config desc for BOP integration *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+
 ## [v1.7.3] - 2025-04-22
 ### :sparkles: New Features
 - [`ac2788d`](https://github.com/WinDanesz/SpellBundle/commit/ac2788d675eb3f79b3993825b86a6fb58932335f) - Added Rejuvenation Wand Upgrade for Trinkets & Baubles support *(commit by [@WinDanesz](https://github.com/WinDanesz))*
@@ -118,3 +128,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v1.7.1]: https://github.com/WinDanesz/SpellBundle/compare/v1.7.0...v1.7.1
 [v1.7.2]: https://github.com/WinDanesz/SpellBundle/compare/v1.7.1...v1.7.2
 [v1.7.3]: https://github.com/WinDanesz/SpellBundle/compare/v1.7.2...v1.7.3
+[v1.7.4]: https://github.com/WinDanesz/SpellBundle/compare/v1.7.3...v1.7.4
