@@ -107,32 +107,6 @@ public class Settings {
 		@Config.RequiresMcRestart
 		public boolean remove_portalgun_recipes = true;
 
-		@Config.Name("TrinketsAndBaubles integration - wizard armor mana regen increase per piece")
-		@Config.RequiresMcRestart
-		public float mana_regen_increase_per_slot = 0.25f;
-
-		@Config.Name("TrinketsAndBaubles integration - max magic level")
-		@Config.RequiresMcRestart
-		public int max_magic_level = 32;
-
-		@Config.Name("TrinketsAndBaubles integration - magic XP gain multiplier")
-		@Config.Comment("Multiplier for magic XP gained when casting spells (1.0 is default, 2.0 would be double XP)")
-		@Config.RequiresMcRestart
-		public float magic_xp_multiplier = 1.0f;
-
-		@Config.Name("TrinketsAndBaubles integration - base mana value")
-		@Config.Comment("Base mana value for entities when TrinketsAndBaubles integration is enabled")
-		@Config.RequiresMcRestart
-		public int baseManaValue = 10;
-
-		@Config.Name("TrinketsAndBaubles integration")
-		@Config.RequiresMcRestart
-		public boolean trinkets_integration = true;
-
-		@Config.Name("TrinketsAndBaubles max mana")
-		@Config.Comment("To set max mana, you have to edit 'Total Max Mana before affinity bonus' in Trinkets and Baubles' settings!")
-		@Config.RequiresMcRestart
-		public int max_mana_not_used = 0;
 	}
 
 	@Config.Name("Spell Tweaks Settings")

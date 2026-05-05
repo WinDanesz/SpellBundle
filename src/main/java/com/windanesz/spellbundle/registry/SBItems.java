@@ -10,8 +10,6 @@ import com.windanesz.spellbundle.integration.qualitytools.common.QualityToolsObj
 import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
 import com.windanesz.spellbundle.integration.treasure2.common.Treasure2Objects;
-import com.windanesz.spellbundle.integration.trinkets.TrinketsIntegration;
-import com.windanesz.spellbundle.integration.trinkets.common.TrinketsObjects;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
 import com.windanesz.spellbundle.integration.waystones.common.WaystonesObjects;
 import com.windanesz.spellbundle.item.ItemArtefactSB;
@@ -102,11 +100,6 @@ public final class SBItems {
 		// PortalGun mod items
 		ItemRegistry.registerItemArtefact(registry, "charm_portals", SpellBundle.MODID, new ItemPortalWand(EnumRarity.EPIC, ItemArtefact.Type.CHARM, PortalGunIntegration.getInstance()));
 
-
-		// Trinkets Optional items
-		if (TrinketsIntegration.getInstance().isEnabled()) {
-			TrinketsObjects.registerItems(event);
-		}
 	}
 
 	// Define a method to create and populate the Multimap

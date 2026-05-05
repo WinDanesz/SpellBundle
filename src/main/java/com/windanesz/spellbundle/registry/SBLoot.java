@@ -3,6 +3,7 @@ package com.windanesz.spellbundle.registry;
 import com.windanesz.spellbundle.Settings;
 import com.windanesz.spellbundle.SpellBundle;
 import com.windanesz.spellbundle.integration.Integration;
+import com.windanesz.spellbundle.integration.qualitytools.QTIntegration;
 import electroblob.wizardry.Wizardry;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
@@ -40,8 +41,9 @@ public class SBLoot {
 	 * Called from the preInit method in the main mod class to register the custom dungeon loot.
 	 */
 	public static void preInit() {
-		LootTableList.register(new ResourceLocation(SpellBundle.MODID, "inject/rare_scrolls"));
-
+		if (QTIntegration.getInstance().isEnabled()) {
+			LootTableList.register(new ResourceLocation(SpellBundle.MODID, "inject/rare_scrolls"));
+		}
 	}
 
 
@@ -74,7 +76,7 @@ public class SBLoot {
 
 	@SubscribeEvent
 	public static void onTBLootTableLoadEvent(LootTableLoadEvent event) {
-		if (Settings.generalSettings.trinkets_integration) {
+		if (Settings.generalSettings.qualitytools_integration) {
 			if (event.getName().toString().equals(SpellBundle.MODID + ":inject/rare_scrolls")) {
 				SB_RARE_SCROLLS = event.getTable();
 			}

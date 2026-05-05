@@ -1,7 +1,0 @@
-{
-	"package": "com.windanesz.spellbundle.integration.trinkets.mixin",
-	"refmap": "spellbundle.refmap.json",
-	"minVersion": "0.8",
-	"compatibilityLevel": "JAVA_8",
-	"mixins": ["MixinItemManaFlask"], "client": ["MixinManaGui"]
-}

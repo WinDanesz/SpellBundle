@@ -11,7 +11,7 @@ public class LateMixinLoader implements ILateMixinLoader {
 
 	@Override
 	public List<String> getMixinConfigs() {
-		return Lists.newArrayList("quark.mixins.json", "bop.mixins.json", "trinkets.mixins.json");
+		return Lists.newArrayList("quark.mixins.json", "bop.mixins.json");
 	}
 
 	@Override
@@ -22,8 +22,6 @@ public class LateMixinLoader implements ILateMixinLoader {
 				return Settings.generalSettings.quark_integration && Loader.isModLoaded("quark");
 			case "bop.mixins.json":
 				return Settings.generalSettings.bop_integration && Loader.isModLoaded("biomesoplenty");
-			case "trinkets.mixins.json":
-				return Settings.generalSettings.trinkets_integration && Loader.isModLoaded("xat");
 		}
 
 		return false;

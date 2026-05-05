@@ -2,8 +2,6 @@ package com.windanesz.spellbundle;
 
 import com.windanesz.spellbundle.capability.SummonedCreatureData;
 import com.windanesz.spellbundle.client.SBGuiHandler;
-import com.windanesz.spellbundle.integration.trinkets.command.CommandSetMagicLevel;
-import com.windanesz.spellbundle.integration.waystones.command.CommandRecallAlly;
 import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.baubles.BaublesIntegration;
 import com.windanesz.spellbundle.integration.biomesoplenty.BiomesOPlentyIntegration;
@@ -12,8 +10,8 @@ import com.windanesz.spellbundle.integration.portalgun.PortalGunIntegration;
 import com.windanesz.spellbundle.integration.qualitytools.QTIntegration;
 import com.windanesz.spellbundle.integration.quark.QuarkIntegration;
 import com.windanesz.spellbundle.integration.treasure2.Treasure2Integration;
-import com.windanesz.spellbundle.integration.trinkets.TrinketsIntegration;
 import com.windanesz.spellbundle.integration.waystones.WaystonesIntegration;
+import com.windanesz.spellbundle.integration.waystones.command.CommandRecallAlly;
 import com.windanesz.spellbundle.network.SBPacketHandler;
 import com.windanesz.spellbundle.registry.SBBlocks;
 import com.windanesz.spellbundle.registry.SBLoot;
@@ -61,7 +59,6 @@ public class SpellBundle {
 		QTIntegration.getInstance().init();
 		PortalGunIntegration.getInstance().init();
 		BiomesOPlentyIntegration.getInstance().init();
-		TrinketsIntegration.getInstance().init();
 		proxy.registerRenderers();
 
 		BaublesIntegration.init();
@@ -87,7 +84,6 @@ public class SpellBundle {
 		proxy.init();
 		SBPacketHandler.initPackets();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new SBGuiHandler());
-		((TrinketsIntegration) TrinketsIntegration.getInstance()).initCustom();
 
 	}
 
@@ -100,9 +96,6 @@ public class SpellBundle {
 	public void serverStartup(FMLServerStartingEvent event) {
 		if (WaystonesIntegration.getInstance().isEnabled()) {
 			event.registerServerCommand(new CommandRecallAlly());
-		}
-		if (TrinketsIntegration.getInstance().isEnabled()) {
-			event.registerServerCommand(new CommandSetMagicLevel());
 		}
 	}
 }

@@ -161,7 +161,6 @@ dependencies {
     implementation fg.deobf("curse.maven:iChunUtil-${ichunutil_projectid}:${ichunutil_fileid}")
     implementation fg.deobf("curse.maven:PortalGun-${portalgunmod_projectid}:${portalgunmod_fileid}")
     implementation fg.deobf("curse.maven:BiomesOPlenty-1.12.2-7.0.1.2445-${bop_projectid}:${bop_fileid}")
-    implementation fg.deobf("curse.maven:TrinkletsAndBaubles-${trinkletsandbaubles_projectid}:${trinkletsandbaubles_fileid}")
     implementation fg.deobf("curse.maven:Reskillable-${reskillable_projectid}:${reskillable_fileid}")
 //  3558882
     //// Content Mods
