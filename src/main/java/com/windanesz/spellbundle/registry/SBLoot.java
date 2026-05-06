@@ -2,39 +2,104 @@ package com.windanesz.spellbundle.registry;
 
 import com.windanesz.spellbundle.Settings;
 import com.windanesz.spellbundle.SpellBundle;
-import com.windanesz.spellbundle.integration.Integration;
 import com.windanesz.spellbundle.integration.qualitytools.QTIntegration;
-import electroblob.wizardry.Wizardry;
-import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.*;
-import net.minecraft.world.storage.loot.conditions.LootCondition;
-import net.minecraft.world.storage.loot.functions.LootFunction;
+import net.minecraft.world.storage.loot.LootCondition;
+import net.minecraft.world.storage.loot.LootEntry;
+import net.minecraft.world.storage.loot.LootEntryTable;
+import net.minecraft.world.storage.loot.LootPool;
+import net.minecraft.world.storage.loot.LootTable;
+import net.minecraft.world.storage.loot.LootTableList;
+import net.minecraft.world.storage.loot.RandomValueRange;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
- * Class responsible for registering Spell Bundle's loot tables. Also handles loot injection.
- *
- * @author WinDanesz
+ * Class responsible for registering Spell Bundle's loot tables.
  */
 @Mod.EventBusSubscriber
 public class SBLoot {
 
+    private static LootTable SB_RARE_SCROLLS;
 
-	private static LootTable SB_RARE_SCROLLS;
+    private SBLoot() {}
 
-	private SBLoot() {} // No instances!
+    /**
+     * Called from preInit in the main mod class.
+     */
+    public static void preInit() {
+        if (QTIntegration.getInstance().isEnabled()) {
+            LootTableList.register(
+                    new ResourceLocation(SpellBundle.MODID, "inject/rare_scrolls")
+            );
+        }
+    }
 
+    /**
+     * Creates a new additive loot pool.
+     * This is Forge-safe and does not mutate frozen pools.
+     */
+    private static LootPool getAdditive(String entryName, String poolName) {
+
+        LootEntry entry = new LootEntryTable(
+                new ResourceLocation(entryName),
+                1,
+                0,
+                new LootCondition[0],
+                SpellBundle.MODID + "_additive_entry"
+        );
+
+        return new LootPool(
+                new LootEntry[]{entry},
+                new LootCondition[0],
+                new RandomValueRange(1),
+                new RandomValueRange(0, 1),
+                SpellBundle.MODID + "_" + poolName
+        );
+    }
+
+    @SubscribeEvent
+    public static void onTBLootTableLoadEvent(LootTableLoadEvent event) {
+
+        if (!Settings.generalSettings.qualitytools_integration) {
+            return;
+        }
+
+        String name = event.getName().toString();
+
+        // Store reference to SpellBundle loot table
+        if (name.equals(SpellBundle.MODID + ":inject/rare_scrolls")) {
+            SB_RARE_SCROLLS = event.getTable();
+            return;
+        }
+
+        // Inject safely into Ancient Spellcraft loot table
+        if (name.equals("ancientspellcraft:subsets/rare_scrolls")) {
+
+            try {
+
+                LootPool additivePool = getAdditive(
+                        SpellBundle.MODID + ":inject/rare_scrolls",
+                        "spellbundle_injected"
+                );
+
+                event.getTable().addPool(additivePool);
+
+                SpellBundle.logger.info(
+                        "Successfully injected SpellBundle rare scrolls into Ancient Spellcraft loot table."
+                );
+
+            } catch (Exception e) {
+
+                SpellBundle.logger.error(
+                        "Failed to inject SpellBundle loot into Ancient Spellcraft.",
+                        e
+                );
+            }
+        }
+    }
+}
 	private static LootTable RARE_SCROLLS;
 
 	/**
